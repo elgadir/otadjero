@@ -30,6 +30,12 @@ class Contact extends TransformerAbstract
             'created_by' => $model->created_by,
             'created_at' => $model->created_at ? $model->created_at->toIso8601String() : '',
             'updated_at' => $model->updated_at ? $model->updated_at->toIso8601String() : '',
+            'city' => $model->city,
+            'zip_code' => $model->zip_code,
+            'state' => $model->state,
+            'country' => $model->country,
+            'reference' => $model->reference,
+
         ];
     }
 }

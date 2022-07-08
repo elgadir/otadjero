@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Common;
+namespace App\Models;
 
 use App\Abstracts\Model;
 use App\Models\Document\Document;
@@ -8,6 +8,7 @@ use App\Traits\Currencies;
 use App\Traits\Media;
 use Bkwld\Cloner\Cloneable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+//use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
@@ -20,14 +21,14 @@ class Item extends Model
      *
      * @var array
      */
-    protected $appends = ['item_id', 'tax_ids'];
+    protected $appends = ['item_id', 'tax_ids','upper','w_id'];
 
     /**
      * Attributes that should be mass-assignable.
      *
      * @var array
      */
-    protected $fillable = ['company_id', 'name', 'description', 'sale_price', 'purchase_price', 'category_id', 'enabled', 'created_from', 'created_by'];
+    protected $fillable = ['company_id', 'name', 'description', 'sale_price', 'purchase_price', 'category_id', 'enabled', 'created_from', 'created_by','warehouse_id'];
 
     /**
      * The attributes that should be cast.
@@ -46,17 +47,34 @@ class Item extends Model
      * @var array
      */
     protected $sortable = ['name', 'category', 'sale_price', 'purchase_price', 'enabled'];
+   // protected $with = ['test'];
 
     /**
      * @var array
      */
     public $cloneable_relations = ['taxes'];
 
+    public function baarCode()
+
+    {
+        return $this->hasOne('App\Models\Common\InventoryItem')->select(['item_id','barcode','warehouse_id','sku']);
+    }
+     public function inventoryHistories()
+    {
+        return $this->hasMany('App\Models\Common\InventoryHistorie');//->select(['id','warehouse_id','quantity','item_id']);
+    }
+
+
     public function category()
     {
         return $this->belongsTo('App\Models\Setting\Category')->withDefault(['name' => trans('general.na')]);
     }
 
+    public function inventory()
+    {
+        return $this->hasMany('App\Models\Common\InventoryItem');
+    }
+    
     public function taxes()
     {
         return $this->hasMany('App\Models\Common\ItemTax');
@@ -65,25 +83,6 @@ class Item extends Model
     public function document_items()
     {
         return $this->hasMany('App\Models\Document\DocumentItem');
-    }
-    public function inventory_items()
-    {
-        return $this->hasMany('App\Models\Common\InventoryItem');
-    }
-
-    public function documentItems()
-    {
-        return $this->hasMany('App\Models\Common\DocumentItem');
-    }
-	
-	public function getUpperAttribute()
-    {
-        return $this->baarCode()->value('barcode');    
-    }
-	
-	public function getWIdAttribute()
-    {
-        return  $this->baarCode()->value('warehouse_id');     
     }
 
     public function bill_items()
@@ -95,6 +94,36 @@ class Item extends Model
     {
         return $this->document_items()->where('type', Document::INVOICE_TYPE);
     }
+
+     public function inventory_items()
+    {
+        return $this->hasMany('App\Models\Common\InventoryItem');
+    }
+
+
+
+
+    public function documentItems()
+    {
+        return $this->hasMany('App\Models\Common\DocumentItem');
+    }
+    public function getWIdAttribute()
+    {
+        
+        return  $this->baarCode()->value('warehouse_id');     
+    }
+
+
+    public function getUpperAttribute()
+    {
+        return $this->baarCode()->value('barcode');    
+    }
+
+    public function getSkuAttribute()
+    {
+        return $this->baarCode()->value('sku');    
+    }
+
 
     public function scopeName($query, $name)
     {
@@ -177,4 +206,5 @@ class Item extends Model
     {
         return \Database\Factories\Item::new();
     }
+
 }

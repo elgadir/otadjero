@@ -33,7 +33,9 @@ class Document extends Model
     protected $fillable = [
         'company_id',
         'type',
+        'warehouse_id',
         'document_number',
+        'Invoice_type',
         'order_number',
         'status',
         'issued_at',

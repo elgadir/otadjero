@@ -2,7 +2,7 @@
 
 namespace App\Transformers\Common;
 
-use App\Models\Common\Item as Model;
+use App\Models\Item as Model;
 use App\Transformers\Setting\Category;
 use League\Fractal\TransformerAbstract;
 
@@ -32,9 +32,15 @@ class Item extends TransformerAbstract
             'tax_ids' => $model->tax_ids,
             'picture' => $model->picture,
             'enabled' => $model->enabled,
+            'total_stock'=> $model->total_stock,
             'created_by' => $model->created_by,
             'created_at' => $model->created_at ? $model->created_at->toIso8601String() : '',
             'updated_at' => $model->updated_at ? $model->updated_at->toIso8601String() : '',
+           // 'warehouses'=>$this->getWareHouses($model->id),
+            //'warehouse_id'=>$model->id,
+            'sku'=>$model->sku,
+            'picture' => $this->getPicture($model->id),
+            'item_data'=> $model->inventoryHistories,
         ];
     }
 
@@ -63,4 +69,27 @@ class Item extends TransformerAbstract
 
         return $this->item($model->category, new Category());
     }
+    public function getWareHouses($id)
+    {
+        $data = \DB::table("inventory_items")->where("item_id",$id)->first();  
+        if(isset($data->warehouse_id) && !empty($data->warehouse_id)){
+                return \DB::table("inventory_warehouses")->where("id",$data->warehouse_id)->get();
+        }
+          return "";
+        
+    }
+    public function getPicture($id){
+		$cid = company_id();
+		$item_id = $id;
+		
+		$sql = "SELECT media_id  FROM `kxm_mediables` WHERE company_id='$cid' AND mediable_id='$item_id' AND tag='picture' ";
+		
+		$data = \DB::table("media")->whereRaw("id IN($sql)")->first();
+		if($data){
+			return \Storage::url($data->id);
+		}else{
+			return asset('public/img/akaunting-logo-green.svg');
+		}
+	}
+
 }
