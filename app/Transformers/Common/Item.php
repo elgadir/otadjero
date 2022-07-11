@@ -30,7 +30,7 @@ class Item extends TransformerAbstract
             'purchase_price_formatted' => money($model->purchase_price, setting('default.currency'), true)->format(),
             'category_id' => $model->category_id,
             'tax_ids' => $model->tax_ids,
-            'picture' => $model->picture,
+            'picture' => $this->getPicture($model->id),
             'enabled' => $model->enabled,
             'total_stock'=> $model->total_stock,
             'created_by' => $model->created_by,
