@@ -90,10 +90,12 @@ class DocumentItem
                 if (!empty($inventory_item->warehouse)) {
                     $inventory_item_warehouses[$inventory_item->warehouse->id] = $inventory_item->warehouse->name;
                     $inventory_item_warehouses[$inventory_item->warehouse->id] .= ' (' . trans('inventory::general.stock') . ': ' . $inventory_item->opening_stock . ')';
-                }
-
-                if ($inventory_item->default_warehouse) {
-                    $inventory_item_default = $inventory_item->warehouse_id;
+                    if (! $inventory_item_default && $inventory_item_warehouses) {
+                        $inventory_item_default = array_keys($inventory_item_warehouses)[0];
+                    }
+                    if ($inventory_item->default_warehouse && $inventory_item->warehouse->id == $inventory_item->default_warehouse) {
+                        $inventory_item_default = $inventory_item->warehouse_id;
+                    }
                 }
             }
 
