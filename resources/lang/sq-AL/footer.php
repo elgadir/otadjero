@@ -3,8 +3,8 @@
 return [
 
     'version'               => 'Versioni',
-    'powered'               => 'Mundësuar nga Akaunting',
-    'link'                  => 'https://akaunting.com',
+    'powered'               => 'Mundësuar nga Otadjer',
+    'link'                  => 'https://otadjer.com',
     'software'              => 'Program Kontabiliteti Falas',
 
 ];

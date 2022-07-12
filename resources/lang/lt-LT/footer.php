@@ -3,8 +3,8 @@
 return [
 
     'version'               => 'Versija',
-    'powered'               => 'Sukurta Akaunting',
-    'link'                  => 'https://akaunting.com',
+    'powered'               => 'Sukurta Otadjer',
+    'link'                  => 'https://otadjer.com',
     'software'              => 'Laisva apskaitos programa',
 
 ];

@@ -45,7 +45,7 @@
         <div class="col-md-3">
             <ul class="list-group mb-4">
                 <li class="list-group-item border-0">
-                    <img class="text-sm font-weight-600 img-center" src="{{ $item->picture ? Storage::url($item->picture->id) : asset('public/img/akaunting-logo-green.svg') }}" class="img-thumbnail" height="200" width="200" alt="{{ $item->name }}">
+                    <img class="text-sm font-weight-600 img-center" src="{{ $item->picture ? Storage::url($item->picture->id) : asset('public/img/otadjer-logo-black.svg') }}" class="img-thumbnail" height="200" width="200" alt="{{ $item->name }}">
                 </li>
             </ul>
 

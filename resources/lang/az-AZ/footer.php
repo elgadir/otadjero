@@ -3,8 +3,8 @@
 return [
 
     'version'               => 'Versiya',
-    'powered'               => 'Akaunting tərəfindən',
-    'link'                  => 'https://akaunting.com/tr',
+    'powered'               => 'otadjer tərəfindən',
+    'link'                  => 'https://otadjer.com/tr',
     'software'              => 'Pulsuz Ön Muhasibat Proqramı',
 
 ];

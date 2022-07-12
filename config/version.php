@@ -2,15 +2,15 @@
 
 return [
 
-    'name'      =>  'Akaunting',
+    'name'      =>  'Otadjer',
 
     'code'      =>  'Document',
 
-    'major'     =>  '2',
+    'major'     =>  '1',
 
     'minor'     =>  '1',
 
-    'patch'     =>  '35',
+    'patch'     =>  '7',
 
     'build'     =>  '',
 

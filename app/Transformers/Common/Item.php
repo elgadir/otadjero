@@ -88,7 +88,7 @@ class Item extends TransformerAbstract
 		if($data){
 			return \Storage::url($data->id);
 		}else{
-			return asset('public/img/akaunting-logo-green.svg');
+			return asset('public/img/otadjer-logo-black.svg');
 		}
 	}
 

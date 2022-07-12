@@ -3,8 +3,8 @@
 return [
 
     'version'               => 'نسخه',
-    'powered'               => 'طراحی شده توسط Akaunting',
-    'link'                  => 'https://akaunting.com',
+    'powered'               => 'طراحی شده توسط Otadjer',
+    'link'                  => 'https://otadjer.com',
     'software'              => 'نرم افزار حسابداری رایگان',
 
 ];

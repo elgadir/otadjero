@@ -11,7 +11,7 @@
          stopOnFailure="false"
 >
     <testsuites>
-        <testsuite name="Akaunting Module Test Suite">
+        <testsuite name="otadjer Module Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

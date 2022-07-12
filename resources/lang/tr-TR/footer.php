@@ -3,8 +3,8 @@
 return [
 
     'version'               => 'Sürüm',
-    'powered'               => 'Altyapı Akaunting',
-    'link'                  => 'https://akaunting.com/tr',
+    'powered'               => 'Altyapı Otadjer',
+    'link'                  => 'https://otadjer.com/tr',
     'software'              => 'Ücretsiz Ön Muhasebe Programı',
 
 ];

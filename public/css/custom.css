@@ -77,7 +77,7 @@ body {
 /*--Overflow X Scroll Finish--*/
 /*--------Overflow Styles Finish--------*/
 
-/*--------Akaunting Backgrounds--------*/
+/*--------OtadjerBackgrounds--------*/
 /*--Login Page Background--*/
 .login-page {
     background: url("../img/login.png") no-repeat center center fixed;
@@ -116,7 +116,7 @@ body {
     -o-background-size: cover;
 }
 /*--Installation Page Background Finish--*/
-/*--------Akaunting Backgrounds Finish--------*/
+/*--------OtadjerBackgrounds Finish--------*/
 
 /*--------Credit Card--------*/
 .card-input__input:hover,
@@ -252,11 +252,11 @@ button:focus {
 }
 /*--Long Texts Finish--*/
 
-/*--Akaunting Column Style--*/
+/*--OtadjerColumn Style--*/
 .col-aka {
     margin-left: -51px;
 }
-/*--Akaunting Column Styl Finish--*/
+/*--OtadjerColumn Styl Finish--*/
 
 /*--------Table Head Row Margin--------*/
 .thead-light .row {
@@ -376,7 +376,7 @@ tbody .row {
 }
 /*--------Card Action Button Finish--------*/
 
-/*--Akaunting Button Animation--*/
+/*--OtadjerButton Animation--*/
 .aka-loader-frame {
     width: 59.88px;
     height: 31px;
@@ -438,7 +438,7 @@ tbody .row {
 .btn:disabled .aka-loader {
     display: block !important;
 }
-/*--Akaunting Button Animation Finish--*/
+/*--OtadjerButton Animation Finish--*/
 
 /*--------Settings Index Page--------*/
 /*--------Settings Icons--------*/
@@ -1345,7 +1345,7 @@ table .align-items-center td span.badge {
 }
 /* Document Finish */
 
-/* Akaunting Item Button Start */
+/* OtadjerItem Button Start */
 .aka-select.aka-select--fluid {
     min-width: 160px;
 }
@@ -1456,7 +1456,7 @@ table .align-items-center td span.badge {
 .item-select .v-money.text-right.disabled-money:hover {
     background-color: #F5F7FA !important;
 }
-/* Akaunting Item Button Finish */
+/* OtadjerItem Button Finish */
 
 /* Document Loading Start */
 .document-loading {
@@ -1491,7 +1491,7 @@ table .align-items-center td span.badge {
 }
 /* el-select__tags */
 
-/* Akaunting select remove add suffix icon Start */
+/* Otadjerselect remove add suffix icon Start */
 .el-input.el-input--prefix.el-input--suffix .el-select__caret.el-input__icon.el-icon-:before {
     content: "\e6e1";
 }
@@ -1500,7 +1500,7 @@ table .align-items-center td span.badge {
     -webkit-transform: rotateZ(0);
     transform: rotateZ(0);
 }
-/* Akaunting select remove add suffix icon Finish */
+/* Otadjerselect remove add suffix icon Finish */
 
 .item-add-new .btn-link {
     color: #55588b;

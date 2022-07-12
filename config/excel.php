@@ -58,7 +58,7 @@ return [
         |
         */
         'properties' => [
-            'creator'        => 'Akaunting',
+            'creator'        => 'Otadjer',
             'lastModifiedBy' => '',
             'title'          => '',
             'description'    => '',
@@ -142,7 +142,7 @@ return [
         |
         */
         'properties'  => [
-            'creator'        => 'Akaunting',
+            'creator'        => 'Otadjer',
             'lastModifiedBy' => '',
             'title'          => '',
             'description'    => '',

@@ -3,8 +3,8 @@
 return [
 
     'version'               => 'Version',
-    'powered'               => 'Drevet af Akaunting',
-    'link'                  => 'https://akaunting.com',
+    'powered'               => 'Drevet af Otadjer',
+    'link'                  => 'https://otadjer.com',
     'software'              => 'Gratis regnskabsprogram',
 
 ];

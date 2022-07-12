@@ -124,7 +124,7 @@
 
                 @if(!empty($company))
                     <div class="card-header border-bottom-0 show-transaction-card-header">
-                        <img class="text-sm font-weight-600" src="{{ $company->picture ? Storage::url($company->picture->id) : asset('public/img/akaunting-logo-green.svg') }}" class="img-thumbnail" height="150" width="150" alt="{{ $company->contact->name }}">
+                        <img class="text-sm font-weight-600" src="{{ $company->picture ? Storage::url($company->picture->id) : asset('public/img/otadjer-logo-black.svg') }}" class="img-thumbnail" height="150" width="150" alt="{{ $company->contact->name }}">
                     </div>
 
                     <div class="card-header border-bottom-0 show-transaction-card-header">
@@ -163,7 +163,7 @@
                 </div>
 
                 <div class="card-header border-bottom-0 show-transaction-card-header">
-                    <img class="text-sm font-weight-600" src="{{ $contact->picture ? Storage::url($contact->picture->id) : asset('public/img/akaunting-logo-green.svg') }}" class="img-thumbnail" height="150" width="150" alt="{{ $contact->contact->name }}">
+                    <img class="text-sm font-weight-600" src="{{ $contact->picture ? Storage::url($contact->picture->id) : asset('public/img/otadjer-logo-black.svg') }}" class="img-thumbnail" height="150" width="150" alt="{{ $contact->contact->name }}">
                 </div>
 
                 <div class="card-header border-bottom-0 show-transaction-card-header">

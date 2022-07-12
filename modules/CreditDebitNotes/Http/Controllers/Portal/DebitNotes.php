@@ -20,7 +20,7 @@ use Throwable;
 class DebitNotes extends Controller
 {
     use DateTime, Currencies, Documents, CreditDebitNotesDocuments, Uploads;
-// TODO: enable portal after upgrading to Akaunting 2.1
+// TODO: enable portal after upgrading to Otadjer2.1
     /**
      * Display a listing of the resource.
      *

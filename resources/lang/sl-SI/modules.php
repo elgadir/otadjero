@@ -25,7 +25,7 @@ return [
     'no_apps'               => 'V tej kategoriji še ni aplikacij.',
     'become_developer'      => 'Ste razvijalec? <a href=":url" target="_blank">Tukaj</a> se lahko naučite kako narediti aplikacijo in jo začnete prodajati danes!',
     'recommended_apps'      => 'Priporočene aplikacije',
-    'can_not_install'       => 'Mesečne naročnine so na voljo samo v storitvi v oblaku. <a href="https://akaunting.com/upgrade-to-yearly" target="_blank">Več o tem.</a>',
+    'can_not_install'       => 'Mesečne naročnine so na voljo samo v storitvi v oblaku. <a href="https://otadjer.com/upgrade-to-yearly" target="_blank">Več o tem.</a>',
 
     'about'                 => 'Več o',
 

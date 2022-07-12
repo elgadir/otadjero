@@ -27,7 +27,7 @@ return [
         'transaction_type'    => 'income',
         'contact_type'        => 'customer', // use contact type
         'image_empty_page'    => 'public/img/empty_pages/invoices.png',
-        'docs_path'           => 'https://akaunting.com/apps/sales-purchase-orders',
+        'docs_path'           => 'https://otadjer.com/apps/sales-purchase-orders',
         'search_string_model' => SalesOrder::class,
         'hide'                => [], // for document items
         'class'               => [],
@@ -56,7 +56,7 @@ return [
         'transaction_type'    => 'expense',
         'contact_type'        => 'vendor', // use contact type
         'image_empty_page'    => 'public/img/empty_pages/bills.png',
-        'docs_path'           => 'https://akaunting.com/apps/sales-purchase-orders',
+        'docs_path'           => 'https://otadjer.com/apps/sales-purchase-orders',
         'search_string_model' => PurchaseOrder::class,
         'hide'                => [], // for document items
         'class'               => [],

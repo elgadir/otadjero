@@ -3,8 +3,8 @@
 return [
 
     'version'               => 'Versio',
-    'powered'               => 'Toteutettu ohjelmistolla Akaunting',
-    'link'                  => 'https://akaunting.com',
+    'powered'               => 'Toteutettu ohjelmistolla Otadjer',
+    'link'                  => 'https://otadjer.com',
     'software'              => 'Ilmainen kirjanpito-ohjelma',
 
 ];

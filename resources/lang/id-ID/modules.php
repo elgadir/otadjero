@@ -25,7 +25,7 @@ return [
     'no_apps'               => 'Belum ada aplikasi dalam kategori ini.',
     'become_developer'      => 'Apakah Anda seorang pengembang? <a href=":url" target="_blank"> Di Sini </a> Anda dapat belajar cara membuat aplikasi dan mulai menjual hari ini!',
     'recommended_apps'      => 'Aplikasi yang direkomendasikan',
-    'can_not_install'       => 'Langganan bulanan hanya tersedia untuk layanan Cloud. <a href="https://akaunting.com/upgrade-to-yearly" target="_blank">Pelajari lebih jauh.</a>',
+    'can_not_install'       => 'Langganan bulanan hanya tersedia untuk layanan Cloud. <a href="https://otadjer.com/upgrade-to-yearly" target="_blank">Pelajari lebih jauh.</a>',
 
     'about'                 => 'Tentang',
 

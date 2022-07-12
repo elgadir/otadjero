@@ -4,7 +4,7 @@ return [
 
     'installed_version'     => 'Paigaldatud versioon',
     'latest_version'        => 'Viimane versioon',
-    'update'                => 'Värskenda Akaunting  :version versioonile',
+    'update'                => 'Värskenda Otadjer  :version versioonile',
     'changelog'             => 'Muudatuste logi',
     'check'                 => 'Kontrolli',
     'new_core'              => 'Saadaval on uuem Akaunting-u versioon.',

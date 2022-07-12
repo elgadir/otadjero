@@ -25,7 +25,7 @@ return [
     'no_apps'               => 'Encara no hi ha cap App dins d\'aquesta categoria.',
     'become_developer'      => 'Ets desenvolupador? <a href=":url" target="_blank">Aquí</a> podràs aprendre com crear una App i començar-la a vendre de seguida!',
     'recommended_apps'      => 'Apps recomanades',
-    'can_not_install'       => 'Les subscripcions mensuals estan disponibles només al Cloud Service. <a href="https://akaunting.com/upgrade-to-yearly" target="_blank">Saber-ne més.</a>',
+    'can_not_install'       => 'Les subscripcions mensuals estan disponibles només al Cloud Service. <a href="https://otadjer.com/upgrade-to-yearly" target="_blank">Saber-ne més.</a>',
 
     'about'                 => 'Sobre',
 
@@ -60,7 +60,6 @@ return [
     ],
 
     'errors' => [
-        'purchase'          => 'Has de comprar o renovar :module!',
         'download'          => 'No s\'ha pogut descarregar :module',
         'zip'               => 'No s\'ha pogut comprimir :module',
         'unzip'             => 'No s\'ha pogut descomprimir :module',

@@ -16,7 +16,7 @@
         type="debit-note"
         :documents="$debit_notes"
         hide-due-at
-        url-docs-path="https://akaunting.com/docs/app-manual/accounting/credit-debit-notes"
+        url-docs-path="https://otadjer.com/docs/app-manual/accounting/credit-debit-notes"
     />
 @endsection
 

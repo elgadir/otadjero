@@ -10,7 +10,7 @@ use GuzzleHttp\Exception\RequestException;
 
 trait SiteApi
 {
-    public static $base_uri = 'https://api.akaunting.com/';
+    public static $base_uri = 'https://api.otadjer.com/';
 
     protected static function siteApiRequest($method, $path, $extra_data = [])
     {
@@ -20,7 +20,7 @@ trait SiteApi
             'Authorization' => 'Bearer ' . setting('apps.api_key'),
             'Accept'        => 'application/json',
             'Referer'       => app()->runningInConsole() ? config('app.url') : url('/'),
-            'Akaunting'     => version('short'),
+            'Otadjer'     => version('short'),
             'Language'      => language()->getShortCode(),
             'Information'   => json_encode(Info::all()),
         ];

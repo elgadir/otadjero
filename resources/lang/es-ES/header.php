@@ -10,7 +10,7 @@ return [
         'upcoming_bills'    => '{1} :count recibo por vencer|[2,*] :count recibos por vencer',
         'view_all'          => 'Ver todas'
     ],
-    'docs_link'             => 'https://akaunting.com/docs',
-    'support_link'          => 'https://akaunting.com/support',
+    'docs_link'             => 'https://otadjer.com/docs',
+    'support_link'          => 'https://otadjer.com/support',
 
 ];

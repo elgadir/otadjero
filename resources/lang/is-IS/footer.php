@@ -3,8 +3,8 @@
 return [
 
     'version'               => 'Útgáfa',
-    'powered'               => 'Keyrt af Akaunting',
-    'link'                  => 'https://akaunting.com',
+    'powered'               => 'Keyrt af Otadjer',
+    'link'                  => 'https://otadjer.com',
     'software'              => 'Opinn bókhalds hugbúnaður',
 
 ];
