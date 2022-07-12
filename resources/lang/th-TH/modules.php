@@ -14,7 +14,7 @@ return [
     'buy_now'               => 'ซื้อตอนนี้',
     'token_link'            => '<a href="https://otadjer.com/tokens" target="_blank">คลิกที่นี่ที่</a> รับโทเค็นของคุณ API',
     'no_apps'               => 'ยังไม่มีแอปพลิเคชันในหมวดหมู่นี้',
-    'developer'             => 'คุณเป็นนักพัฒนาใช่มั้ย? <a href="https://otadjer.com/blog/akaunting-app-store" target="_blank">ที่นี่</a> คุณสามารถเรียนรู้วิธีการสร้างโปรแกรมประยุกต์และเริ่มขายวันนี้!',
+    'developer'             => 'คุณเป็นนักพัฒนาใช่มั้ย? <a href="https://otadjer.com/blog/otadjer-app-store" target="_blank">ที่นี่</a> คุณสามารถเรียนรู้วิธีการสร้างโปรแกรมประยุกต์และเริ่มขายวันนี้!',
 
     'recommended_apps'      => 'แอปที่แนะนำ',
 

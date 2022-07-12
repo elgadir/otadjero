@@ -14,7 +14,7 @@ return [
     'buy_now'               => 'קנה עכשיו',
     'token_link'            => '<a href="https://otadjer.com/tokens" target="_blank">לחץ כאן</a> כדי לקבל את ה-API אסימון.',
     'no_apps'               => 'אין  עדיין יישומים בקטגוריה זאת.',
-    'developer'             => 'האם אתה מפתח? <a href="https://otadjer.com/blog/akaunting-app-store" target="_blank">כאן</a> תלמד כיצד ליצור app ולהתחיל למכור היום!',
+    'developer'             => 'האם אתה מפתח? <a href="https://otadjer.com/blog/otadjer-app-store" target="_blank">כאן</a> תלמד כיצד ליצור app ולהתחיל למכור היום!',
 
     'recommended_apps'      => 'Recommended Apps',
 

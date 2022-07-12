@@ -14,7 +14,7 @@ return [
     'buy_now'               => 'Купи одмах',
     'token_link'            => '<a href="https://otadjer.com/tokens" target="_blank">Кликните овде</a> да бисте добили свој API token.',
     'no_apps'               => 'У овој категорији још нема апликација.',
-    'developer'             => 'Јеси ли програмер? <a href="https://otadjer.com/blog/akaunting-app-store" target="_blank">Овде </a> можете научити како креирати апликацију и можеш да почнеш да је продајеш!',
+    'developer'             => 'Јеси ли програмер? <a href="https://otadjer.com/blog/otadjer-app-store" target="_blank">Овде </a> можете научити како креирати апликацију и можеш да почнеш да је продајеш!',
 
     'recommended_apps'      => 'Препоручене апликације',
 
