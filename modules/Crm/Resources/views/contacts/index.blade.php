@@ -137,7 +137,7 @@
                     </div>
 
                     <div class="col-md-6 text-center p-5">
-                        <p class="text-justify description">{!! trans('general.empty.customers') !!} {!! trans('general.empty.documentation', ['url' => 'https://akaunting.com/docs/user-manual/crm/contacts']) !!}</p>
+                        <p class="text-justify description">{!! trans('general.empty.customers') !!} {!! trans('general.empty.documentation', ['url' => 'https://otadjer.com/docs/user-manual/crm/contacts']) !!}</p>
                         <a href="{{ route('crm.contacts.create') }}" class="btn btn-success btn-icon header-button-top float-right mt-4">
                             <span class="btn-inner--icon text-white"><i class="fas fa-plus"></i></span>
                             <span class="btn-inner--text text-white">{{ trans('general.title.create', ['type' => trans_choice('crm::general.contacts', 1)]) }}</span>

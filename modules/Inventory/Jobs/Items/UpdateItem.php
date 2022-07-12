@@ -54,13 +54,16 @@ class UpdateItem extends Job implements ShouldUpdate
                             if (in_array($request_item['warehouse_id'], $this->model->inventory()->pluck('warehouse_id')->toArray())) {
                                 $inventory_item = InventoryItem::where('id', $request_item['id'])->first();
 
-                                $opening_stock = $inventory_item->opening_stock;
+                                $opening_stock = 0;
+								if($inventory_item){
+									$opening_stock = $inventory_item->opening_stock ?? 0;
 
                                 if ($inventory_item->opening_stock_value > $request_item['opening_stock_value']) {
                                     $opening_stock -= $inventory_item->opening_stock_value - $request_item['opening_stock_value'];
                                 } elseif ($inventory_item->opening_stock_value < $request_item['opening_stock_value']) {
                                     $opening_stock += $request_item['opening_stock_value'] - $inventory_item->opening_stock_value;
                                 }
+                            }
 
                                 $inv_item_update_request = [
                                     'company_id' => company_id(),
@@ -76,7 +79,9 @@ class UpdateItem extends Job implements ShouldUpdate
                                     'barcode' => $this->request->barcode,
                                 ];
 
-                                $this->dispatch(new UpdateInventoryItem($inventory_item, $inv_item_update_request));
+                                if($inventory_item){
+                                    $this->dispatch(new UpdateInventoryItem($inventory_item, $inv_item_update_request));
+                            }
 
                                 $history = History::where('warehouse_id', $request_item['warehouse_id'])
                                                   ->where('type_type', 'App\Models\Common\Item')

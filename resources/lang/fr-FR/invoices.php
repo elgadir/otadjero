@@ -7,7 +7,7 @@ return [
     'total_price'           => 'Prix total',
     'due_date'              => 'Date d\'échéance',
     'order_number'          => 'Numéro de commande',
-    'bill_to'               => 'Facture de',
+    'bill_to'               => 'Client:',
 
     'quantity'              => 'Quantité',
     'price'                 => 'Prix',
@@ -15,7 +15,7 @@ return [
     'discount'              => 'Remise',
     'item_discount'         => 'Remise sur la ligne',
     'tax_total'             => 'Taxe totale',
-    'total'                 => 'Total',
+    'total'                 => 'Total TTC',
 
     'item_name'             => 'Nom de marchandise|Noms des marchandises',
 

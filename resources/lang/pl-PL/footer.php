@@ -3,8 +3,8 @@
 return [
 
     'version'               => 'Wersja',
-    'powered'               => 'Wspierane przez Akaunting',
-    'link'                  => 'https://akaunting.com',
+    'powered'               => 'Wspierane przez Otadjer',
+    'link'                  => 'https://otadjer.com',
     'software'              => 'Darmowe oprogramowanie księgowe',
 
 ];

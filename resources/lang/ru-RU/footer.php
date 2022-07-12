@@ -3,8 +3,8 @@
 return [
 
     'version'               => 'Версия',
-    'powered'               => '© Akaunting',
-    'link'                  => 'https://akaunting.com',
+    'powered'               => '© Otadjer',
+    'link'                  => 'https://otadjer.com',
     'software'              => 'Бесплатное Биллинговое ПО',
 
 ];

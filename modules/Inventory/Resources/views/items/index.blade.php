@@ -50,7 +50,7 @@
                                     {{ Form::bulkActionGroup($item->id, $item->name) }}
                                 </td>
                                 <td class="col-xs-4 col-sm-4 col-md-4 col-lg-2 col-xl-3 py-2">
-                                    <img src="{{ $item->picture ? Storage::url($item->picture->id) : asset('public/img/akaunting-logo-green.svg') }}" class="avatar image-style p-1 mr-3 item-img hidden-md col-aka" alt="{{ $item->name }}">
+                                    <img src="{{ $item->picture ? Storage::url($item->picture->id) : asset('public/img/otadjer-logo-black.svg') }}" class="avatar image-style p-1 mr-3 item-img hidden-md col-aka" alt="{{ $item->name }}">
                                     @if (! $item->inventory()->first())
                                         {{ $item->name }}
                                     @else

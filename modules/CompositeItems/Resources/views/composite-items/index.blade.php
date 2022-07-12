@@ -48,7 +48,7 @@
                                     {{ Form::bulkActionGroup($item->item->id, $item->item->name) }}
                                 </td>
                                 <td class="col-md-2">
-                                    <img src="{{ $item->item->picture ? Storage::url($item->item->picture->id) : asset('public/img/akaunting-logo-green.svg') }}" class="avatar image-style p-1 mr-3 item-img col-aka d-none d-md-inline" alt="{{ $item->item->name }}">
+                                    <img src="{{ $item->item->picture ? Storage::url($item->item->picture->id) : asset('public/img/otadjer-logo-black.svg') }}" class="avatar image-style p-1 mr-3 item-img col-aka d-none d-md-inline" alt="{{ $item->item->name }}">
                                     <a href="{{ route('composite-items.composite-items.edit', $item->id) }}">{{ $item->item->name }}</a>
                                 </td>
                                 <td class="col-md-1 d-none d-lg-block long-texts">

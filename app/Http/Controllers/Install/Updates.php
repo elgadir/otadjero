@@ -88,7 +88,7 @@ class Updates extends Controller
     public function run($alias, $version)
     {
         if ($alias == 'core') {
-            $name = 'Akaunting ' . $version;
+            $name = 'Otadjer ' . $version;
 
             $installed = version('short');
         } else {

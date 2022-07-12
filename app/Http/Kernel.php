@@ -150,7 +150,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
-        // Akaunting
+        // Otadjer
         'api.key' => \App\Http\Middleware\RedirectIfNoApiKey::class,
         'auth.disabled' => \App\Http\Middleware\LogoutIfUserDisabled::class,
         'auth.redirect' => \App\Http\Middleware\RedirectIfAuthenticated::class,

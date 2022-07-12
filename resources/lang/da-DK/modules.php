@@ -25,7 +25,7 @@ return [
     'no_apps'               => 'Der er ingen apps i denne kategori endnu.',
     'become_developer'      => 'Er du udvikler? <a href=":url" target="_blank">Her</a> kan du lære at udvikle en app og starte med at sælge i dag!',
     'recommended_apps'      => 'Anbefalede programmer',
-    'can_not_install'       => 'Månedlige abonnementer er kun tilgængelige på Cloud service. <a href="https://akaunting.com/upgrade-to-yearly" target="_blank">Læs mere.</a>',
+    'can_not_install'       => 'Månedlige abonnementer er kun tilgængelige på Cloud service. <a href="https://otadjer.com/upgrade-to-yearly" target="_blank">Læs mere.</a>',
 
     'about'                 => 'Om',
 
@@ -60,7 +60,6 @@ return [
     ],
 
     'errors' => [
-        'purchase'          => 'Du bør købe/forny :module!',
         'download'          => 'Kan ikke hente :module',
         'zip'               => 'Kan ikke oprette :module zip filen',
         'unzip'             => 'Kan ikke udpakke zip filen :module',

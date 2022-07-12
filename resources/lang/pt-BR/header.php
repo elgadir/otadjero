@@ -22,7 +22,7 @@ return [
         ],
     ],
 
-    'docs_link'             => 'https://akaunting.com/docs',
-    'support_link'          => 'https://akaunting.com/support',
+    'docs_link'             => 'https://otadjer.com/docs',
+    'support_link'          => 'https://otadjer.com/support',
 
 ];

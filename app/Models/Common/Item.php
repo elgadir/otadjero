@@ -66,6 +66,25 @@ class Item extends Model
     {
         return $this->hasMany('App\Models\Document\DocumentItem');
     }
+    public function inventory_items()
+    {
+        return $this->hasMany('App\Models\Common\InventoryItem');
+    }
+
+    public function documentItems()
+    {
+        return $this->hasMany('App\Models\Common\DocumentItem');
+    }
+	
+	public function getUpperAttribute()
+    {
+        return $this->baarCode()->value('barcode');    
+    }
+	
+	public function getWIdAttribute()
+    {
+        return  $this->baarCode()->value('warehouse_id');     
+    }
 
     public function bill_items()
     {

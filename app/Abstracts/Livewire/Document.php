@@ -369,7 +369,7 @@ abstract class Document extends Component
                 break;
         }
 
-        return 'https://akaunting.com/docs/user-manual/' . $docsPath;
+        return 'https://otadjer.com/docs/user-manual/' . $docsPath;
     }
 
     protected function getTextTitle($type, $textTitle)

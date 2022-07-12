@@ -47,7 +47,7 @@ class Install extends Command
      *
      * @var string
      */
-    protected $description = 'Allows to install Akaunting directly through CLI';
+    protected $description = 'Allows to install Otadjerdirectly through CLI';
 
     /**
      * Execute the console command.

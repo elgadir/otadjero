@@ -154,8 +154,8 @@ return [
     'composer' => [
         'vendor' => 'akaunting',
         'author' => [
-            'name' => 'Akaunting',
-            'email' => 'info@akaunting.com',
+            'name' => 'Otadjer',
+            'email' => 'info@otadjer.com',
         ],
     ],
 

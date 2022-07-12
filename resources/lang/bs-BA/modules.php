@@ -25,7 +25,7 @@ return [
     'no_apps'               => 'U ovoj kategoriji još nema aplikacija.',
     'become_developer'      => 'Jeste li programer? <a href=":url" target="_blank"> Ovdje </a> možete naučiti kako stvoriti aplikaciju i započeti s prodajom već danas!',
     'recommended_apps'      => 'Preporučene aplikacije',
-    'can_not_install'       => 'Mjesečna pretplata je dostupna samo na Cloud servisima. <a href="https://akaunting.com/upgrade-to-yearly" target="_blank">Pročitaj više.</a>',
+    'can_not_install'       => 'Mjesečna pretplata je dostupna samo na Cloud servisima. <a href="https://otadjer.com/upgrade-to-yearly" target="_blank">Pročitaj više.</a>',
 
     'about'                 => 'O aplikaciji',
 
@@ -60,7 +60,6 @@ return [
     ],
 
     'errors' => [
-        'purchase'          => 'Trebali biste kupiti/obnoviti :module!',
         'download'          => 'Ne mogu preuzeti: modul',
         'zip'               => 'Ne može stvoriti: zip datoteku modula',
         'unzip'             => 'Ne mogu raspakirati: modul',
