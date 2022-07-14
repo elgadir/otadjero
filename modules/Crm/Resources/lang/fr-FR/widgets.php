@@ -2,16 +2,16 @@
 
 return [
 
-    'deal_flow'                 => 'Flux des affaires',
-    'total_companies'           => 'Total des entreprises',
-    'total_contacts'            => 'Total des contacts',
-    'total_deals'               => 'Total des affaires',
-    'latest_deals'              => 'Dernières affaires',
-    'today_schedule'            => 'Agenda du jour',
-    'upcoming_schedule'         => 'Agenda à venir',
+    'deal_flow'                 => 'Deal Flow',
+    'total_companies'           => 'Total Companies',
+    'total_contacts'            => 'Total Contacts',
+    'total_deals'               => 'Total Deals',
+    'latest_deals'              => 'Latest Deals',
+    'today_schedule'            => 'Today\'s Schedule',
+    'upcoming_schedule'         => 'Upcoming Schedule',
 
     'log_type' => [
-        'call'                  => 'Enregistrer un appel avec :user à :time',
-        'meeting'               => 'Enregistrer une réunion avec :user à :time'
+        'call'                  => 'Log a Call with :user at :time',
+        'meeting'               => 'Log a Meeting with :user at :time'
     ],
 ];
