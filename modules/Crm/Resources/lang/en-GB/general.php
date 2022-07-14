@@ -96,7 +96,6 @@ return [
         'not_change'        => 'Do not change'
     ],
 
-
     'sources' => [
         'advert'             => 'Advertisement',
         'chat'               => 'Chat',
@@ -149,7 +148,7 @@ return [
             'title'         => 'Delete Activity',
             'message'       => 'Are you sure?',
         ],
-        
+
         'edit' => [
             'title'         => 'Edit :field',
         ],
@@ -168,5 +167,19 @@ return [
         'contact_made'          => 'Contact Made',
         'demo_scheduled'        => 'Demo Scheduled',
         'negotitions_started'   => 'Negotiations Started',
-    ]
+    ],
+
+    'empty' => [
+        'contacts'              => 'Customer Relationship Management allows you to monitor and analyze every step of the 
+                                    customer journey. Contacts are required if you want to create a deal or activity.',
+        'companies'             => 'Customer Relationship Management allows you to monitor and analyze every step of the 
+                                    customer journey. In order to create the deals and record activities, you need to create 
+                                    companies. Thus, you can manage qualified and unqualified leads, track open and closed 
+                                    opportunities, and analyze customer wins and losses for accurate forecasting into your 
+                                    sales pipeline.'
+    ],
+
+    'form_description' => [
+        'general'           => 'Here you can enter the general information of customer such as name, email, etc.',
+    ],
 ];
