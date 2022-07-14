@@ -3,23 +3,23 @@
 return [
 
     'sales_order' => [
-        'item'            => 'Items',
-        'price'           => 'Price',
-        'rate'            => 'Rate',
-        'quantity'        => 'Quantity',
-        'shipment_terms'  => 'Shipment Terms',
-        'choose_template' => 'Choose sales order template',
-        'new_customer'    => 'New Sales Order Template (sent to customer)',
+        'item'            => 'Articles',
+        'price'           => 'Prix',
+        'rate'            => 'Taux',
+        'quantity'        => 'Quantité',
+        'shipment_terms'  => 'Conditions d\'expédition',
+        'choose_template' => 'Choisissez le modèle de commande',
+        'new_customer'    => 'Modèle de nouvelle commande (envoyée au client)',
     ],
 
     'purchase_order' => [
-        'item'            => 'Items',
-        'price'           => 'Price',
-        'rate'            => 'Rate',
-        'quantity'        => 'Quantity',
-        'delivery_terms'  => 'Delivery Terms',
-        'choose_template' => 'Choose purchase order template',
-        'new_vendor'      => 'New Purchase Order Template (sent to vendor)',
+        'item'            => 'Articles',
+        'price'           => 'Prix',
+        'rate'            => 'Taux',
+        'quantity'        => 'Quantité',
+        'delivery_terms'  => 'Conditions de livraison',
+        'choose_template' => 'Choisissez le modèle de bon de commande',
+        'new_vendor'      => 'Modèle de nouveau bon de commande (envoyé au fournisseur)',
     ],
 
 ];

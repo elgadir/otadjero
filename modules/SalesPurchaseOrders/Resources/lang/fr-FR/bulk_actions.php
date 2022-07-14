@@ -2,13 +2,13 @@
 
 return [
     'sales_order' => [
-        'sent'     => 'Are you sure you want to mark selected sales order as <b>sent</b>?|Are you sure you want to mark selected sales orders as <b>sent</b>?',
-        'confirmed' => 'Are you sure you want to mark selected sales order as <b>confirmed</b>?|Are you sure you want to mark selected sales orders as <b>confirmed</b>?',
-        'cancelled'  => 'Are you sure you want to mark selected sales order as <b>cancel</b>?|Are you sure you want to mark selected sales order as <b>cancel</b>?',
+        'sent'     => 'Êtes-vous sûr de vouloir marquer la facture sélectionnée comme <b>envoyée</b>? Êtes-vous sûr de vouloir marquer les factures sélectionnées comme <b>envoyées</b>?',
+        'confirmed' => 'Êtes-vous sûr de vouloir marquer la commande sélectionnée comme <b>confirmée</b>? Êtes-vous sûr de vouloir marquer les commandes sélectionnées comme <b>confirmées</b>?',
+        'cancelled'  => 'Êtes-vous sûr de vouloir marquer la commande sélectionnée comme <b>annuler</b>? Êtes-vous sûr de vouloir marquer les commandes sélectionnées comme <b>annulées</b>?',
     ],
     'purchase_order' => [
-        'sent'     => 'Are you sure you want to mark selected purchase order as <b>sent</b>?|Are you sure you want to mark selected purchase orders as <b>sent</b>?',
-        'issued' => 'Are you sure you want to mark selected purchase order as <b>issued</b>?|Are you sure you want to mark selected purchase orders as <b>issued</b>?',
-        'cancelled'  => 'Are you sure you want to mark selected purchase order as <b>cancel</b>?|Are you sure you want to mark selected purchase order as <b>cancel</b>?',
+        'sent'     => 'Êtes-vous sûr de vouloir marquer le bon de commande sélectionné comme <b>envoyé</b>? Êtes-vous sûr de vouloir marquer les bons de commande sélectionnés comme <b>envoyés</b>?',
+        'issued' => 'Êtes-vous sûr de vouloir marquer le bon de commande sélectionné comme <b>émis</b>? Êtes-vous sûr de vouloir marquer les bons de commande sélectionnés comme <b>émis</b>?',
+        'cancelled'  => 'Êtes-vous sûr de vouloir marquer le bon de commande sélectionné comme <b>annuler</b>? Êtes-vous sûr de vouloir marquer les bons de commande sélectionnés comme <b>annulés</b>?',
     ]
 ];
