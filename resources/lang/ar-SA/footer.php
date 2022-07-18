@@ -3,7 +3,7 @@
 return [
 
     'version'               => 'إصدار',
-    'powered'               => 'بواسطة أكاونتينج',
+    'powered'               => 'بواسطة أتاجر',
     'link'                  => 'https://otadjer.com',
     'software'              => 'برنامج محاسبي مجاني',
 

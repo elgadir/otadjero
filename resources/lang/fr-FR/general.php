@@ -83,7 +83,7 @@ return [
     'email'                 => 'Email',
     'tax_number'            => 'Numéro de taxe',
     'phone'                 => 'Téléphone',
-    'address'               => 'Adresse',
+    'address'               => 'Adresse / RC+NIF',
     'website'               => 'Site web',
     'actions'               => 'Actions',
     'description'           => 'Description',
