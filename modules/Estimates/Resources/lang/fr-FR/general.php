@@ -3,12 +3,12 @@
 return [
 
     'estimates'        => 'Devis|Devis',
-    'estimate_summary' => 'Résumé de l\'estimation',
+    'estimate_summary' => 'Résumé de l estimation',
     'description'      => 'Transformez un devis en facture de vente en un clic.',
     'estimate_number'  => 'Devis N°',
     'estimate_date'    => 'Date du devis',
     'total_price'      => 'Prix total',
-    'expiry_date'      => 'Date d\'échéance',
+    'expiry_date'      => 'Date d échéance',
     'bill_to'          => 'Facturer à',
 
     'empty' => [
@@ -51,7 +51,7 @@ return [
         'marked_sent'      => 'Devis marqué comme envoyé!',
         'marked_approved'  => 'Devis marqué comme approuvé!',
         'marked_refused'   => 'Devis marqué comme refusé!',
-        'email_required'   => 'Pas d\'adresse email pour ce client!',
+        'email_required'   => 'Pas d adresse email pour ce client!',
         'expired_estimate' => 'Une Offre expirée ne peut pas être modifiée!',
 
         'status' => [
@@ -65,7 +65,7 @@ return [
             'not_invoiced' => 'Non facturé',
             'approved'     => 'Approuvé',
             'refused'      => 'Refusé',
-            'await_action' => 'En attente d\'action du contact',
+            'await_action' => 'En attente d action du contact',
         ],
     ],
 ];
