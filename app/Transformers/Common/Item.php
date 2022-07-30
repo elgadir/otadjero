@@ -82,7 +82,7 @@ class Item extends TransformerAbstract
 		$cid = company_id();
 		$item_id = $id;
 		
-		$sql = "SELECT media_id  FROM `kxm_mediables` WHERE company_id='$cid' AND mediable_id='$item_id' AND tag='picture' ";
+		$sql = "SELECT media_id  FROM `kgq_mediables` WHERE company_id='$cid' AND mediable_id='$item_id' AND tag='picture' ";
 		
 		$data = \DB::table("media")->whereRaw("id IN($sql)")->first();
 		if($data){
