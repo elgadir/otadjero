@@ -16,7 +16,8 @@ table
 
 th, td
 {
-    padding: 18px 9px 18px 9px;
+    padding: 5px 10px;
+    border: solid 1px #000;
 }
 
 .row
@@ -267,7 +268,12 @@ th, td
 {
     border-collapse: collapse;
     table-layout: fixed;
-    border-bottom: 1px solid #e5e5e5;
+    /*border-bottom: 1px solid #e5e5e5;*/
+    border-bottom: 1px solid #3c3f72;
+}
+.invoice{
+    border: 1px solid #3c3f72;
+
 }
 
 .lines tbody td
@@ -553,4 +559,27 @@ th, td
     .show-card-body {
         padding: 1.5rem 1.5rem;
     }
+}
+
+
+.pdf-title {
+    text-align: center;
+}
+.pdf-title h3 {
+    display: inline-block;
+    background-color: #3c3f72;
+    padding: 8px 50px;
+    color: #ffffff;
+    font-size: 22px;
+    line-height: 20px;
+}
+.company p {
+    font-size: 12px;
+}
+.pdf-logo .d-logo {
+    padding: 0 0 30px 0;  
+}
+
+.pdf-details {
+    text-align: left;
 }

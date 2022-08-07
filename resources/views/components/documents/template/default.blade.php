@@ -1,22 +1,7 @@
-<div class="row">
-    <div class="col-100">
-        <div class="text">
-            <h3>
-                {{ $textDocumentTitle }}
-            </h3>
 
-            @if ($textDocumentSubheading)
-                <h5>
-                    {{ $textDocumentSubheading }}
-                </h5>
-            @endif
-        </div>
-    </div>
-</div>
 
 <div class="row border-bottom-1">
-    <div class="col-58">
-        <div class="text company">
+    <div class="col-58 pdf-logo">
             @stack('company_logo_start')
             @if (!$hideCompanyLogo)
                 @if (!empty($document->contact->logo) && !empty($document->contact->logo->id))
@@ -26,9 +11,8 @@
                 @endif
             @endif
             @stack('company_logo_end')
-        </div>
     </div>
-
+    
     <div class="col-42">
         <div class="text company">
             @stack('company_details_start')
@@ -36,34 +20,35 @@
                 @if (!$hideCompanyName)
                     <strong>{{ setting('company.name') }}</strong><br>
                 @endif
+                <p>
+                    @if (!$hideCompanyAddress)
+                        
+                            {!! nl2br(setting('company.address')) !!}
+                            <br>
+                            {!! $document->company->location !!}
+                        
+                    @endif
 
-                @if (!$hideCompanyAddress)
-                    <p>
-                        {!! nl2br(setting('company.address')) !!}
-                        <br>
-                        {!! $document->company->location !!}
-                    </p>
-                @endif
+                    @if (!$hideCompanyTaxNumber)
+                        
+                            @if (setting('company.tax_number'))
+                                {{ trans('general.tax_number') }}: {{ setting('company.tax_number') }}
+                            @endif
+                        
+                    @endif
 
-                @if (!$hideCompanyTaxNumber)
-                    <p>
-                        @if (setting('company.tax_number'))
-                            {{ trans('general.tax_number') }}: {{ setting('company.tax_number') }}
-                        @endif
-                    </p>
-                @endif
+                    @if (!$hideCompanyPhone)
+                    
+                            @if (setting('company.phone'))
+                                {{ setting('company.phone') }}
+                            @endif
+                        
+                    @endif
 
-                @if (!$hideCompanyPhone)
-                    <p>
-                        @if (setting('company.phone'))
-                            {{ setting('company.phone') }}
-                        @endif
-                    </p>
-                @endif
-
-                @if (!$hideCompanyEmail)
-                    <p>{{ setting('company.email') }}</p>
-                @endif
+                    @if (!$hideCompanyEmail)
+                        {{ setting('company.email') }}
+                    @endif
+                </p>
             @endif
             @stack('company_details_end')
         </div>
@@ -84,43 +69,38 @@
                 @endif
             @stack('name_input_end')
 
-            @stack('address_input_start')
-                @if (!$hideContactAddress)
-                    <p>
-                        {!! nl2br($document->contact_address) !!}
+            <p>
+                @stack('address_input_start')
+                    @if (!$hideContactAddress)
+                            {!! nl2br($document->contact_address) !!}
+                            <br>
+                            {!! $document->contact_location !!}
+                    @endif
+                @stack('address_input_end')
+
+                @stack('tax_number_input_start')
+                    @if (!$hideContactTaxNumber)
+                            @if ($document->contact_tax_number)
+                                {{ trans('general.tax_number') }}: {{ $document->contact_tax_number }}
+                            @endif
+                    @endif
+                @stack('tax_number_input_end')
+
+                @stack('phone_input_start')
+                    @if (!$hideContactPhone)
+                            @if ($document->contact_phone)
+                                {{ $document->contact_phone }}
+                            @endif
+                    @endif
+                @stack('phone_input_end')
+
+                @stack('email_start')
+                    @if (!$hideContactEmail)
                         <br>
-                        {!! $document->contact_location !!}
-                    </p>
-                @endif
-            @stack('address_input_end')
-
-            @stack('tax_number_input_start')
-                @if (!$hideContactTaxNumber)
-                    <p>
-                        @if ($document->contact_tax_number)
-                            {{ trans('general.tax_number') }}: {{ $document->contact_tax_number }}
-                        @endif
-                    </p>
-                @endif
-            @stack('tax_number_input_end')
-
-            @stack('phone_input_start')
-                @if (!$hideContactPhone)
-                    <p>
-                        @if ($document->contact_phone)
-                            {{ $document->contact_phone }}
-                        @endif
-                    </p>
-                @endif
-            @stack('phone_input_end')
-
-            @stack('email_start')
-                @if (!$hideContactEmail)
-                    <p>
-                        {{ $document->contact_email }}
-                    </p>
-                @endif
-            @stack('email_input_end')
+                            {{ $document->contact_email }}
+                    @endif
+                @stack('email_input_end')
+            </p>
         </div>
     </div>
 
@@ -132,7 +112,7 @@
                     <strong>
                         {{ trans($textDocumentNumber) }}:
                     </strong>
-                    <span class="float-right">{{ $document->document_number }}</span><br><br>
+                    <span class="pdf-details">{{ $document->document_number }}</span><br>
                 @endif
             @stack('document_number_input_end')
 
@@ -142,7 +122,7 @@
                         <strong>
                             {{ trans($textOrderNumber) }}:
                         </strong>
-                        <span class="float-right">{{ $document->order_number }}</span><br><br>
+                        <span class="pdf-details">{{ $document->order_number }}</span><br>
                     @endif
                 @endif
             @stack('order_number_input_end')
@@ -152,7 +132,7 @@
                     <strong>
                         {{ trans($textIssuedAt) }}:
                     </strong>
-                    <span class="float-right">@date($document->issued_at)</span><br><br>
+                    <span class="pdf-details">@date($document->issued_at)</span><br>
                 @endif
             @stack('issued_at_input_end')
 
@@ -161,9 +141,26 @@
                     <strong>
                         {{ trans($textDueAt) }}:
                     </strong>
-                    <span class="float-right">@date($document->due_at)</span><br><br>
+                    <span class="pdf-details">@date($document->due_at)</span><br>
                 @endif
             @stack('due_at_input_end')
+        </div>
+    </div>
+</div>
+
+
+<div class="row mb-3">
+    <div class="col-100">
+        <div class="pdf-title">
+            <h3>
+                {{ $textDocumentTitle }}
+            </h3>
+
+            @if ($textDocumentSubheading)
+                <h5>
+                    {{ $textDocumentSubheading }}
+                </h5>
+            @endif
         </div>
     </div>
 </div>
@@ -256,7 +253,7 @@
             @foreach ($document->totals_sorted as $total)
                 @if ($total->code != 'total')
                     @stack($total->code . '_total_tr_start')
-                    <div class="border-top-1 py-2">
+                    <div class="border-top-1 py-1">
                         <strong class="float-left">{{ trans($total->title) }}:</strong>
                         <span>@money($total->amount, $document->currency_code, true)</span><br>
                     </div>
@@ -264,14 +261,14 @@
                 @else
                     @if ($document->paid)
                         @stack('paid_total_tr_start')
-                        <div class="border-top-1 py-2">
+                        <div class="border-top-1 py-1">
                             <strong class="float-left">{{ trans('invoices.paid') }}:</strong>
                             <span>- @money($document->paid, $document->currency_code, true)</span><br>
                         </div>
                         @stack('paid_total_tr_end')
                     @endif
                     @stack('grand_total_tr_start')
-                    <div class="border-top-1 py-2">
+                    <div class="border-top-1 py-1">
                         <strong class="float-left">{{ trans($total->name) }}:</strong>
                         <span>@money($document->amount_due, $document->currency_code, true)</span>
                     </div>

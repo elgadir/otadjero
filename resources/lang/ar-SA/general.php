@@ -81,7 +81,7 @@ return [
     'delete_confirm'        => 'تأكيد حذف :name :type؟',
     'name'                  => 'الاسم',
     'email'                 => 'البريد الإلكتروني',
-    'tax_number'            => 'رقم الضريبة',
+    'tax_number'            => 'اسم الطبيب',
     'phone'                 => 'رقم الهاتف',
     'address'               => 'العنوان',
     'website'               => 'الموقع الإلكتروني',
