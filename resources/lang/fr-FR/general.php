@@ -81,7 +81,7 @@ return [
     'delete_confirm'        => 'Valider la suppression de :name :type ?',
     'name'                  => 'Nom',
     'email'                 => 'Email',
-    'tax_number'            => 'Nom de médecin',
+    'tax_number'            => 'Nom de contact',
     'phone'                 => 'Téléphone',
     'address'               => 'Adresse / RC+NIF',
     'website'               => 'Site web',
