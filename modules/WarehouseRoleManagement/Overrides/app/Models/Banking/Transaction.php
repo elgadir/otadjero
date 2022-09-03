@@ -390,7 +390,7 @@ class Transaction extends Model
         }
 
         if ($this->isIncome()) {
-            if ($this->document->type != 'invoice') {
+            if (optional($this->document)->type != 'invoice') {
                 return $this->getRouteFromConfig();
             } else {
                 return !empty($this->document_id) ? 'invoices.show' : 'revenues.show';
@@ -412,8 +412,8 @@ class Transaction extends Model
     {
         $route = '';
 
-        $alias = config('type.' . $this->document->type . '.alias');
-        $prefix = config('type.' . $this->document->type . '.route.prefix');
+        $alias = config('type.' . optional($this->document)->type . '.alias');
+        $prefix = config('type.' . optional($this->document)->type . '.route.prefix');
 
         // if use module set module alias
         if (!empty($alias)) {
