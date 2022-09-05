@@ -39,7 +39,7 @@ class Item extends TransformerAbstract
            // 'warehouses'=>$this->getWareHouses($model->id),
             //'warehouse_id'=>$model->id,
             'sku'=>$model->sku,
-            'picture' => $this->getPicture($model->id),
+            'picturess' => $this->getPicture($model->id),
             'item_data'=> $model->inventoryHistories,
         ];
     }
@@ -81,12 +81,13 @@ class Item extends TransformerAbstract
     public function getPicture($id){
 		$cid = company_id();
 		$item_id = $id;
-		
-		$sql = "SELECT media_id  FROM `kgq_mediables` WHERE company_id='$cid' AND mediable_id='$item_id' AND tag='picture' ";
+		$table =  \DB::getTablePrefix()."mediables";
+		$sql = "SELECT media_id  FROM {$table} WHERE company_id='$cid' AND mediable_id='$item_id' AND tag='picture' ";
 		
 		$data = \DB::table("media")->whereRaw("id IN($sql)")->first();
+       
 		if($data){
-			return \Storage::url($data->id);
+			return \Storage::disk('public')->url($data->id);
 		}else{
 			return asset('public/img/otadjer-logo-black.svg');
 		}
