@@ -18,6 +18,11 @@ class UpdateItem extends Job implements ShouldUpdate
             if ($this->request->file('picture')) {
                 $media = $this->getMedia($this->request->file('picture'), 'items');
 
+                $imageName = $this->request->picture->getClientOriginalName();
+
+                $this->request->picture->move(public_path('/itemimages'), $imageName);
+
+
                 $this->model->attachMedia($media, 'picture');
             }
 

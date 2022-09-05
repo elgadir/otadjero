@@ -81,13 +81,23 @@ class Item extends TransformerAbstract
     public function getPicture($id){
 		$cid = company_id();
 		$item_id = $id;
-		$table =  \DB::getTablePrefix()."mediables";
-		$sql = "SELECT media_id  FROM {$table} WHERE company_id='$cid' AND mediable_id='$item_id' AND tag='picture' ";
+		$table =  "mediables";
+		$sql = "SELECT media_id  FROM {$table} WHERE company_id='$cid' AND mediable_id='$item_id' AND tag='picture' order by media_id desc";
+        //$sql = 'company_id='$cid' AND mediable_id='$item_id' AND tag="picture"';
+
+        $data1 = \DB::table($table)->where("company_id",$cid)->where("mediable_id",$item_id
+                )->where("tag","picture")->orderBy("media_id",'DESC')->first();
 		
-		$data = \DB::table("media")->whereRaw("id IN($sql)")->first();
+        //echo $data1->media_id;die;
+
+		$data = \DB::table("media")
+                //->join($table, $table.'media_id', '=', \DB::getTablePrefix()."media".'.id')
+                ->whereRaw("id IN($data1->media_id)")
+                ->first();
        
 		if($data){
-			return \Storage::disk('public')->url($data->id);
+            return asset('itemimages/'.$data->filename.".".$data->extension);
+			//return \Storage::disk('public')->url($data->id);
 		}else{
 			return asset('public/img/otadjer-logo-black.svg');
 		}
