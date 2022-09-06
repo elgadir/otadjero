@@ -100,7 +100,7 @@ class Item extends TransformerAbstract
 
        
 		if($data){
-            return asset('itemimages/'.$data->filename.".".$data->extension);
+            return asset('public/itemimages/'.$data->filename.".".$data->extension);
 			//return \Storage::disk('public')->url($data->id);
 		}else{
 			return asset('public/img/otadjer-logo-black.svg');
