@@ -82,6 +82,7 @@ class Item extends TransformerAbstract
 		$cid = company_id();
 		$item_id = $id;
 		$table =  "mediables";
+        $data = [];
 		$sql = "SELECT media_id  FROM {$table} WHERE company_id='$cid' AND mediable_id='$item_id' AND tag='picture' order by media_id desc";
         //$sql = 'company_id='$cid' AND mediable_id='$item_id' AND tag="picture"';
 
@@ -90,10 +91,13 @@ class Item extends TransformerAbstract
 		
         //echo $data1->media_id;die;
 
-		$data = \DB::table("media")
+        if($data1){
+            $data = \DB::table("media")
                 //->join($table, $table.'media_id', '=', \DB::getTablePrefix()."media".'.id')
                 ->whereRaw("id IN($data1->media_id)")
                 ->first();
+        }
+
        
 		if($data){
             return asset('itemimages/'.$data->filename.".".$data->extension);
