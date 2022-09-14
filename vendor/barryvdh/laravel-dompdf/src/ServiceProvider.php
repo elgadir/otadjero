@@ -48,7 +48,17 @@ class ServiceProvider extends IlluminateServiceProvider
 
             $options = $this->app->make('dompdf.options');
             $dompdf = new Dompdf($options);
+            $options->setIsRemoteEnabled(true);
+            $options-> setIsHtml5ParserEnabled(true);
             $dompdf->setBasePath(realpath(base_path('public')));
+            $context = stream_context_create([
+                'ssl' => [
+                    'verify_peer' => FALSE,
+                    'verify_peer_name' => FALSE,
+                    'allow_self_signed'=> TRUE
+                ]
+            ]);
+            $dompdf->setHttpContext($context);
 
             return $dompdf;
         });
