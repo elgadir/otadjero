@@ -48,7 +48,6 @@ class ServiceProvider extends IlluminateServiceProvider
 
             $options = $this->app->make('dompdf.options');
             $dompdf = new Dompdf($options);
-            $options->setIsRemoteEnabled(true);
             $dompdf->setBasePath(realpath(base_path('public')));
            
             return $dompdf;
