@@ -14,7 +14,7 @@ class ServiceProvider extends IlluminateServiceProvider
      *
      * @var bool
      */
-    protected $defer = false;
+    protected $defer = true;
 
     /**
      * Register the service provider.
@@ -46,10 +46,10 @@ class ServiceProvider extends IlluminateServiceProvider
 
         $this->app->bind('dompdf', function() {
 
-            
-            $dompdf = new Dompdf(['isHtml5ParserEnabled' => true]);
+            $options = $this->app->make('dompdf.options');
+            $dompdf = new Dompdf($options);
             $dompdf->setBasePath(realpath(base_path('public')));
-           
+
             return $dompdf;
         });
         $this->app->alias('dompdf', Dompdf::class);
