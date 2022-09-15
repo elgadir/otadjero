@@ -46,8 +46,8 @@ class ServiceProvider extends IlluminateServiceProvider
 
         $this->app->bind('dompdf', function() {
 
-            $options = $this->app->make('dompdf.options');
-            $dompdf = new Dompdf($options);
+            
+            $dompdf = new Dompdf(['isHtml5ParserEnabled' => true]);
             $dompdf->setBasePath(realpath(base_path('public')));
            
             return $dompdf;
