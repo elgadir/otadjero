@@ -10,11 +10,15 @@
 
     <base href="{{ config('app.url') . '/' }}">
 
+   <!-- Css -->
+   <link rel="stylesheet" href="{{ asset('public/css/print.css?v=' . version('short')) }}" media="print">
+
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('public/img/favicon.ico') }}" type="image/png">
 
-    <!-- Css -->
-    <link rel="stylesheet" href="{{ asset('public/css/print.css?v=' . version('short')) }}" type="text/css">
+ 
+
+
 
     @if (isset($currency_style) && $currency_style && in_array(app()->getLocale(), ['zh-CN', 'ja-JP', 'zh-TW']))
     <style type="text/css">
