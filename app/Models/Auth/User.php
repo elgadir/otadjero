@@ -79,6 +79,11 @@ class User extends Authenticatable implements HasLocalePreference
         return $this->belongsToMany('App\Models\Common\Company', 'App\Models\Auth\UserCompany');
     }
 
+    public function warehouses()
+    {
+        return $this->belongsToMany('Modules\Inventory\Models\Warehouse', 'Modules\WarehouseRoleManagement\Models\UserWarehouse');//->select(['id','name','company_id']);
+    }
+
     public function contact()
     {
         return $this->hasOne('App\Models\Common\Contact', 'user_id', 'id');

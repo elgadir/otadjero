@@ -19,8 +19,8 @@ class Users extends ApiController
      */
     public function index()
     {
-        $users = User::with('companies', 'permissions', 'roles')->collect();
-
+        $users = User::with('companies', 'permissions', 'roles','warehouses')->collect();
+      
         return $this->response->paginator($users, new Transformer());
     }
 

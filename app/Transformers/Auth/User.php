@@ -3,6 +3,7 @@
 namespace App\Transformers\Auth;
 
 use App\Transformers\Common\Company;
+use App\Transformers\Common\Warehouse;
 use App\Models\Auth\User as Model;
 use League\Fractal\TransformerAbstract;
 
@@ -11,7 +12,7 @@ class User extends TransformerAbstract
     /**
      * @var array
      */
-    protected $defaultIncludes = ['companies', 'roles'];
+    protected $defaultIncludes = ['companies', 'roles','warehouses'];
 
     /**
      * @param Model $model
@@ -36,6 +37,12 @@ class User extends TransformerAbstract
     public function includeCompanies(Model $model)
     {
         return $this->collection($model->companies, new Company());
+    }
+
+    public function includeWarehouses(Model $model)
+    {
+       
+        return $this->collection($model->warehouses, new Warehouse());
     }
 
     /**
