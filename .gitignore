@@ -25,6 +25,20 @@
 .idea/**/gradle.xml
 .idea/**/libraries
 
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+/storage
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+composer.lock
+package-lock.json
+
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
 # since they will be recreated, and may cause churn.  Uncomment if using
