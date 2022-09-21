@@ -42,6 +42,7 @@ class Document extends TransformerAbstract
             'contact_address' => $model->contact_address,
             'notes' => $model->notes,
             'attachment' => $model->attachment,
+            'warehouses'=>$this->getWareHouses(),
             'created_by' => $model->created_by,
             'created_at' => $model->created_at ? $model->created_at->toIso8601String() : '',
             'updated_at' => $model->updated_at ? $model->updated_at->toIso8601String() : '',
@@ -109,5 +110,10 @@ class Document extends TransformerAbstract
     public function includeTransactions(Model $model)
     {
         return $this->collection($model->transactions, new Transaction());
+    }
+    public function getWareHouses(){
+        $id = auth()->id();
+        $warehouse_ids = \DB::table("inventory_user_warehouses")->where("user_id",$id)->get()->pluck("warehouse_id")->toArray();
+        return \DB::table("inventory_warehouses")->whereIn("id",$warehouse_ids)->get();
     }
 }
