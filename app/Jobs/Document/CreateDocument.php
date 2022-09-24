@@ -23,7 +23,13 @@ class CreateDocument extends Job implements HasOwner, HasSource, ShouldCreate
         event(new DocumentCreating($this->request));
 
         \DB::transaction(function () {
-            $this->model = Document::create($this->request->all());
+            $data = $this->request->all();
+            $id = (int)isset($_COOKIE['w_ids']) ? $_COOKIE['w_ids'] : 0;
+            info($data);
+           // dd($data);
+            $this->model = Document::create($data);
+            \DB::table("documents")->where("id",$this->model->id)->update(['w_id'=>$id]);
+            //dd($this->model->id);
 
             // Upload attachment
             if ($this->request->file('attachment')) {

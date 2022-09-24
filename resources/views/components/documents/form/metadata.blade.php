@@ -21,6 +21,7 @@
 
     <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
         <div class="row">
+             
             @if (!$hideIssuedAt)
             {{ Form::dateGroup('issued_at', trans($textIssuedAt), 'calendar', ['id' => 'issued_at', 'class' => 'form-control datepicker', 'required' => 'required', 'show-date-format' => company_date_format(), 'date-format' => 'Y-m-d', 'autocomplete' => 'off', 'change' => 'setDueMinDate'], $issuedAt) }}
             @endif
@@ -42,6 +43,38 @@
             @if (!$hideOrderNumber)
             {{ Form::textGroup('order_number', trans($textOrderNumber), 'shopping-cart', [], $orderNumber) }}
             @endif
+
+            @php
+            $id = '';
+            @endphp
+             <div class=" col-md-12">
+               <label for="order_number" class="form-control-label">Warehouses List</label> 
+               <div class="input-group input-group-merge ">
+                  <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-warehouse"></i></span></div>
+                  <select  name="w_id" id="w_id"  onChange="addID()" >
+                    @forelse (\DB::table("inventory_warehouses")->whereIn('id',\DB::table("inventory_user_warehouses")->where("user_id",auth()->id())->pluck("warehouse_id")->toArray())->get() as $warehouses)
+                        @php
+                        if($loop->first)
+                            $id = $warehouses->id
+                        @endphp                      
+                     <option value="{{ $warehouses->id }}" >{{ $warehouses->name }}</option>
+                      @empty
+                            <option>No warehouses found</option>
+                      @endforelse
+                  </select>
+
+               </div>
+               <!---->
+            </div>
+           
+            <script type="text/javascript">
+                var document.cookie='w_ids='+@php echo $id @endphp
+                function addID(){
+                    document.cookie='w_ids='+document.getElementById("w_id").value; 
+                }
+            </script>
+
+
         </div>
     </div>
 </div>
