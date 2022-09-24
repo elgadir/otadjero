@@ -144,6 +144,12 @@
                     <span class="pdf-details">@date($document->due_at)</span><br>
                 @endif
             @stack('due_at_input_end')
+
+                <strong>
+                        Warehouse : 
+                    </strong>
+                    <span class="pdf-details">{{ \DB::table("inventory_warehouses")->where("id",$document->w_id)->first()->name ?? 'N/A' }}</span><br>
+
         </div>
     </div>
 </div>
