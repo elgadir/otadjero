@@ -44,15 +44,26 @@
             {{ Form::textGroup('order_number', trans($textOrderNumber), 'shopping-cart', [], $orderNumber) }}
             @endif
 
-            @php
+            <?php 
+
             $id = '';
-            @endphp
+            $roleid = \DB::table('user_roles')->where("user_id",auth()->id())->first();
+            $data = '';            
+            if($roleid->role_id != 1){
+                $data = \DB::table("inventory_warehouses")->whereIn('id',\DB::table("inventory_user_warehouses")->where("user_id",auth()->id())->pluck("warehouse_id")->toArray())->get();
+            }else{
+                $data = \DB::table("inventory_warehouses")->get();
+            }
+             
+
+            ?>
+
              <div class=" col-md-12">
                <label for="order_number" class="form-control-label">Warehouses List</label> 
                <div class="input-group input-group-merge ">
                   <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-warehouse"></i></span></div>
                   <select  name="w_id" id="w_id"  onchange="addID()" >
-                    @forelse (\DB::table("inventory_warehouses")->whereIn('id',\DB::table("inventory_user_warehouses")->where("user_id",auth()->id())->pluck("warehouse_id")->toArray())->get() as $warehouses)
+                    @forelse ($data as $warehouses)
                         @php
                         if($loop->first)
                             $id = $warehouses->id
@@ -69,7 +80,7 @@
            
             <script type="text/javascript">
                 document.cookie='w_idss='+@php echo $id @endphp;
-                
+
                 function addID(){
                     document.cookie='w_idss='+document.getElementById("w_id").value;
                     console.log("document.cookie",document.cookie); 
