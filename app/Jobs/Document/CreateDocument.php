@@ -16,6 +16,7 @@ class CreateDocument extends Job implements HasOwner, HasSource, ShouldCreate
 {
     public function handle(): Document
     {
+        
         if (empty($this->request['amount'])) {
             $this->request['amount'] = 0;
         }
@@ -24,7 +25,7 @@ class CreateDocument extends Job implements HasOwner, HasSource, ShouldCreate
 
         \DB::transaction(function () {
             $data = $this->request->all();
-            $id = (int)isset($_COOKIE['w_ids']) ? $_COOKIE['w_ids'] : 0;
+            $id = (int)isset($_COOKIE['w_idss']) ? $_COOKIE['w_idss'] : 2;
             info($data);
            // dd($data);
             $this->model = Document::create($data);

@@ -51,7 +51,7 @@
                <label for="order_number" class="form-control-label">Warehouses List</label> 
                <div class="input-group input-group-merge ">
                   <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-warehouse"></i></span></div>
-                  <select  name="w_id" id="w_id"  onChange="addID()" >
+                  <select  name="w_id" id="w_id"  onchange="addID()" >
                     @forelse (\DB::table("inventory_warehouses")->whereIn('id',\DB::table("inventory_user_warehouses")->where("user_id",auth()->id())->pluck("warehouse_id")->toArray())->get() as $warehouses)
                         @php
                         if($loop->first)
@@ -68,9 +68,11 @@
             </div>
            
             <script type="text/javascript">
-                var document.cookie='w_ids='+@php echo $id @endphp
+                document.cookie='w_idss='+@php echo $id @endphp;
+                
                 function addID(){
-                    document.cookie='w_ids='+document.getElementById("w_id").value; 
+                    document.cookie='w_idss='+document.getElementById("w_id").value;
+                    console.log("document.cookie",document.cookie); 
                 }
             </script>
 
