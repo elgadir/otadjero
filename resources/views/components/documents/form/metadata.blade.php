@@ -50,9 +50,9 @@
             $roleid = \DB::table('user_roles')->where("user_id",auth()->id())->first();
             $data = '';            
             if($roleid->role_id != 1){
-                $data = \DB::table("inventory_warehouses")->whereIn('id',\DB::table("inventory_user_warehouses")->where("user_id",auth()->id())->pluck("warehouse_id")->toArray())->get();
+                $data = \DB::table("inventory_warehouses")->whereIn('id',\DB::table("inventory_user_warehouses")->where("user_id",auth()->id())->pluck("warehouse_id")->toArray())->whereNull('deleted_at')->get();
             }else{
-                $data = \DB::table("inventory_warehouses")->get();
+                $data = \DB::table("inventory_warehouses")->whereNull('deleted_at')->get();
             }
              
 
