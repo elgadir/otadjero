@@ -83,8 +83,24 @@
                         </div>
                     </li>
                 @stack('item_sales_price_end')
+ <?php 
 
+                                 $role_id = \DB::table('user_roles')->where("user_id",auth()->id())->first();
+
+                                 $status = true;
+                                 if($role_id->role_id == 2){
+                                    $data = \DB::table('role_permissions')
+                                        ->where("role_id",$role_id->role_id)
+                                        ->where("permission_id",279)
+                                        ->first();
+                                   
+                                    if($data == null  ){
+                                        $status = false;
+                                    }
+                                 }
+                                 ?>
                 @stack('item_purchase_price_start')
+                    <?php if($status){ ?>
                     <li class="list-group-item border-0 border-top-1">
                         <div class="font-weight-600">{{ trans('items.purchase_price') }}</div>
                         <div>
@@ -93,6 +109,7 @@
                             </small>
                         </div>
                     </li>
+                <?php } ?>
                 @stack('item_purchase_price_end')
 
                 @stack('item_opening_stock_value_start')
