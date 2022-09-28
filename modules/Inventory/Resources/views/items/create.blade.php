@@ -26,9 +26,27 @@
                     {{ Form::textareaGroup('description', trans('general.description')) }}
 
                     {{ Form::textGroup('sale_price', trans('items.sales_price'), 'money-bill-wave', ['required' => 'required', 'show' => 'form.add_variants == false']) }}
+ <?php 
 
+                                 $role_id = \DB::table('user_roles')->where("user_id",auth()->id())->first();
+                                 
+                                 $status = true;
+                                 if($role_id->role_id == 2){
+                                    $data = \DB::table('role_permissions')
+                                        ->where("role_id",$role_id->role_id)
+                                        ->where("permission_id",279)
+                                        ->first();
+                                   
+                                    if($data == null  ){
+                                        $status = false;
+                                    }
+                                 }
+                                 if($status){
+                                 ?>
                     {{ Form::textGroup('purchase_price', trans('items.purchase_price'), 'money-bill-wave-alt', ['required' => 'required', 'show' => 'form.add_variants == false']) }}
-
+                <?php } else{?>
+                    <input type='hidden' name='purchase_price' value="0" >
+                <?php } ?>
                     {{ Form::selectGroup('unit', trans('inventory::general.unit'), 'fas fa-box-open', $units, old('default_unit', setting('inventory.default_unit')), ['required' => 'required', 'show' => 'form.track_inventory == true']) }}
 
                     {{ Form::textGroup('sku', trans('inventory::general.sku'), 'fa fa-key', ['required' => 'required', 'show' => 'form.track_inventory == true && form.add_variants == false'], !empty($inventory_item->sku) ? $inventory_item->sku : '', 'col-md-6') }}
