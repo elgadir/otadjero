@@ -144,11 +144,17 @@
                     <span class="pdf-details">@date($document->due_at)</span><br>
                 @endif
             @stack('due_at_input_end')
-
+            @php
+                $warehouseDetails = \DB::table("inventory_warehouses")->where("id",$document->w_id)->first();
+            @endphp
                 <strong>
                         Warehouse : 
                     </strong>
-                    <span class="pdf-details">{{ \DB::table("inventory_warehouses")->where("id",$document->w_id)->first()->name ?? 'N/A' }}</span><br>
+                    <span class="pdf-details">{{ $warehouseDetails->name ?? 'N/A' }}</span><br>
+                     <strong>
+                        Warehouse Address: 
+                    </strong>
+                    <span class="pdf-details">{{ $warehouseDetails->address ?? 'N/A' }}</span><br>
 
         </div>
     </div>
