@@ -113,6 +113,10 @@
     <div class="col-42">
         <div class="text company">
             <br>
+              <strong>
+                        Warehouse : 
+                    </strong>
+                    <span class="pdf-details">{{ $warehouseDetails->name ?? 'N/A' }}</span><br>
             @stack('document_number_input_start')
                 @if (!$hideDocumentNumber)
                     <strong>
@@ -151,10 +155,7 @@
                 @endif
             @stack('due_at_input_end')
            
-                <strong>
-                        Warehouse : 
-                    </strong>
-                    <span class="pdf-details">{{ $warehouseDetails->name ?? 'N/A' }}</span><br>
+              
                     
 
         </div>
