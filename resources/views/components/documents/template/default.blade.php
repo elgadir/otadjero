@@ -56,7 +56,7 @@
              <strong>
                         Warehouse Address: 
                     </strong>
-                    <span class="pdf-details">{{ $warehouseDetails->address ?? 'N/A' }}</span><br>
+                    <span class="pdf-details">{!! nl2br($warehouseDetails->address ?? 'N/A') !!}</span><br>
         </div>
     </div>
 </div>
