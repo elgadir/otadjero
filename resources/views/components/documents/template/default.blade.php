@@ -12,7 +12,9 @@
             @endif
             @stack('company_logo_end')
     </div>
-    
+     @php
+                $warehouseDetails = \DB::table("inventory_warehouses")->where("id",$document->w_id)->first();
+            @endphp
     <div class="col-42">
         <div class="text company">
             @stack('company_details_start')
@@ -51,6 +53,10 @@
                 </p>
             @endif
             @stack('company_details_end')
+             <strong>
+                        Warehouse Address: 
+                    </strong>
+                    <span class="pdf-details">{{ $warehouseDetails->address ?? 'N/A' }}</span><br>
         </div>
     </div>
 </div>
@@ -144,17 +150,12 @@
                     <span class="pdf-details">@date($document->due_at)</span><br>
                 @endif
             @stack('due_at_input_end')
-            @php
-                $warehouseDetails = \DB::table("inventory_warehouses")->where("id",$document->w_id)->first();
-            @endphp
+           
                 <strong>
                         Warehouse : 
                     </strong>
                     <span class="pdf-details">{{ $warehouseDetails->name ?? 'N/A' }}</span><br>
-                     <strong>
-                        Warehouse Address: 
-                    </strong>
-                    <span class="pdf-details">{{ $warehouseDetails->address ?? 'N/A' }}</span><br>
+                    
 
         </div>
     </div>
