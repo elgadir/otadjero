@@ -54,7 +54,7 @@
             @endif
             @stack('company_details_end')
              <strong>
-                        Warehouse Address: 
+                        
                     </strong>
                     <span class="pdf-details">{!! nl2br($warehouseDetails->address ?? 'N/A') !!}</span><br>
         </div>
@@ -114,7 +114,7 @@
         <div class="text company">
             <br>
               <strong>
-                        Warehouse : 
+                        Center : 
                     </strong>
                     <span class="pdf-details">{{ $warehouseDetails->name ?? 'N/A' }}</span><br>
             @stack('document_number_input_start')

@@ -198,7 +198,7 @@ return array(
          *
          * @var bool
          */
-        "enable_php" => true,
+        "enable_php" => false,
 
         /**
          * Enable inline Javascript
@@ -228,7 +228,7 @@ return array(
          * @var bool
          */
         "enable_remote" => true,
-        "allow_url_fopen" => true,
+
         /**
          * A ratio applied to the fonts height to be more like browsers' line height
          */
@@ -237,7 +237,7 @@ return array(
         /**
          * Use the more-than-experimental HTML5 Lib parser
          */
-        "enable_html5_parser" => true,
+        "enable_html5_parser" => false,
     ),
 
 
