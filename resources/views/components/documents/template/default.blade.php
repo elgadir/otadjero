@@ -54,7 +54,7 @@
             @endif
             @stack('company_details_end')
              <strong>
-                        Address:
+                       
                     </strong>
                     <span class="pdf-details">{!! nl2br($warehouseDetails->address ?? 'N/A') !!}</span><br>
         </div>
