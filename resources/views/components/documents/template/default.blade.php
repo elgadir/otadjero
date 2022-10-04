@@ -13,8 +13,11 @@
             @stack('company_logo_end')
     </div>
      @php
-                $warehouseDetails = \DB::table("inventory_warehouses")->where("id",$document->w_id)->first();
+                $user_id = \DB::table("inventory_user_warehouses")->where("user_id",$document->created_by)->first();
+            
+                $warehouseDetails = \DB::table("inventory_warehouses")->where("id",$user_id->warehouse_id)->first();
             @endphp
+            
     <div class="col-42">
         <div class="text company">
             @stack('company_details_start')
