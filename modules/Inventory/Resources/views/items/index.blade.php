@@ -32,7 +32,7 @@
                                  $role_id = \DB::table('user_roles')->where("user_id",auth()->id())->first();
 
                                  $status = true;
-                                 if($role_id->role_id == 2){
+                                 //if($role_id->role_id == 2){
                                     $data = \DB::table('role_permissions')
                                         ->where("role_id",$role_id->role_id)
                                         ->where("permission_id",279)
@@ -41,7 +41,7 @@
                                     if($data == null  ){
                                         $status = false;
                                     }
-                                 }
+                                 //}
                                  ?>
 
             <div class="table-responsive">
