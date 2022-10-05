@@ -59,7 +59,9 @@ class Documents extends ApiController
      */
     public function store(Request $request)
     {   
-        $request->document_number = $this->getNextDocumentNumber($request->type);
+        //$request->document_number = $this->getNextDocumentNumber($request->type);
+        $request->merge(['document_number'=>$this->getNextDocumentNumber($request->type)]);
+       
         $document = $this->dispatch(new CreateDocument($request));
 
         return $this->response->created(route('api.documents.show', $document->id), $this->item($document, new Transformer()));
