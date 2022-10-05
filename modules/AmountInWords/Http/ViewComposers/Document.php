@@ -4,6 +4,7 @@ namespace Modules\AmountInWords\Http\ViewComposers;
 
 use App\Traits\Modules;
 use Illuminate\View\View;
+use App\Models\Setting\Currency;
 use NumberToWords\NumberToWords;
 
 class Document
@@ -18,7 +19,7 @@ class Document
      */
     public function compose(View $view)
     {
-        if (!$this->moduleIsEnabled('amount-in-words')) {
+        if (! $this->moduleIsEnabled('amount-in-words')) {
             return;
         }
 
@@ -28,9 +29,12 @@ class Document
             if ($data['type'] == 'invoice' || $data['type'] == 'bill') {
                 $document = $data['document'];
 
-                $amount = $document->amount;
+                $amount = money($document->amount, $document->currency_code, true);
                 $amount = str_replace('.', '', $amount);
                 $amount = str_replace(',', '', $amount);
+
+                $currency_symbol = Currency::where('code', $document->currency_code)->value('symbol');
+                $amount = str_replace($currency_symbol, '', $amount);
 
                 $numberToWords = new NumberToWords();
                 $currencyTransformer = $numberToWords->getCurrencyTransformer(strtolower(language()->getShortCode()));
@@ -48,6 +52,5 @@ class Document
                 'data' => false,
             ]);
         }
-
     }
 }
