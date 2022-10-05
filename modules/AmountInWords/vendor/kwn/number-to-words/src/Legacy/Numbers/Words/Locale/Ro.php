@@ -10,7 +10,10 @@ use NumberToWords\Service\NumberToTripletsConverter;
 
 class Ro extends Words
 {
-    private NumberToTripletsConverter $numberToTripletsConverter;
+    /**
+     * @var NumberToTripletsConverter
+     */
+    private $numberToTripletsConverter;
 
     public function __construct()
     {
@@ -20,7 +23,7 @@ class Ro extends Words
     /**
      * @param mixed $numberAtom
      * @param array $noun
-     * @param bool $asNoun
+     * @param bool  $asNoun
      *
      * @return string
      */
@@ -55,7 +58,7 @@ class Ro extends Words
 
     /**
      * @param string $pluralRule
-     * @param array $noun
+     * @param array  $noun
      *
      * @return string
      */
@@ -114,10 +117,10 @@ class Ro extends Words
     }
 
     /**
-     * @param int $number
+     * @param int   $number
      * @param array $noun
-     * @param bool $forceNoun
-     * @param bool $forcePlural
+     * @param bool  $forceNoun
+     * @param bool  $forcePlural
      *
      * @return string
      */
@@ -166,7 +169,7 @@ class Ro extends Words
     }
 
     /**
-     * @param int $num
+     * @param int   $num
      * @param array $noun
      *
      * @return string
@@ -231,11 +234,11 @@ class Ro extends Words
 
     /**
      * @param string $currency
-     * @param int $decimal
-     * @param int $fraction
+     * @param int    $decimal
+     * @param int    $fraction
      *
-     * @return string
      * @throws NumberToWordsException
+     * @return string
      */
     public function toCurrencyWords($currency, $decimal, $fraction = null)
     {

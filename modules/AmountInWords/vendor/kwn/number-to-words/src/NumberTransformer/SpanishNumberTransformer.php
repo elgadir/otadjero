@@ -6,7 +6,10 @@ use NumberToWords\Legacy\Numbers\Words;
 
 class SpanishNumberTransformer implements NumberTransformer
 {
-    public function toWords(int $number): string
+    /**
+     * @inheritdoc
+     */
+    public function toWords($number)
     {
         $converter = new Words();
 

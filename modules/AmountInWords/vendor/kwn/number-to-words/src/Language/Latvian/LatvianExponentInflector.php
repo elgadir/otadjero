@@ -6,7 +6,7 @@ use NumberToWords\Language\ExponentInflector;
 
 class LatvianExponentInflector implements ExponentInflector
 {
-    private static array $exponent = [
+    private static $exponent = [
         ['', '', ''],
         ['tūkstotis', 'tūkstoši', 'tūkstoši'],
         ['miljons', 'miljoni', 'miljons'],
@@ -16,7 +16,13 @@ class LatvianExponentInflector implements ExponentInflector
         ['kvintiljons', 'kvintiljoni', 'kvintiljoni']
     ];
 
-    public function inflectExponent(int $number, int $power): string
+    /**
+     * @param int $number
+     * @param int $power
+     *
+     * @return string
+     */
+    public function inflectExponent($number, $power)
     {
         $level = self::$exponent[$power];
         $units = $number % 10;

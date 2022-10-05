@@ -6,13 +6,13 @@ use NumberToWords\Language\Dictionary;
 
 class AlbanianDictionary implements Dictionary
 {
-    public const LOCALE = 'sq_AL';
-    public const LANGUAGE_NAME = 'Albanian';
-    public const LANGUAGE_NAME_NATIVE = 'Shqip';
+    const LOCALE = 'sq_AL';
+    const LANGUAGE_NAME = 'Albanian';
+    const LANGUAGE_NAME_NATIVE = 'Shqip';
 
-    private static array $units = ['', 'një', 'dy', 'tre', 'katër', 'pesë', 'gjashtë', 'shtatë', 'tetë', 'nëntë'];
+    private static $units = ['', 'një', 'dy', 'tre', 'katër', 'pesë', 'gjashtë', 'shtatë', 'tetë', 'nëntë'];
 
-    private static array $teens = [
+    private static $teens = [
         'dhjetë',
         'njëmbëdhjetë',
         'dymbëdhjetë',
@@ -25,7 +25,7 @@ class AlbanianDictionary implements Dictionary
         'nëntëmbëdhjetë'
     ];
 
-    private static array $tens = [
+    private static $tens = [
         '',
         'dhjetë',
         'njëzet',
@@ -38,9 +38,9 @@ class AlbanianDictionary implements Dictionary
         'nëntëdhjetë'
     ];
 
-    private static string $hundred = 'qind';
+    private static $hundred = 'qind';
 
-    public static array $currencyNames = [
+    public static $currencyNames = [
         'ALL' => [['lek'], ['qindarka']],
         'AUD' => [['Australian dollar'], ['cent']],
         'BAM' => [['convertible marka'], ['fenig']],
@@ -90,32 +90,58 @@ class AlbanianDictionary implements Dictionary
         'ZAR' => [['rand'], ['cent']],
     ];
 
-    public function getZero(): string
+    /**
+     * @return string
+     */
+    public function getZero()
     {
         return 'zero';
     }
 
-    public function getMinus(): string
+    /**
+     * @return string
+     */
+    public function getMinus()
     {
         return 'minus';
     }
 
-    public function getCorrespondingUnit(int $unit): string
+    /**
+     * @param int $unit
+     *
+     * @return string
+     */
+    public function getCorrespondingUnit($unit)
     {
         return self::$units[$unit];
     }
 
-    public function getCorrespondingTen(int $ten): string
+    /**
+     * @param int $ten
+     *
+     * @return string
+     */
+    public function getCorrespondingTen($ten)
     {
         return self::$tens[$ten];
     }
 
-    public function getCorrespondingTeen(int $teen): string
+    /**
+     * @param int $teen
+     *
+     * @return string
+     */
+    public function getCorrespondingTeen($teen)
     {
         return self::$teens[$teen];
     }
 
-    public function getCorrespondingHundred(int $hundred): string
+    /**
+     * @param int $hundred
+     *
+     * @return string
+     */
+    public function getCorrespondingHundred($hundred)
     {
         return self::$units[$hundred] . self::$hundred;
     }

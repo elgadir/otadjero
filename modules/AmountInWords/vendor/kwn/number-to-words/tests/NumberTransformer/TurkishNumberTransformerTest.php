@@ -4,12 +4,12 @@ namespace NumberToWords\NumberTransformer;
 
 class TurkishNumberTransformerTest extends NumberTransformerTest
 {
-    protected function setUp(): void
+    public function setUp()
     {
         $this->numberTransformer = new TurkishNumberTransformer();
     }
 
-    public function providerItConvertsNumbersToWords(): array
+    public function providerItConvertsNumbersToWords()
     {
         return [
             [0, 'sıfır'],

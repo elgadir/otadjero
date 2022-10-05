@@ -6,7 +6,7 @@ use NumberToWords\Language\ExponentGetter;
 
 class AlbanianExponentGetter implements ExponentGetter
 {
-    private static array $exponent = [
+    private static $exponent = [
         '',
         'mijë',
         'milion',
@@ -43,7 +43,12 @@ class AlbanianExponentGetter implements ExponentGetter
         'sexdeciliard',
     ];
 
-    public function getExponent(int $power): string
+    /**
+     * @param int $power
+     *
+     * @return string
+     */
+    public function getExponent($power)
     {
         return self::$exponent[$power];
     }

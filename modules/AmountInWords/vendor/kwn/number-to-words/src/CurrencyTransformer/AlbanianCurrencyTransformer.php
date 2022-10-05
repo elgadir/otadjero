@@ -8,11 +8,16 @@ use NumberToWords\Language\Albanian\AlbanianExponentGetter;
 use NumberToWords\Language\Albanian\AlbanianTripletTransformer;
 use NumberToWords\NumberTransformer\NumberTransformerBuilder;
 use NumberToWords\Service\NumberToTripletsConverter;
-use NumberToWords\TransformerOptions\CurrencyTransformerOptions;
 
 class AlbanianCurrencyTransformer implements CurrencyTransformer
 {
-    public function toWords(int $amount, string $currency, ?CurrencyTransformerOptions $options = null): string
+    /**
+     * {@inheritdoc}
+     *
+     * @throws NumberToWordsException
+     * @return string
+     */
+    public function toWords($amount, $currency, $options = null)
     {
         $dictionary = new AlbanianDictionary();
         $numberToTripletsConverter = new NumberToTripletsConverter();

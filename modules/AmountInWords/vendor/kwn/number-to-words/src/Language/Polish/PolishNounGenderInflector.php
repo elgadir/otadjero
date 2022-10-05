@@ -4,7 +4,15 @@ namespace NumberToWords\Language\Polish;
 
 class PolishNounGenderInflector
 {
-    public function inflectNounByNumber(int $number, string $singular, string $plural, string $genitivePlural): string
+    /**
+     * @param int    $number
+     * @param string $singular
+     * @param string $plural
+     * @param string $genitivePlural
+     *
+     * @return string
+     */
+    public function inflectNounByNumber($number, $singular, $plural, $genitivePlural)
     {
         $units = $number % 10;
         $tens = ((int) ($number / 10)) % 10;

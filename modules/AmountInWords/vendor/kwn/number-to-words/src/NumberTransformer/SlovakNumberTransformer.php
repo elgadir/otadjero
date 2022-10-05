@@ -10,7 +10,10 @@ use NumberToWords\Service\NumberToTripletsConverter;
 
 class SlovakNumberTransformer implements NumberTransformer
 {
-    public function toWords(int $number): string
+    /**
+     * @inheritdoc
+     */
+    public function toWords($number)
     {
         $dictionary = new SlovakDictionary();
         $numberToTripletsConverter = new NumberToTripletsConverter();

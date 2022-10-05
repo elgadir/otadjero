@@ -4,12 +4,12 @@ namespace NumberToWords\CurrencyTransformer;
 
 class RussianCurrencyTransformerTest extends CurrencyTransformerTest
 {
-    protected function setUp(): void
+    public function setUp()
     {
         $this->currencyTransformer = new RussianCurrencyTransformer();
     }
 
-    public function providerItConvertsMoneyAmountToWords(): array
+    public function providerItConvertsMoneyAmountToWords()
     {
         return [
             [100, 'UAH', 'одна гривна'],

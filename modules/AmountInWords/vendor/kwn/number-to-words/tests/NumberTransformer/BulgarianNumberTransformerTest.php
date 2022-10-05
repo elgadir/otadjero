@@ -4,12 +4,12 @@ namespace NumberToWords\NumberTransformer;
 
 class BulgarianNumberTransformerTest extends NumberTransformerTest
 {
-    protected function setUp(): void
+    public function setUp()
     {
         $this->numberTransformer = new BulgarianNumberTransformer();
     }
 
-    public function providerItConvertsNumbersToWords(): array
+    public function providerItConvertsNumbersToWords()
     {
         return [
             [0, 'нула'],

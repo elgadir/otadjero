@@ -3,15 +3,25 @@
 namespace NumberToWords\CurrencyTransformer;
 
 use NumberToWords\Exception\NumberToWordsException;
-use NumberToWords\Language\Lithuanian\LithuanianDictionary;
+use NumberToWords\Language\English\EnglishDictionary;
+use NumberToWords\Language\English\EnglishExponentGetter;
+use NumberToWords\Language\English\EnglishTripletTransformer;
+use NumberToWords\Language\Lithuania\LithuaniaDictionary;
+use NumberToWords\NumberTransformer\NumberTransformerBuilder;
+use NumberToWords\Service\NumberToTripletsConverter;
 use NumberToWords\NumberTransformer\LithuanianNumberTransformer;
-use NumberToWords\TransformerOptions\CurrencyTransformerOptions;
 
 class LithuanianCurrencyTransformer implements CurrencyTransformer
 {
-    public function toWords(int $amount, string $currency, ?CurrencyTransformerOptions $options = null): string
+    /**
+     * {@inheritdoc}
+     *
+     * @throws NumberToWordsException
+     * @return string
+     */
+    public function toWords($amount, $currency, $options = null)
     {
-        $dictionary = new LithuanianDictionary();
+        $dictionary = new LithuaniaDictionary();
         $numberTransformer = new LithuanianNumberTransformer();
 
         $decimal = (int) ($amount / 100);
@@ -23,13 +33,13 @@ class LithuanianCurrencyTransformer implements CurrencyTransformer
 
         $currency = strtoupper($currency);
 
-        if (!array_key_exists($currency, LithuanianDictionary::$currencyNames)) {
+        if (!array_key_exists($currency, LithuaniaDictionary::$currencyNames)) {
             throw new NumberToWordsException(
                 sprintf('Currency "%s" is not available for "%s" language', $currency, get_class($this))
             );
         }
 
-        $currencyNames = LithuanianDictionary::$currencyNames[$currency];
+        $currencyNames = LithuaniaDictionary::$currencyNames[$currency];
 
         $return = trim($numberTransformer->toWords($decimal));
         $level = $this->getLevel($decimal);
@@ -51,7 +61,11 @@ class LithuanianCurrencyTransformer implements CurrencyTransformer
         return $return;
     }
 
-    public function getLevel($number): int
+    /**
+     * @param $number
+     * @return int
+     */
+    public function getLevel($number)
     {
         $lastTwoDigits = $number % 100;
         $lastDigit = $number % 10;

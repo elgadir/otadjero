@@ -8,11 +8,16 @@ use NumberToWords\Language\English\EnglishExponentGetter;
 use NumberToWords\Language\English\EnglishTripletTransformer;
 use NumberToWords\NumberTransformer\NumberTransformerBuilder;
 use NumberToWords\Service\NumberToTripletsConverter;
-use NumberToWords\TransformerOptions\CurrencyTransformerOptions;
 
 class EnglishCurrencyTransformer implements CurrencyTransformer
 {
-    public function toWords(int $amount, string $currency, ?CurrencyTransformerOptions $options = null): string
+    /**
+     * {@inheritdoc}
+     *
+     * @throws NumberToWordsException
+     * @return string
+     */
+    public function toWords($amount, $currency, $options = null)
     {
         $dictionary = new EnglishDictionary();
         $numberToTripletsConverter = new NumberToTripletsConverter();

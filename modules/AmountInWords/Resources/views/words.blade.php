@@ -1,9 +1,4 @@
-<div class="text border-bottom-1 py-1">
-    <span class="float-left font-semibold">
-        {{ trans_choice('general.totals', 1) }}:
-    </span>
-
-    <span>
-        {{ $words }}
-    </span>
+<div class="border-top-1 py-2">
+    <strong class="float-left">{{ trans_choice('general.totals', 1)}}:</strong>
+    <span>{{ $words }}</span>
 </div>

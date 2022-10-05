@@ -4,5 +4,10 @@ namespace NumberToWords\Language;
 
 interface ExponentGetter
 {
-    public function getExponent(int $power): string;
+    /**
+     * @param int $power
+     *
+     * @return string
+     */
+    public function getExponent($power);
 }

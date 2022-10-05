@@ -4,12 +4,12 @@ namespace NumberToWords\CurrencyTransformer;
 
 class TurkmenCurrencyTransformerTest extends CurrencyTransformerTest
 {
-    protected function setUp(): void
+    public function setUp()
     {
         $this->currencyTransformer = new TurkmenCurrencyTransformer();
     }
 
-    public function providerItConvertsMoneyAmountToWords(): array
+    public function providerItConvertsMoneyAmountToWords()
     {
         return [
             [100, 'TMT', 'bir manat'],

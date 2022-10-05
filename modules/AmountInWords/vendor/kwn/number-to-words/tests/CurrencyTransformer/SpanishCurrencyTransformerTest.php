@@ -4,12 +4,12 @@ namespace NumberToWords\CurrencyTransformer;
 
 class SpanishCurrencyTransformerTest extends CurrencyTransformerTest
 {
-    protected function setUp(): void
+    public function setUp()
     {
         $this->currencyTransformer = new SpanishCurrencyTransformer();
     }
 
-    public function providerItConvertsMoneyAmountToWords(): array
+    public function providerItConvertsMoneyAmountToWords()
     {
         return [
             [100, 'PLN', 'un zloty'],

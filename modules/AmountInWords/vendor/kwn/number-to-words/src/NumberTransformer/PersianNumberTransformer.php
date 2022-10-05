@@ -2,14 +2,30 @@
 
 namespace NumberToWords\NumberTransformer;
 
-use NumberToWords\Language\Persian\PersianConverter;
+use NumberToWords\Service\NumberToTripletsConverter;
 use NumberToWords\Language\Persian\PersianDictionary;
+use NumberToWords\Language\Persian\PersianExponentGetter;
+use NumberToWords\Language\Persian\PersianTripletTransformer;
 
 class PersianNumberTransformer implements NumberTransformer
 {
-    public function toWords(int $number): string
+    /**
+     * @inheritdoc
+     */
+    public function toWords($number)
     {
         $dictionary = new PersianDictionary();
-        return (new PersianConverter($dictionary))->convert($number);
+        $numberToTripletsConverter = new NumberToTripletsConverter();
+        $tripletTransformer = new PersianTripletTransformer($dictionary);
+        $exponentInflector = new PersianExponentGetter();
+
+        $numberTransformer = (new NumberTransformerBuilder())
+            ->withDictionary($dictionary)
+            ->withWordsSeparatedBy(' ')
+            ->transformNumbersBySplittingIntoTriplets($numberToTripletsConverter, $tripletTransformer)
+            ->useRegularExponents($exponentInflector)
+            ->build();
+
+        return $numberTransformer->toWords($number);
     }
 }

@@ -4,6 +4,6 @@ namespace NumberToWords\Grammar;
 
 class Form
 {
-    public const SINGULAR = 'singular';
-    public const PLURAL = 'plural';
+    const SINGULAR = 'singular';
+    const PLURAL = 'plural';
 }

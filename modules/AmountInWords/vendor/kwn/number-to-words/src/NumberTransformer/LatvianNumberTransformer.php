@@ -9,7 +9,10 @@ use NumberToWords\Service\NumberToTripletsConverter;
 
 class LatvianNumberTransformer implements NumberTransformer
 {
-    public function toWords(int $number): string
+    /**
+     * @inheritdoc
+     */
+    public function toWords($number)
     {
         $dictionary = new LatvianDictionary();
         $numberToTripletsConverter = new NumberToTripletsConverter();

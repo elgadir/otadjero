@@ -6,7 +6,7 @@ use NumberToWords\Language\ExponentInflector;
 
 class SlovakExponentInflector implements ExponentInflector
 {
-    private static array $exponent = [
+    private static $exponent = [
         ['', '', ''],
         ['tisíc', 'tisíce', 'tisíc'],
         ['milión', 'milióny', 'miliónov'],
@@ -32,14 +32,26 @@ class SlovakExponentInflector implements ExponentInflector
         ['decyliard', 'decyliardy', 'decyliardów'],
     ];
 
-    private SlovakNounGenderInflector $inflector;
+    /**
+     * @var SlovakNounGenderInflector
+     */
+    private $inflector;
 
+    /**
+     * @param SlovakNounGenderInflector $inflector
+     */
     public function __construct(SlovakNounGenderInflector $inflector)
     {
         $this->inflector = $inflector;
     }
 
-    public function inflectExponent(int $number, int $power): string
+    /**
+     * @param int $number
+     * @param int $power
+     *
+     * @return string
+     */
+    public function inflectExponent($number, $power)
     {
         return $this->inflector->inflectNounByNumber(
             $number,

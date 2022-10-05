@@ -4,10 +4,41 @@ namespace NumberToWords\Language;
 
 interface Dictionary
 {
-    public function getZero(): string;
-    public function getMinus(): string;
-    public function getCorrespondingUnit(int $unit): string;
-    public function getCorrespondingTen(int $ten): string;
-    public function getCorrespondingTeen(int $teen): string;
-    public function getCorrespondingHundred(int $hundred): string;
+    /**
+     * @return string
+     */
+    public function getZero();
+
+    /**
+     * @return string
+     */
+    public function getMinus();
+
+    /**
+     * @param int $unit
+     *
+     * @return string
+     */
+    public function getCorrespondingUnit($unit);
+
+    /**
+     * @param int $ten
+     *
+     * @return string
+     */
+    public function getCorrespondingTen($ten);
+
+    /**
+     * @param int $teen
+     *
+     * @return string
+     */
+    public function getCorrespondingTeen($teen);
+
+    /**
+     * @param int $hundred
+     *
+     * @return string
+     */
+    public function getCorrespondingHundred($hundred);
 }

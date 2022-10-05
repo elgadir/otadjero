@@ -6,14 +6,25 @@ use NumberToWords\Language\TripletTransformer;
 
 class PolishTripletTransformer implements TripletTransformer
 {
-    private PolishDictionary $polishDictionary;
+    /**
+     * @var PolishDictionary
+     */
+    private $polishDictionary;
 
+    /**
+     * @param PolishDictionary $polishDictionary
+     */
     public function __construct(PolishDictionary $polishDictionary)
     {
         $this->polishDictionary = $polishDictionary;
     }
 
-    public function transformToWords(int $number): string
+    /**
+     * @param int $number
+     *
+     * @return string
+     */
+    public function transformToWords($number)
     {
         $units = $number % 10;
         $tens = (int) ($number / 10) % 10;

@@ -2,13 +2,16 @@
 
 namespace NumberToWords\CurrencyTransformer;
 
-use NumberToWords\Exception\NumberToWordsException;
 use NumberToWords\TransformerOptions\CurrencyTransformerOptions;
 
 interface CurrencyTransformer
 {
     /**
-     * @throws NumberToWordsException
+     * @param int                             $amount
+     * @param string                          $currency
+     * @param CurrencyTransformerOptions|null $options
+     *
+     * @return string
      */
-    public function toWords(int $amount, string $currency, ?CurrencyTransformerOptions $options = null): string;
+    public function toWords($amount, $currency, $options = null);
 }

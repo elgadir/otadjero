@@ -1,15 +1,14 @@
 <?php
 
 namespace NumberToWords\CurrencyTransformer;
-
 class GeorgianCurrencyTransformerTest extends CurrencyTransformerTest
 {
-    protected function setUp(): void
+    public function setUp()
     {
         $this->currencyTransformer = new GeorgianCurrencyTransformer();
     }
 
-    public function providerItConvertsMoneyAmountToWords(): array
+    public function providerItConvertsMoneyAmountToWords()
     {
         return [
             [1, 'GEL', 'ერთი თეთრი'],

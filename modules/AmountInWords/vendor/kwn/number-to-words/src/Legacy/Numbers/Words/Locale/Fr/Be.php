@@ -8,7 +8,10 @@ use NumberToWords\Service\NumberToTripletsConverter;
 
 class Be extends Words
 {
-    private NumberToTripletsConverter $numberToTripletsConverter;
+    /**
+     * @var NumberToTripletsConverter
+     */
+    private $numberToTripletsConverter;
 
     public function __construct()
     {
@@ -16,7 +19,7 @@ class Be extends Words
     }
 
     /**
-     * @param int $number
+     * @param int  $number
      * @param bool $last
      *
      * @return string
@@ -107,9 +110,9 @@ class Be extends Words
             if ($number != '000') {
                 if ($number != 1 || $pow != 2) {
                     $return .= $this->showDigitsGroup(
-                            $number,
-                            $i + 1 == $sizeOfNumberGroups || $pow > 2
-                        ) . BelgianDictionary::$wordSeparator;
+                        $number,
+                        $i + 1 == $sizeOfNumberGroups || $pow > 2
+                    ) . BelgianDictionary::$wordSeparator;
                 }
                 $return .= BelgianDictionary::$exponent[($pow - 1) * 3];
                 if ($pow > 2 && $number > 1) {

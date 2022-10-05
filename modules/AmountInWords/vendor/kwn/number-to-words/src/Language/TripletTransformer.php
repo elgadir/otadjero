@@ -4,5 +4,10 @@ namespace NumberToWords\Language;
 
 interface TripletTransformer
 {
-    public function transformToWords(int $number): string;
+    /**
+     * @param int $number
+     *
+     * @return string
+     */
+    public function transformToWords($number);
 }

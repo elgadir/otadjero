@@ -4,12 +4,12 @@ namespace NumberToWords\NumberTransformer;
 
 class MalayNumberTransformerTest extends NumberTransformerTest
 {
-    protected function setUp(): void
+    public function setUp()
     {
         $this->numberTransformer = new MalayNumberTransformer();
     }
 
-    public function providerItConvertsNumbersToWords(): array
+    public function providerItConvertsNumbersToWords()
     {
         return [
             [-103, 'negatif seratus tiga'],

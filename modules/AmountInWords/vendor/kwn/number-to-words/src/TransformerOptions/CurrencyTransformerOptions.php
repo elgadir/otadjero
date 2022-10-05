@@ -4,56 +4,88 @@ namespace NumberToWords\TransformerOptions;
 
 class CurrencyTransformerOptions
 {
-    private bool $convertFraction = true;
-    private bool $convertFractionIfZero = true;
-    private bool $showDecimalIfZero = false;
-    private bool $showFractionIfZero = false;
+    private $convertFraction = true;
+    private $convertFractionIfZero = true;
+    private $showDecimalIfZero = false;
+    private $showFractionIfZero = false;
 
-    public function isConvertFraction(): bool
+    /**
+     * @return bool
+     */
+    public function isConvertFraction()
     {
         return $this->convertFraction;
     }
 
-    public function setConvertFraction(bool $convertFraction): self
+    /**
+     * @param bool $convertFraction
+     *
+     * @return self
+     */
+    public function setConvertFraction($convertFraction)
     {
         $this->convertFraction = $convertFraction;
 
         return $this;
     }
 
-    public function isConvertFractionIfZero(): bool
+    /**
+     * @return bool
+     */
+    public function isConvertFractionIfZero()
     {
         return $this->convertFractionIfZero;
     }
 
-    public function setConvertFractionIfZero(bool $convertFractionIfZero): self
+    /**
+     * @param bool $convertFractionIfZero
+     *
+     * @return self
+     */
+    public function setConvertFractionIfZero($convertFractionIfZero)
     {
         $this->convertFractionIfZero = $convertFractionIfZero;
 
         return $this;
     }
 
-    public function isShowDecimalIfZero(): bool
+    /**
+     * @return bool
+     */
+    public function isShowDecimalIfZero()
     {
         return $this->showDecimalIfZero;
     }
 
-    public function setShowDecimalIfZero(bool $showDecimalIfZero): self
+    /**
+     * @param bool $showDecimalIfZero
+     *
+     * @return self
+     */
+    public function setShowDecimalIfZero($showDecimalIfZero)
     {
         $this->showDecimalIfZero = $showDecimalIfZero;
 
         return $this;
     }
 
-    public function isShowFractionIfZero(): bool
+    /**
+     * @return bool
+     */
+    public function isShowFractionIfZero()
     {
         return $this->showFractionIfZero;
     }
 
-    public function setShowFractionIfZero(bool $showFractionIfZero): self
+    /**
+     * @param bool $showFractionIfZero
+     *
+     * @return self
+     */
+    public function setShowFractionIfZero($showFractionIfZero)
     {
         $this->showFractionIfZero = $showFractionIfZero;
-
+        
         return $this;
     }
 }

@@ -6,15 +6,15 @@ use NumberToWords\Grammar\Gender;
 
 class Dictionary
 {
-    public const LOCALE = 'ro';
-    public const LANGUAGE_NAME = 'Romanian';
-    public const LANGUAGE_NAME_NATIVE = 'Română';
-    public const MINUS = 'minus';
+    const LOCALE = 'ro';
+    const LANGUAGE_NAME = 'Romanian';
+    const LANGUAGE_NAME_NATIVE = 'Română';
+    const MINUS = 'minus';
 
-    public static int $thresholdFew = 1;
-    public static int $thresholdMany = 19;
+    public static $thresholdFew = 1;
+    public static $thresholdMany = 19;
 
-    public static array $numbers = [
+    public static $numbers = [
         'zero', // 0
         [ // 1
             [ // masculine
@@ -62,13 +62,13 @@ class Dictionary
         90 => 'nouăzeci', // 90
     ];
 
-    public static string $infinity = 'infinit';
+    public static $infinity = 'infinit';
 
-    public static string $and = 'și';
+    public static $and = 'și';
 
-    public static string $wordSeparator = ' ';
+    public static $wordSeparator = ' ';
 
-    public static array $currencyNames = [
+    public static $currencyNames = [
         'AUD' => [
             ['dolar australian', 'dolari australieni', Gender::GENDER_MASCULINE],
             ['cent', 'cenți', Gender::GENDER_MASCULINE],
@@ -131,11 +131,11 @@ class Dictionary
         ],
     ];
 
-    public static string $manyPart = 'de';
+    public static $manyPart = 'de';
 
-    public static string $minus = 'minus';
+    public static $minus = 'minus';
 
-    public static array $exponent = [
+    public static $exponent = [
         0 => '',
         2 => ['sută', 'sute', Gender::GENDER_FEMININE],
         3 => ['mie', 'mii', Gender::GENDER_FEMININE],

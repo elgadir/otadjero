@@ -4,12 +4,12 @@ namespace NumberToWords\NumberTransformer;
 
 class ItalianNumberTransformerTest extends NumberTransformerTest
 {
-    protected function setUp(): void
+    public function setUp()
     {
         $this->numberTransformer = new ItalianNumberTransformer();
     }
 
-    public function providerItConvertsNumbersToWords(): array
+    public function providerItConvertsNumbersToWords()
     {
         return [
             [-140, 'meno centoquaranta'],

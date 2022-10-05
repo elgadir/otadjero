@@ -3,13 +3,23 @@
 namespace NumberToWords\CurrencyTransformer;
 
 use NumberToWords\Exception\NumberToWordsException;
+use NumberToWords\Language\English\EnglishDictionary;
+use NumberToWords\Language\English\EnglishExponentGetter;
+use NumberToWords\Language\English\EnglishTripletTransformer;
 use NumberToWords\Language\Latvian\LatvianDictionary;
+use NumberToWords\NumberTransformer\NumberTransformerBuilder;
+use NumberToWords\Service\NumberToTripletsConverter;
 use NumberToWords\NumberTransformer\LatvianNumberTransformer;
-use NumberToWords\TransformerOptions\CurrencyTransformerOptions;
 
 class LatvianCurrencyTransformer implements CurrencyTransformer
 {
-    public function toWords(int $amount, string $currency, ?CurrencyTransformerOptions $options = null): string
+    /**
+     * {@inheritdoc}
+     *
+     * @throws NumberToWordsException
+     * @return string
+     */
+    public function toWords($amount, $currency, $options = null)
     {
         $dictionary = new LatvianDictionary();
         $numberTransformer = new LatvianNumberTransformer();

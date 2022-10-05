@@ -2,33 +2,42 @@
 
 namespace NumberToWords;
 
-use NumberToWords\Exception\InvalidArgumentException;
+use NumberToWords\CurrencyTransformer\CurrencyTransformer;
+use NumberToWords\NumberTransformer\NumberTransformer;
+use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 
 class NumberToWordsTest extends TestCase
 {
-    public function testItThrowsExceptionIfNumberTransformerDoesNotExist(): void
+    public function testItThrowsExceptionIfNumberTransformerDoesNotExist()
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->setExpectedException(\InvalidArgumentException::class);
 
         $numberToWords = new NumberToWords();
         $numberToWords->getNumberTransformer('xx');
     }
 
-    public function testItThrowsExceptionIfCurrencyTransformerDoesNotExist(): void
+    public function testItThrowsExceptionIfCurrencyTransformerDoesNotExist()
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->setExpectedException(\InvalidArgumentException::class);
 
         $numberToWords = new NumberToWords();
         $numberToWords->getCurrencyTransformer('xx');
     }
 
-    public function testItNumberTransformerAndCurrencyTransformerWithStaticMethods(): void
+    public function testItReturnsNumberTransformer()
     {
-        $numberToWords = NumberToWords::transformNumber('en', 5120);
-        $currencyToWords = NumberToWords::transformCurrency('en', 5099, 'USD');
+        $numberToWords = new NumberToWords();
+        $numberToWordsTransformer = $numberToWords->getNumberTransformer('en');
 
-        $this->assertEquals($numberToWords, 'five thousand one hundred twenty');
-        $this->assertEquals($currencyToWords, 'fifty dollars ninety-nine cents');
+        Assert::assertInstanceOf(NumberTransformer::class, $numberToWordsTransformer);
+    }
+
+    public function testItReturnsCurrencyTransformer()
+    {
+        $numberToWords = new NumberToWords();
+        $numberToWordsTransformer = $numberToWords->getCurrencyTransformer('en');
+
+        Assert::assertInstanceOf(CurrencyTransformer::class, $numberToWordsTransformer);
     }
 }

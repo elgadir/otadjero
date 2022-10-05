@@ -4,5 +4,11 @@ namespace NumberToWords\Language;
 
 interface PowerAwareTripletTransformer
 {
-    public function transformToWords(int $number, int $power): string;
+    /**
+     * @param int $number
+     * @param int $power
+     *
+     * @return string
+     */
+    public function transformToWords($number, $power);
 }

@@ -11,69 +11,112 @@ use NumberToWords\Service\NumberToTripletsConverter;
 
 class NumberTransformerBuilder
 {
-    private NumberTransformer $numberTransformer;
+    /**
+     * @var NumberTransformer
+     */
+    private $numberTransformer;
 
     public function __construct()
     {
         $this->numberTransformer = new GenericNumberTransformer();
     }
 
-    public function withDictionary(Dictionary $dictionary): self
+    /**
+     * @param Dictionary $dictionary
+     *
+     * @return $this
+     */
+    public function withDictionary(Dictionary $dictionary)
     {
         $this->numberTransformer->setDictionary($dictionary);
 
         return $this;
     }
 
-    public function withWordsSeparatedBy(string $separator): self
+    /**
+     * @param string $separator
+     *
+     * @return $this
+     */
+    public function withWordsSeparatedBy($separator)
     {
         $this->numberTransformer->setWordsSeparator($separator);
 
         return $this;
     }
 
-    public function withExponentsSeparatedBy(string $separator): self
+    /**
+     * @param string $separator
+     *
+     * @return $this
+     */
+    public function withExponentsSeparatedBy($separator)
     {
         $this->numberTransformer->setExponentsSeparator($separator);
 
         return $this;
     }
 
+    /**
+     * @param NumberToTripletsConverter $numberToTripletsConverter
+     * @param TripletTransformer        $tripletTransformer
+     *
+     * @return $this
+     */
     public function transformNumbersBySplittingIntoTriplets(
         NumberToTripletsConverter $numberToTripletsConverter,
         TripletTransformer $tripletTransformer
-    ): self {
+    ) {
         $this->numberTransformer->setNumberToTripletsConverter($numberToTripletsConverter);
         $this->numberTransformer->setTripletTransformer($tripletTransformer);
 
         return $this;
     }
 
+    /**
+     * @param NumberToTripletsConverter    $numberToTripletsConverter
+     * @param PowerAwareTripletTransformer $powerAwareTripletTransformer
+     *
+     * @return $this
+     */
     public function transformNumbersBySplittingIntoPowerAwareTriplets(
         NumberToTripletsConverter $numberToTripletsConverter,
         PowerAwareTripletTransformer $powerAwareTripletTransformer
-    ): self {
+    ) {
         $this->numberTransformer->setNumberToTripletsConverter($numberToTripletsConverter);
         $this->numberTransformer->setPowerAwareTripletTransformer($powerAwareTripletTransformer);
 
         return $this;
     }
 
-    public function inflectExponentByNumbers(ExponentInflector $exponentInflector): self
+    /**
+     * @param ExponentInflector $exponentInflector
+     *
+     * @return $this
+     */
+    public function inflectExponentByNumbers(ExponentInflector $exponentInflector)
     {
         $this->numberTransformer->setExponentInflector($exponentInflector);
 
         return $this;
     }
 
-    public function useRegularExponents(ExponentGetter $exponentGetter): self
+    /**
+     * @param ExponentGetter $exponentGetter
+     *
+     * @return $this
+     */
+    public function useRegularExponents(ExponentGetter $exponentGetter)
     {
         $this->numberTransformer->setExponentGetter($exponentGetter);
 
         return $this;
     }
 
-    public function build(): NumberTransformer
+    /**
+     * @return NumberTransformer
+     */
+    public function build()
     {
         return $this->numberTransformer;
     }

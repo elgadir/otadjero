@@ -4,14 +4,15 @@ namespace NumberToWords\NumberTransformer;
 
 class DutchNumberTransformerTest extends NumberTransformerTest
 {
-    protected function setUp(): void
+    public function setUp()
     {
         $this->numberTransformer = new DutchNumberTransformer();
     }
 
-    public function providerItConvertsNumbersToWords(): array
+    public function providerItConvertsNumbersToWords()
     {
         return [
+            
             [0, 'nul'],
             [1, 'één'],
             [9, 'negen'],

@@ -4,16 +4,16 @@ namespace NumberToWords\NumberTransformer;
 
 class TurkmenNumberTransformerTest extends NumberTransformerTest
 {
-    protected function setUp(): void
+    public function setUp()
     {
         $this->numberTransformer = new TurkmenNumberTransformer();
     }
 
-    public function providerItConvertsNumbersToWords(): array
+    public function providerItConvertsNumbersToWords()
     {
         return [
-            [-1174315110, 'minus bir milliard bir ýüz ýetmiş dört million üç ýüz on bäş müň bir ýüz on'],
             [-21, 'minus ýigrimi bir'],
+            [-1174315110, 'minus bir milliard bir ýüz ýetmiş dört million üç ýüz on bäş müň bir ýüz on'],
             [0, 'nol'],
             [1, 'bir'],
             [3, 'üç'],

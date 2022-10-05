@@ -6,14 +6,25 @@ use NumberToWords\Language\TripletTransformer;
 
 class LatvianTripletTransformer implements TripletTransformer
 {
-    private LatvianDictionary $dictionary;
+    /**
+     * @var LatvianDictionary
+     */
+    private $dictionary;
 
+    /**
+     * @param LatvianDictionary $latvianDictionary
+     */
     public function __construct(LatvianDictionary $latvianDictionary)
     {
         $this->dictionary = $latvianDictionary;
     }
 
-    public function transformToWords(int $number): string
+    /**
+     * @param int $number
+     *
+     * @return string
+     */
+    public function transformToWords($number)
     {
         $units = $number % 10;
         $tens = (int) ($number / 10) % 10;

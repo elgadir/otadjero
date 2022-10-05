@@ -9,11 +9,16 @@ use NumberToWords\Language\Slovak\SlovakNounGenderInflector;
 use NumberToWords\Language\Slovak\SlovakTripletTransformer;
 use NumberToWords\NumberTransformer\NumberTransformerBuilder;
 use NumberToWords\Service\NumberToTripletsConverter;
-use NumberToWords\TransformerOptions\CurrencyTransformerOptions;
 
 class SlovakCurrencyTransformer implements CurrencyTransformer
 {
-    public function toWords(int $amount, string $currency, ?CurrencyTransformerOptions $options = null): string
+    /**
+     * {@inheritdoc}
+     *
+     * @throws NumberToWordsException
+     * @return string
+     */
+    public function toWords($amount, $currency, $options = null)
     {
         $dictionary = new SlovakDictionary();
         $numberToTripletsConverter = new NumberToTripletsConverter();

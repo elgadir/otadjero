@@ -6,7 +6,7 @@ use NumberToWords\Language\ExponentGetter;
 
 class EnglishExponentGetter implements ExponentGetter
 {
-    private static array $exponent = [
+    private static $exponent = [
         '',
         'thousand',
         'million',
@@ -31,7 +31,12 @@ class EnglishExponentGetter implements ExponentGetter
         'vigintillion',
     ];
 
-    public function getExponent(int $power): string
+    /**
+     * @param int $power
+     *
+     * @return string
+     */
+    public function getExponent($power)
     {
         return self::$exponent[$power];
     }

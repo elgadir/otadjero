@@ -4,12 +4,12 @@ namespace NumberToWords\CurrencyTransformer;
 
 class FrenchCurrencyTransformerTest extends CurrencyTransformerTest
 {
-    protected function setUp(): void
+    public function setUp()
     {
         $this->currencyTransformer = new FrenchCurrencyTransformer();
     }
 
-    public function providerItConvertsMoneyAmountToWords(): array
+    public function providerItConvertsMoneyAmountToWords()
     {
         return [
             [100, 'EUR', 'un euro'],
@@ -20,10 +20,6 @@ class FrenchCurrencyTransformerTest extends CurrencyTransformerTest
             [754414599, 'AUD', 'sept millions cinq cent quarante-quatre mille cent quarante-cinq dollars australiens et quatre-vingt-dix-neuf cents'],
             [754414599, 'CAD', 'sept millions cinq cent quarante-quatre mille cent quarante-cinq dollars canadiens et quatre-vingt-dix-neuf cents'],
             [754414599, 'USD', 'sept millions cinq cent quarante-quatre mille cent quarante-cinq dollars américains et quatre-vingt-dix-neuf cents'],
-            [100, 'GBP', 'un pound'],
-            [1000, 'GBP', 'dix pounds'],
-            [70001, 'GBP', 'sept cents pounds et un penny'],
-            [700010, 'GBP', 'sept mille pounds et dix pence'],
         ];
     }
 }

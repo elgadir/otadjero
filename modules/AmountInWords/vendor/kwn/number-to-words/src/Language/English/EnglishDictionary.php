@@ -6,13 +6,13 @@ use NumberToWords\Language\Dictionary;
 
 class EnglishDictionary implements Dictionary
 {
-    public const LOCALE = 'en_US';
-    public const LANGUAGE_NAME = 'American English';
-    public const LANGUAGE_NAME_NATIVE = 'American English';
+    const LOCALE = 'en_US';
+    const LANGUAGE_NAME = 'American English';
+    const LANGUAGE_NAME_NATIVE = 'American English';
 
-    private static array $units = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+    private static $units = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
 
-    private static array $teens = [
+    private static $teens = [
         'ten',
         'eleven',
         'twelve',
@@ -25,7 +25,7 @@ class EnglishDictionary implements Dictionary
         'nineteen'
     ];
 
-    private static array $tens = [
+    private static $tens = [
         '',
         'ten',
         'twenty',
@@ -38,9 +38,9 @@ class EnglishDictionary implements Dictionary
         'ninety'
     ];
 
-    private static string $hundred = 'hundred';
+    private static $hundred = 'hundred';
 
-    public static array $currencyNames = [
+    public static $currencyNames = [
         'ALL' => [['lek'], ['qindarka']],
         'AUD' => [['Australian dollar'], ['cent']],
         'BAM' => [['convertible marka'], ['fenig']],
@@ -75,7 +75,6 @@ class EnglishDictionary implements Dictionary
         'PLN' => [['zloty', 'zlotys'], ['grosz']],
         'ROL' => [['Romanian leu'], ['bani']],
         'RUB' => [['Russian Federation rouble'], ['kopiejka']],
-        'SAR' => [['Riyal'], ['Halalah']],
         'SEK' => [['Swedish krona'], ['oere']],
         'SIT' => [['Tolar'], ['stotinia']],
         'SKK' => [['Slovak koruna'], []],
@@ -91,32 +90,58 @@ class EnglishDictionary implements Dictionary
         'ZAR' => [['rand'], ['cent']],
     ];
 
-    public function getZero(): string
+    /**
+     * @return string
+     */
+    public function getZero()
     {
         return 'zero';
     }
 
-    public function getMinus(): string
+    /**
+     * @return string
+     */
+    public function getMinus()
     {
         return 'minus';
     }
 
-    public function getCorrespondingUnit(int $unit): string
+    /**
+     * @param int $unit
+     *
+     * @return string
+     */
+    public function getCorrespondingUnit($unit)
     {
         return self::$units[$unit];
     }
 
-    public function getCorrespondingTen(int $ten): string
+    /**
+     * @param int $ten
+     *
+     * @return string
+     */
+    public function getCorrespondingTen($ten)
     {
         return self::$tens[$ten];
     }
 
-    public function getCorrespondingTeen(int $teen): string
+    /**
+     * @param int $teen
+     *
+     * @return string
+     */
+    public function getCorrespondingTeen($teen)
     {
         return self::$teens[$teen];
     }
 
-    public function getCorrespondingHundred(int $hundred): string
+    /**
+     * @param int $hundred
+     *
+     * @return string
+     */
+    public function getCorrespondingHundred($hundred)
     {
         return self::$units[$hundred] . ' ' . self::$hundred;
     }

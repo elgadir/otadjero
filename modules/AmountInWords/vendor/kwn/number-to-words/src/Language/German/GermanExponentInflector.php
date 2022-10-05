@@ -6,7 +6,13 @@ use NumberToWords\Language\ExponentInflector;
 
 class GermanExponentInflector implements ExponentInflector
 {
-    public function inflectExponent(int $number, int $power): string
+    /**
+     * @param int $number
+     * @param int $power
+     *
+     * @return string
+     */
+    public function inflectExponent($number, $power)
     {
         $singularPlural = $number % 10 === 1 ? 0 : 1;
 

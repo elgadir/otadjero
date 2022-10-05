@@ -2,12 +2,12 @@
 
 namespace NumberToWords\NumberTransformer;
 
-use NumberToWords\Exception\NumberToWordsException;
-
 interface NumberTransformer
 {
     /**
-     * @throws NumberToWordsException
+     * @param int $number
+     *
+     * @return string
      */
-    public function toWords(int $number): string;
+    public function toWords($number);
 }

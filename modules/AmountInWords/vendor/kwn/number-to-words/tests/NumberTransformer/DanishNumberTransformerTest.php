@@ -4,12 +4,12 @@ namespace NumberToWords\NumberTransformer;
 
 class DanishNumberTransformerTest extends NumberTransformerTest
 {
-    protected function setUp(): void
+    public function setUp()
     {
         $this->numberTransformer = new DanishNumberTransformer();
     }
 
-    public function providerItConvertsNumbersToWords(): array
+    public function providerItConvertsNumbersToWords()
     {
         return [
             [-13, 'minus tretten'],

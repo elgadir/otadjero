@@ -9,11 +9,16 @@ use NumberToWords\Language\Polish\PolishNounGenderInflector;
 use NumberToWords\Language\Polish\PolishTripletTransformer;
 use NumberToWords\NumberTransformer\NumberTransformerBuilder;
 use NumberToWords\Service\NumberToTripletsConverter;
-use NumberToWords\TransformerOptions\CurrencyTransformerOptions;
 
 class PolishCurrencyTransformer implements CurrencyTransformer
 {
-    public function toWords(int $amount, string $currency, ?CurrencyTransformerOptions $options = null): string
+    /**
+     * {@inheritdoc}
+     *
+     * @throws NumberToWordsException
+     * @return string
+     */
+    public function toWords($amount, $currency, $options = null)
     {
         $dictionary = new PolishDictionary();
         $numberToTripletsConverter = new NumberToTripletsConverter();

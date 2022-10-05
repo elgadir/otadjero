@@ -4,12 +4,12 @@ namespace NumberToWords\CurrencyTransformer;
 
 class PolishCurrencyTransformerTest extends CurrencyTransformerTest
 {
-    protected function setUp(): void
+    public function setUp()
     {
         $this->currencyTransformer = new PolishCurrencyTransformer();
     }
 
-    public function providerItConvertsMoneyAmountToWords(): array
+    public function providerItConvertsMoneyAmountToWords()
     {
         return [
             //[100, 'CZK', 'jedna korona czeska'],
