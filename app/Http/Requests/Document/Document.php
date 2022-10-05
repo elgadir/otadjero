@@ -47,7 +47,7 @@ class Document extends FormRequest
 
         $rules = [
             'type' => 'required|string',
-            'document_number' => 'required|string|unique:documents,NULL,' . $id . ',id,type,' . $type . ',company_id,' . $company_id . ',deleted_at,NULL',
+            'document_number' => 'string|unique:documents,NULL,' . $id . ',id,type,' . $type . ',company_id,' . $company_id . ',deleted_at,NULL',
             'status' => 'required|string',
             'issued_at' => 'required|date_format:Y-m-d H:i:s|before_or_equal:due_at',
             'due_at' => 'required|date_format:Y-m-d H:i:s|after_or_equal:issued_at',
@@ -63,6 +63,7 @@ class Document extends FormRequest
             'attachment.*' => $attachment,
             'recurring_count' => 'gte:0',
             'recurring_interval' => 'exclude_unless:recurring_frequency,custom|gt:0',
+            'w_id'=>"nullable"
         ];
 
         $items = $this->request->get('items');
