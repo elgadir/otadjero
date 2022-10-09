@@ -25,6 +25,7 @@
                 @if (!$hideCompanyName)
                     <strong>{{ setting('company.name') }}</strong><br>
                 @endif
+                <span class="pdf-details">{{ $warehouseDetails->name ?? 'N/A' }}</span>
                 <p>
                     @if (!$hideCompanyAddress)
                         
@@ -59,6 +60,7 @@
              <strong>
                        
                     </strong>
+                    
                     <span class="pdf-details">{!! nl2br($warehouseDetails->address ?? 'N/A') !!}</span><br>
         </div>
     </div>
@@ -115,11 +117,7 @@
 
     <div class="col-42">
         <div class="text company">
-            <br>
-              <strong>
-                        Center : 
-                    </strong>
-                    <span class="pdf-details">{{ $warehouseDetails->name ?? 'N/A' }}</span><br>
+            
             @stack('document_number_input_start')
                 @if (!$hideDocumentNumber)
                     <strong>
