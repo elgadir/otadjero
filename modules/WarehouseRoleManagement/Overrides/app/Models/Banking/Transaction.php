@@ -398,7 +398,7 @@ class Transaction extends Model
         }
 
         if ($this->isExpense()) {
-            if ($this->document->type != 'bill') {
+            if (optional($this->document)->type != 'bill') {
                 return $this->getRouteFromConfig();
             } else {
                 return !empty($this->document_id) ? 'bills.show' : 'payments.show';
