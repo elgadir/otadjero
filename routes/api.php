@@ -12,6 +12,21 @@ $api = app('Dingo\Api\Routing\Router');
 
 $api->version('v3', ['middleware' => ['api']], function($api) {
     $api->group(['as' => 'api', 'namespace' => 'App\Http\Controllers\Api'], function($api) {
+        
+        // New API
+        $api->get('inventory','Inventory\Inventory@create')->name('inventory.create');
+        
+        
+        
+        
+        
+        $api->get('companies/{company}/inventory', 'Common\Companies@inventory')->name('companies.inventory');
+        $api->get('companies/{company}/estimate', 'Common\Companies@estimate')->name('.companies.estimate');
+        $api->get('companies/{company}/sales-orders', 'Common\Companies@saleOrder')->name('.companies.sale.order');
+
+        $api->get('companies/{company}/credit-notes', 'Common\Companies@creditNotes')->name('.companies.credit.notes');
+        
+
         // Companies
         $api->get('companies/{company}/owner', 'Common\Companies@canAccess')->name('.companies.owner');
         $api->get('companies/{company}/enable', 'Common\Companies@enable')->name('.companies.enable');
