@@ -35,13 +35,7 @@
                         
                     @endif
 
-                    @if (!$hideCompanyTaxNumber)
-                        
-                            @if (setting('company.tax_number'))
-                                {{ trans('general.tax_number') }}: {{ setting('company.tax_number') }}
-                            @endif
-                        
-                    @endif
+                    
 
                     @if (!$hideCompanyPhone)
                     
