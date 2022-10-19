@@ -122,6 +122,13 @@
                     </li>
                     @stack('customer_reference_end')
                 @endif
+
+                <li class="list-group-item border-0 border-top-1">
+                    <div class="font-weight-600">Age</div>
+                    <div><small>{{ \Carbon\Carbon::parse($customer->date_of_birth)->diff(\Carbon\Carbon::now())->format('%y years')}}</small></div>
+                    
+                </li>
+               
             </ul>
 
             @stack('customer_edit_button_start')

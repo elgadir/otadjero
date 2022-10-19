@@ -50,6 +50,7 @@ class Contact extends Model
         'enabled',
         'created_from',
         'created_by',
+        'date_of_birth'
     ];
 
     /**

@@ -31,8 +31,8 @@ class EnglishCurrencyTransformer implements CurrencyTransformer
             ->useRegularExponents($exponentInflector)
             ->build();
 
-        $decimal = (int) ($amount / 100);
-        $fraction = abs($amount % 100);
+        $decimal = (int) ($amount); //($amount/100)
+        $fraction = abs($amount);  //($amount%100);
 
         if ($fraction === 0) {
             $fraction = null;
@@ -48,6 +48,8 @@ class EnglishCurrencyTransformer implements CurrencyTransformer
 
         $currencyNames = EnglishDictionary::$currencyNames[$currency];
 
+
+
         $return = trim($numberTransformer->toWords($decimal));
         $level = ($decimal === 1) ? 0 : 1;
 
@@ -61,7 +63,7 @@ class EnglishCurrencyTransformer implements CurrencyTransformer
             $return .= ' ' . $currencyNames[0][0];
         }
 
-        if (null !== $fraction) {
+        if (false) { //null !== $fraction
             $return .= ' ' . trim($numberTransformer->toWords($fraction));
 
             $level = $fraction === 1 ? 0 : 1;

@@ -4,6 +4,7 @@ namespace App\Transformers\Common;
 
 use App\Models\Common\Contact as Model;
 use League\Fractal\TransformerAbstract;
+use Carbon\Carbon;
 
 class Contact extends TransformerAbstract
 {
@@ -26,6 +27,8 @@ class Contact extends TransformerAbstract
             'website' => $model->website,
             'currency_code' => $model->currency_code,
             'enabled' => $model->enabled,
+            'date_of_birth' => $model->date_of_birth,
+            'age' => Carbon::parse($model->date_of_birth)->diff(\Carbon\Carbon::now())->format('%y years'),// years, %m months and %d days
             'reference' => $model->reference,
             'created_by' => $model->created_by,
             'created_at' => $model->created_at ? $model->created_at->toIso8601String() : '',
