@@ -368,7 +368,7 @@ abstract class DocumentIndex extends Base
                 break;
         }
 
-        return 'https://akaunting.com/docs/user-manual/' . $docsPath;
+        return 'https://otadjer.com/docs/user-manual/' . $docsPath;
     }
 
     protected function getTextPage($type, $textPage)

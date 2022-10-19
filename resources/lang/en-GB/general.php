@@ -85,7 +85,7 @@ return [
     'delete_confirm'        => 'Confirm delete :name :type?',
     'name'                  => 'Name',
     'email'                 => 'Email',
-    'tax_number'            => 'Tax Number',
+    'tax_number'            => 'Doctor name',
     'phone'                 => 'Phone',
     'address'               => 'Address',
     'website'               => 'Website',

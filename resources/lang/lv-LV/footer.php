@@ -3,8 +3,8 @@
 return [
 
     'version'               => 'Versija',
-    'powered'               => 'Darbojas, izmantojot Akaunting',
-    'link'                  => 'https://akaunting.com',
+    'powered'               => 'Powered By oTadjer',
+    'link'                  => 'https://otadjer.com',
     'software'              => 'Bezmaksas grāmatvedības programma',
 
 ];

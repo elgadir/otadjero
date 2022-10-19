@@ -19,7 +19,7 @@ class UpdateAll extends Command
      *
      * @var string
      */
-    protected $description = 'Allows to update Akaunting and all modules at once';
+    protected $description = 'Allows to update Otadjerand all modules at once';
 
     /**
      * Execute the console command.

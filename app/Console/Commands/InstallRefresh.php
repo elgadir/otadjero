@@ -20,7 +20,7 @@ class InstallRefresh extends Command
      *
      * @var string
      */
-    protected $description = 'Allows to refresh Akaunting installation directly through CLI';
+    protected $description = 'Allows to refresh Otadjerinstallation directly through CLI';
 
     /**
      * Execute the console command.
@@ -37,7 +37,7 @@ class InstallRefresh extends Command
             '--force' => true,
         ]);
 
-        $this->info('Installing Akaunting');
+        $this->info('Installing Otadjer');
         $this->callSilent('install', [
             '--db-host' => env('DB_HOST'),
             '--db-port' => env('DB_PORT'),

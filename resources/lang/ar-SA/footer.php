@@ -3,8 +3,8 @@
 return [
 
     'version'               => 'إصدار',
-    'powered'               => 'بواسطة أكاونتينج',
-    'link'                  => 'https://akaunting.com',
-    'software'              => 'برنامج محاسبي مجاني',
+    'powered'               => 'بواسطة أتاجر',
+    'link'                  => 'https://otadjer.com',
+    'software'              => 'برنامج محاسبي للأعمال المتنامية',
 
 ];

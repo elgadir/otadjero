@@ -104,7 +104,7 @@ class EmptyPage extends Component
             $docs_path = $group . '/' . $page;
         }
 
-        return 'https://akaunting.com/docs/user-manual/' . $docs_path;
+        return 'https://otadjer.com/docs/user-manual/' . $docs_path;
     }
 
     protected function getPermissionCreate($page, $group, $permissionCreate)

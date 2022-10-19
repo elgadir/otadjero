@@ -3,8 +3,8 @@
 return [
 
     'version'               => 'Versioon',
-    'powered'               => 'Kasutatud tarkvara: Akaunting',
-    'link'                  => 'https://akaunting.com',
+    'powered'               => 'Kasutatud tarkvara: Otadjer',
+    'link'                  => 'https://otadjer.com',
     'software'              => 'Tasuta raamatupidamistarkvara',
 
 ];

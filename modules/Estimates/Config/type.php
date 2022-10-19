@@ -23,7 +23,7 @@ return [
         'transaction_type'    => 'income',
         'contact_type'        => 'customer',
         'image_empty_page'    => 'public/img/empty_pages/invoices.png',
-        'docs_path'           => 'https://akaunting.com/apps/estimates',
+        'docs_path'           => 'https://otadjer.com/apps/estimates',
         'search_string_model' => Estimate::class,
     ],
 ];

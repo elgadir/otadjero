@@ -8,9 +8,13 @@ use App\Jobs\Common\CreateCompany;
 use App\Jobs\Common\DeleteCompany;
 use App\Jobs\Common\UpdateCompany;
 use App\Models\Common\Company;
+use App\Models\Document\DocumentItem;
+use App\Models\Document\Document;
 use App\Transformers\Common\Company as Transformer;
 use App\Traits\Users;
 use Dingo\Api\Http\Response;
+use App\Jobs\Document\CreateDocument;
+
 
 class Companies extends ApiController
 {
@@ -144,5 +148,23 @@ class Companies extends ApiController
         $message = trans('companies.error.not_user_company');
 
         $this->response->errorUnauthorized($message);
+    }
+
+    public function inventory(Company $company)
+    {
+       return DocumentItem::where("company_id",$company->id)->paginate(5);
+    }
+    
+    public function estimate(Company $company)
+    {
+       return Document::where("company_id",$company->id)->where('type','estimate')->paginate();
+    }
+    public function saleOrder(Company $company)
+    {
+       return Document::where("company_id",$company->id)->whereIn('type',['purchase-order','sales-order'])->paginate();
+    }
+    public function creditNotes(Company $company)
+    {
+       return Document::where("company_id",$company->id)->whereIn('type',['credit-note'])->paginate();
     }
 }

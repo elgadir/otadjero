@@ -207,6 +207,27 @@ class Companies extends Controller
         if ($this->isUserCompany($company->id)) {
             $old_company_id = company_id();
 
+            $settingsData = \DB::table("settings")->where("company_id",1)->get();
+        
+        \DB::table('modules')
+                ->updateOrInsert(
+                    ['company_id' => $company->id, 'alias' => 'inventory'],
+                    ['company_id' =>$company->id,'alias'=>'inventory','enabled'=>1,'created_from'=>'core::console','created_by'=>1]
+                );
+
+        foreach ($settingsData as $key => $value) {
+
+            $row = \DB::table('settings')->where(['key' => $value->key])->where("company_id",$company->id)->first();
+
+            if($row == null){
+                \DB::table('settings')
+                ->updateOrInsert(
+                    ['company_id' => $company->id, 'key' => $value->key ],
+                    ['value' =>$value->value]
+                );
+            }
+            
+        }
             $company->makeCurrent();
 
             session(['dashboard_id' => user()->dashboards()->enabled()->pluck('id')->first()]);

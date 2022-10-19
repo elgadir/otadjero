@@ -11,6 +11,7 @@ return [
     'order'             => 'Emplacement',
     'depend'            => 'Dépendance',
     'show'              => 'Montrer',
+    'design'            => 'Design',
 
     'form' => [
         'name'          => 'Nom',
@@ -26,7 +27,8 @@ return [
             'always'    => 'Toujours',
             'never'     => 'Jamais',
             'if_filled' => 'Si completé'
-        ]
+        ],
+        'items'         => 'Articles',
     ],
 
     'type' => [
@@ -37,7 +39,9 @@ return [
         'textarea'      => 'Zone de texte',
         'date'          => 'Date',
         'time'          => 'Heure',
-        'date&time'     => 'Date & Heure'
+        'date&time'     => 'Date & Heure',
+        'enabled'       => 'Activé',
+        'toggle'        => 'Basculer',
     ],
 
     'item' => [
@@ -48,4 +52,22 @@ return [
         'taxes'    => 'TVA de l\'article',
         'total'    => 'Total articles',
     ],
+
+    'validation_rules' => [
+        'required' => 'Requis',
+        'string' => 'Chaîne de caractères',
+        'integer' => 'Nombre entier',
+        'date' => 'Date',
+        'email' => 'Email',
+        'url' => 'URL',
+        'password' => 'Mot de passe',
+    ],
+
+    'section-head' => [
+        'general' => 'Cette information est visible dans le titre du nouveau champ que vous créez.',
+        'type' => 'Sélectionnez le format de champ que vous souhaitez voir dans l\'interface. La validation vous permet de définir des règles pour les champs.',
+        'location' => 'Sélectionnez où le champ personnalisé est affiché et triez-le.',
+        'design' => 'Ajustez la largeur des champs personnalisés à travers la classe CSS et sélectionnez la visibilité sur la page d\'affichage.',
+    ],
+
 ];

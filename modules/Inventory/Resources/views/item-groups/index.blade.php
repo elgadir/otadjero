@@ -46,7 +46,7 @@
                             <tr class="row align-items-center border-top-1">
                                 <td class="col-sm-2 col-md-1 col-lg-1 col-xl-1 hidden-sm border-0">{{ Form::bulkActionGroup($item_group->id, $item_group->name) }}</td>
                                 <td class="col-xs-4 col-sm-4 col-md-4 col-lg-3 col-xl-4 py-2">
-                                    <img src="{{ $item_group->picture ? Storage::url($item_group->picture->id) : asset('public/img/akaunting-logo-green.svg') }}" class="avatar image-style p-1 mr-3 item-img hidden-md col-aka" alt="{{ $item_group->name }}">
+                                    <img src="{{ $item_group->picture ? Storage::url($item_group->picture->id) : asset('public/img/otadjer-logo-black.svg') }}" class="avatar image-style p-1 mr-3 item-img hidden-md col-aka" alt="{{ $item_group->name }}">
                                     <a href="{{ route('inventory.item-groups.edit', $item_group->id) }}">{{ $item_group->name }}</a>
                                 </td>
                                 <td class="col-md-3 hidden-xs border-0">{{ $item_group->category ? $item_group->category->name : trans('general.na') }}</td>

@@ -25,7 +25,7 @@ return [
     'no_apps'               => 'There are no apps in this category, yet.',
     'become_developer'      => 'Are you a developer? <a href=":url" target="_blank">Here</a> you can learn how to create an app and start selling today!',
     'recommended_apps'      => 'Recommended Apps',
-    'can_not_install'       => 'Monthly subscriptions are available only on Cloud service. <a href="https://akaunting.com/upgrade-to-yearly" target="_blank">Learn more.</a>',
+    'can_not_install'       => 'Monthly subscriptions are available only on Cloud service. <a href="https://otadjer.com/upgrade-to-yearly" target="_blank">Learn more.</a>',
 
     'about'                 => 'About',
 
@@ -60,7 +60,6 @@ return [
     ],
 
     'errors' => [
-        'purchase'          => 'You should purchase/renew :module!',
         'download'          => 'Not able to download :module',
         'zip'               => 'Not able to create :module zip file',
         'unzip'             => 'Not able to unzip :module',

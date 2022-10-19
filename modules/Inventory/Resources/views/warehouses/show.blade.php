@@ -162,7 +162,7 @@
                                                         @foreach ($warehouse->core_items as $item)
                                                             <tr class="row align-items-center border-top-1">
                                                                 <td class="col-md-4 border-0">
-                                                                    <img src="{{ $item->picture ? Storage::url($item->picture->id) : asset('public/img/akaunting-logo-green.svg') }}" class="avatar image-style p-1 mr-3 item-img hidden-md" alt="{{ $item->name }}">
+                                                                    <img src="{{ $item->picture ? Storage::url($item->picture->id) : asset('public/img/otadjer-logo-black.svg') }}" class="avatar image-style p-1 mr-3 item-img hidden-md" alt="{{ $item->name }}">
                                                                     <a href="{{ route('inventory.items.show', $item->id) }}">{{ $item->name }}</a>
                                                                 </td>
                                                                 <td class="col-md-2 hidden-xs border-0">{{ $item->category ? $item->category->name : trans('general.na') }}</td>

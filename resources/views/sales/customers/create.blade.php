@@ -44,6 +44,11 @@
 
                 {{ Form::radioGroup('enabled', trans('general.enabled'), true) }}
 
+                 {{ Form::dateGroup('date_of_birth', "Date Of Birth", 'calendar', ['id' => 'date_of_birth', 'class' => 'form-control datepicker', 'required' => 'required', 'show-date-format' => company_date_format(), 'date-format' => 'Y-m-d', 'autocomplete' => 'off']) }}
+
+
+                
+
                 @stack('create_user_input_start')
                     <div id="customer-create-user" class="form-group col-md-12 margin-top">
                         <div class="custom-control custom-checkbox">

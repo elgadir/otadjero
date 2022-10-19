@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Akaunting'),
+    'name' => env('APP_NAME', 'Otadjer'),
 
     'installed' => (bool) env('APP_INSTALLED', false),
 
@@ -128,7 +128,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY', 'JustAKeyForAkauntingInstallation'),
+    'key' => env('APP_KEY', 'JustAKeyForOtadjerInstallation'),
 
     'cipher' => env('APP_CIPHER', 'AES-256-CBC'),
 

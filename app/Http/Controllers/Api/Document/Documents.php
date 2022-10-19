@@ -8,10 +8,17 @@ use App\Jobs\Document\CreateDocument;
 use App\Jobs\Document\DeleteDocument;
 use App\Jobs\Document\UpdateDocument;
 use App\Models\Document\Document;
+use App\Traits\Documents  as Doc;
 use App\Transformers\Document\Document as Transformer;
 
 class Documents extends ApiController
 {
+   use Doc;
+
+    /**
+     * @var string
+     */
+    public $type = Document::INVOICE_TYPE;
     /**
      * Display a listing of the resource.
      *
@@ -19,6 +26,7 @@ class Documents extends ApiController
      */
     public function index()
     {
+
         $documents = Document::with('contact', 'histories', 'items', 'transactions')->collect(['issued_at'=> 'desc']);
 
         return $this->response->paginator($documents, new Transformer());
@@ -50,7 +58,10 @@ class Documents extends ApiController
      * @return \Dingo\Api\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        //$request->document_number = $this->getNextDocumentNumber($request->type);
+        $request->merge(['document_number'=>$this->getNextDocumentNumber($request->type)]);
+       
         $document = $this->dispatch(new CreateDocument($request));
 
         return $this->response->created(route('api.documents.show', $document->id), $this->item($document, new Transformer()));

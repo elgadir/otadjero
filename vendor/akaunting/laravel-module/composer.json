@@ -1,13 +1,13 @@
 {
     "name": "akaunting/laravel-module",
     "description": "Module management package for Laravel",
-    "keywords": ["laravel", "module", "rad", "akaunting"],
+    "keywords": ["laravel", "module", "rad", "otadjer"],
     "license": "MIT",
     "authors": [
         {
             "name": "Denis Duliçi",
-            "email": "info@akaunting.com",
-            "homepage": "https://akaunting.com",
+            "email": "info@otadjer.com",
+            "homepage": "https://otadjer.com",
             "role": "Developer"
         }
     ],

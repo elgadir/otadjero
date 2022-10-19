@@ -1,8 +1,8 @@
 {
     "name": "akaunting/laravel-debugbar-collector",
-    "description": "Laravel Debugbar collector package for Akaunting",
+    "description": "Laravel Debugbar collector package for Otadjer",
     "keywords": [
-        "akaunting",
+        "otadjer",
         "laravel",
         "debugbar"
     ],
@@ -10,14 +10,14 @@
     "authors": [
         {
             "name": "Denis Duliçi",
-            "email": "info@akaunting.com",
-            "homepage": "https://akaunting.com",
+            "email": "info@otadjer.com",
+            "homepage": "https://otadjer.com",
             "role": "Developer"
         },
         {
             "name": "Sevan Nerse",
-            "email": "sevan@akaunting.com",
-            "homepage": "https://akaunting.com",
+            "email": "sevan@otadjer.com",
+            "homepage": "https://otadjer.com",
             "role": "Developer"
         }
     ],

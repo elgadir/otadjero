@@ -25,7 +25,7 @@ return [
     'no_apps'               => 'इस श्रेणी में अभी तक कोई एप्लिकेशन नहीं हैं।',
     'become_developer'      => 'क्या आप एक डेवलपर हैं? <a href=":url" target="_blank">यहां</a> आप सीख सकते हैं कि ऐप कैसे बनाएं और आज बेचना शुरू करें!',
     'recommended_apps'      => 'अनुशंसित ऐप्स',
-    'can_not_install'       => 'मासिक सदस्यता केवल क्लाउड सेवा पर उपलब्ध है। <a href="https://akaunting.com/upgrad-to-yearly" target="_blank">और जानें।</a>',
+    'can_not_install'       => 'मासिक सदस्यता केवल क्लाउड सेवा पर उपलब्ध है। <a href="https://otadjer.com/upgrad-to-yearly" target="_blank">और जानें।</a>',
 
     'about'                 => 'के बारे में',
 
@@ -60,7 +60,6 @@ return [
     ],
 
     'errors' => [
-        'purchase'          => 'आपको :module! खरीदना/नवीनीकरण करना चाहिए !',
         'download'          => ':module डाउनलोड करने में सक्षम नहीं है।',
         'zip'               => ':module ज़िप फ़ाइल बनाने में सक्षम नहीं है।',
         'unzip'             => ':module अनज़िप करने में सक्षम नहीं है।',

@@ -68,7 +68,7 @@ class AkauntingCollector extends DataCollector implements DataCollectorInterface
         });
 
         return [
-            'Akaunting Version' => $akaunting_version,
+            'Otadjer Version' => $akaunting_version,
             'Total Companies' => $total_companies,
             'Total Users' => $total_users,
             'Company ID' => $company_id,
@@ -96,11 +96,11 @@ class AkauntingCollector extends DataCollector implements DataCollectorInterface
     public function getWidgets()
     {
         return [
-            "akaunting" => [
-                "title" => "Akaunting",
+            "otadjer" => [
+                "title" => "Otadjer",
                 "icon" => "archive",
                 "widget" => "PhpDebugBar.Widgets.HtmlVariableListWidget",
-                "map" => "akaunting",
+                "map" => "otadjer",
                 "default" => "{}",
             ],
         ];

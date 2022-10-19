@@ -210,7 +210,7 @@ Files that already exist, either on disk or at a URL can be attached to a
 message with just one line of code, using ``Swift_Attachment::fromPath()``.
 
 You can attach files that exist locally, or if your PHP installation has
-``allow_url_fopen`` turned on you can attach files from other
+```` turned on you can attach files from other
 websites.
 
 The attachment will be presented to the recipient as a downloadable file with

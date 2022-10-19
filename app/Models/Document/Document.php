@@ -34,6 +34,7 @@ class Document extends Model
         'company_id',
         'type',
         'warehouse_id',
+        'w_id'
         'document_number',
         'Invoice_type',
         'order_number',
@@ -59,6 +60,7 @@ class Document extends Model
         'parent_id',
         'created_from',
         'created_by',
+        
     ];
 
     /**

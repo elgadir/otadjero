@@ -87,8 +87,8 @@ class Login extends Controller
             $path = session('url.intended', '');
 
             // Path must start with company id and 'portal' prefix
-            if (!Str::startsWith($path, $company->id . '/portal')) {
-                $path = route('portal.dashboard', ['company_id' => $company->id]);
+            if (!Str::startsWith($path, $company->id)) {
+                $path = route('dashboard', ['company_id' => $company->id]);
             }
 
             return response()->json([

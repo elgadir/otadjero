@@ -2,13 +2,18 @@
 
 return [
 
-    'estimates'       => 'Devis|Devis',
-    'description'     => 'Transformez un devis en facture de vente en un clic.',
-    'estimate_number' => 'Devis N°',
-    'estimate_date'   => 'Date du devis',
-    'total_price'     => 'Prix total',
-    'expiry_date'     => 'Date d\'échéance',
-    'bill_to'         => 'Facturer à',
+    'estimates'        => 'Devis|Devis',
+    'estimate_summary' => 'Résumé de l estimation',
+    'description'      => 'Transformez un devis en facture de vente en un clic.',
+    'estimate_number'  => 'Devis N°',
+    'estimate_date'    => 'Date du devis',
+    'total_price'      => 'Prix total',
+    'expiry_date'      => 'Date d échéance',
+    'bill_to'          => 'Facturer à',
+
+    'empty' => [
+        'estimates' => 'Transformez une estimation (devis) approuvé(e) en une facture en un seul clic de bouton.',
+    ],
 
     'quantity'  => 'Quantité',
     'price'     => 'Prix',
@@ -25,6 +30,8 @@ return [
 
     'convert_to_invoice'       => 'Convertir en facture',
     'converted_to_invoice'     => 'Converti en facture :invoice_number',
+    'convert_to_sales_order'   => 'Convertir en ordre de vente',
+    'converted_to_sales_order' => 'Converti en commande de vente :document_number',
     'created_from_estimate'    => 'Créé à partir de :type :estimate_number',
     'histories'                => 'Historique',
     'mark_sent'                => 'Marquer comme envoyé',
@@ -40,22 +47,11 @@ return [
     'share'                    => 'Partager',
     'all_estimates'            => 'Authentifiez-vous pour voir tous les devis',
 
-    'statuses' => [
-        'draft'    => 'Brouillon',
-        'sent'     => 'Envoyé',
-        'expired'  => 'Expiré',
-        'viewed'   => 'Vu',
-        'approved' => 'Approuvé',
-        'refused'  => 'Refusé',
-        'invoiced' => 'Facturé',
-    ],
-
     'messages' => [
-        'email_sent'       => 'Devis envoyé par email!',
         'marked_sent'      => 'Devis marqué comme envoyé!',
         'marked_approved'  => 'Devis marqué comme approuvé!',
         'marked_refused'   => 'Devis marqué comme refusé!',
-        'email_required'   => 'Pas d\'adresse email pour ce client!',
+        'email_required'   => 'Pas d adresse email pour ce client!',
         'expired_estimate' => 'Une Offre expirée ne peut pas être modifiée!',
 
         'status' => [
@@ -69,7 +65,7 @@ return [
             'not_invoiced' => 'Non facturé',
             'approved'     => 'Approuvé',
             'refused'      => 'Refusé',
-            'await_action' => 'En attente d\'action du contact',
+            'await_action' => 'En attente d action du contact',
         ],
     ],
 ];
