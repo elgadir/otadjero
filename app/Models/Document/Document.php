@@ -34,7 +34,7 @@ class Document extends Model
         'company_id',
         'type',
         'warehouse_id',
-        'w_id'
+        'w_id',
         'document_number',
         'Invoice_type',
         'order_number',

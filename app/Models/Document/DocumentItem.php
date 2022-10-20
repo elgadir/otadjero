@@ -48,12 +48,11 @@ class DocumentItem extends Model
     /**
      * @var array
      */
-    public $cloneable_relations = ['taxes'];
+    public $cloneable_relations = ['taxes','skuuu'];
 
     public static function boot()
     {
         parent::boot();
-
         static::retrieved(
             function ($model) {
                 $model->setTaxIds();
@@ -75,6 +74,13 @@ class DocumentItem extends Model
     public function item()
     {
         return $this->belongsTo('App\Models\Common\Item')->withDefault(['name' => trans('general.na')]);
+    }
+
+    public function skuuu()
+    {
+       
+        return $this->belongsTo('App\Models\Common\InventoryItem',"item_id","item_id");
+        ////var/www/html/otadjero/app/Models/Document/Item.php
     }
 
     public function taxes()

@@ -75,7 +75,7 @@ class Item extends Request
                     }
 
                     if (!isset($group_item['name']) || !isset($group_item['sku']) ||
-                        !isset($group_item['sale_price']) || !isset($group_item['purchase_price'])) {
+                        !isset($group_item['sale_price'])) { //  || !isset($group_item['purchase_price'])
                         $price_tab = 'required';
                     }
                 }
@@ -93,7 +93,7 @@ class Item extends Request
             'name' => 'required|string',
             'sku' => $sku,
             'sale_price' => $price,
-            'purchase_price' => $price,
+            //'purchase_price' => $price,
             'unit' => $unit,
             'barcode' => $barcode,
             'tax_ids' => 'nullable|array',
