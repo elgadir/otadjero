@@ -1,17 +1,23 @@
+
 <tr>
+
+            <td class="item">
+            {{ $item->sku ?? "N/A" }}
+            </td>
+        
     @stack('name_td_start')
         @if (!$hideItems || (!$hideName && !$hideDescription))
             <td class="item">
-                @if (!$hideName)
-                    {{ $item->name }}
-                @endif
-
-                @if (!$hideDescription)
-                    @if (!empty($item->description))
+                 @if (!empty($item->description))
                         <br><small>{!! \Illuminate\Support\Str::limit($item->description, 500) !!}</small>
                     @endif
-                @endif
+                <br>
 
+                    {{ $item->name }}
+              
+
+               
+                  
                 @stack('item_custom_fields')
                 @stack('item_custom_fields_' . $item->id)
             </td>

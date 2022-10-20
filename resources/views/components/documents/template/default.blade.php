@@ -181,6 +181,9 @@
                 <table class="lines">
                     <thead style="background-color:{{ $backgroundColor }} !important; -webkit-print-color-adjust: exact;">
                         <tr>
+                           <th class="item text-left text-white">{{ "SKU" }}</th>
+
+
                             @stack('name_th_start')
                                 @if (!$hideItems || (!$hideName && !$hideDescription))
                                     <th class="item text-left text-white">{{ (trans_choice($textItems, 2) != $textItems) ? trans_choice($textItems, 2) : trans($textItems) }}</th>
