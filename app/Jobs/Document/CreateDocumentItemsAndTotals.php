@@ -142,6 +142,26 @@ class CreateDocumentItemsAndTotals extends Job implements HasOwner, HasSource, S
 
         $this->request['amount'] = round($this->request['amount'], $precision);
 
+
+        //info("enabled",$this->request['enabled']);
+
+        $total_amt = 0;
+        if((int)$this->request['enabled']){
+            $total_amt = $this->request['amount'];
+            if($this->request['amount'] <= 500){
+                $total_amt += 5;
+            }else{
+               $percentAmnt = ($total_amt*1)/100;
+                if($percentAmnt <= 2500) {
+                    $total_amt += $percentAmnt;
+                }else{
+                    $total_amt += 2500;
+                }
+            }
+            
+        }
+
+
         // Add total
         DocumentTotal::create([
             'company_id' => $this->document->company_id,
@@ -150,6 +170,7 @@ class CreateDocumentItemsAndTotals extends Job implements HasOwner, HasSource, S
             'code' => 'total',
             'name' => 'invoices.total',
             'amount' =>  $this->request['amount'],
+            'total_timber'=>$total_amt,
             'sort_order' => $sort_order,
             'created_from' => $this->request['created_from'],
             'created_by' => $this->request['created_by'],

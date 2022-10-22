@@ -18,6 +18,7 @@ class Document extends FormRequest
      */
     public function rules()
     {
+      
         $company_logo = 'nullable';
         $attachment = 'nullable';
 
@@ -44,7 +45,7 @@ class Document extends FormRequest
 
         // Get company id
         $company_id = (int) $this->request->get('company_id');
-
+        $timber = $this->request->get("timber") === "on" ? 1 : 2;
         $rules = [
             'type' => 'required|string',
             'document_number' => 'string|unique:documents,NULL,' . $id . ',id,type,' . $type . ',company_id,' . $company_id . ',deleted_at,NULL',
@@ -63,7 +64,10 @@ class Document extends FormRequest
             'attachment.*' => $attachment,
             'recurring_count' => 'gte:0',
             'recurring_interval' => 'exclude_unless:recurring_frequency,custom|gt:0',
-            'w_id'=>"nullable"
+            'w_id'=>"nullable",
+            //'timber'=>'string',
+            'enabled'=>'string'
+            //'status.*.timber'=>'string',
         ];
 
         $items = $this->request->get('items');

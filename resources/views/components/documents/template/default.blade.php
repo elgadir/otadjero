@@ -259,7 +259,6 @@
             @stack('notes_input_end')
         </div>
     </div>
-
     <div class="col-42 float-right text-right">
         <div class="text company">
             @foreach ($document->totals_sorted as $total)
@@ -283,6 +282,10 @@
                     <div class="border-top-1 py-1">
                         <strong class="float-left">{{ trans($total->name) }}:</strong>
                         <span>@money($document->amount_due, $document->currency_code, true)</span>
+                    </div>
+                    <div class="border-top-1 py-1">
+                        <strong class="float-left">{{ "Total Price after timber" }}:</strong>
+                        <span>@money($total->total_timber ?? 0, $document->currency_code, true)</span>
                     </div>
                     @stack('grand_total_tr_end')
                 @endif
