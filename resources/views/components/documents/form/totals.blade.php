@@ -97,10 +97,39 @@
                                 </div>
                                 {!! Form::hidden('discount', null, ['id' => 'discount', 'class' => 'form-control text-right', 'v-model' => 'form.discount']) !!}
                             </td>
+
                             <td class="border-top-0 pt-0 pb-0" style="max-width: 50px"></td>
                         </tr>
                     @stack('add_discount_td_end')
                 @endif
+
+
+                        <tr id="tr-discount1">
+                            <td class="border-top-0 pt-0 pb-0"></td>
+                            <td class="text-right border-top-0 border-right-0 border-bottom-0 align-middle pt-0 pb-0 pr-0">
+                                <div class="row"> 
+                                    <div class="form-group col-md-8"></div>
+                                <div class="form-group col-md-8" style="display:none">
+                                    <label for="enabled" class="form-control-label">TIMBER 1%</label>  <label class="custom-toggle d-inline-block">
+
+                                    <input type="checkbox" class="timber" name="timberr" id='timber' checked="checked" onchange="setTimeber()" value="" /> 
+
+                                    <span data-label-off="OFF" data-label-on="ON" class="custom-toggle-slider rounded-circle status-green"></span></label> 
+
+                                </div>
+                                    
+                                     
+                               @if(empty($document))
+                                <div class="form-group col-md-4">
+                                    {{ Form::radioGroup('enabled', "TIMBER 1%", true) }}
+                                </div>
+                                @endif
+                            </div>
+                                <input id="tm" type="hidden" name="timber">
+                            </td>
+                            
+                        </tr>
+                   
 
                 @stack('tax_total_td_start')
                     <tr v-for="(tax, tax_index) in totals.taxes"
@@ -151,8 +180,24 @@
                             <td class="border-top-0 pt-0 pb-0" style="max-width: 50px"></td>
                         </tr>
                         @stack('currency_conversion_td_end')
+
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    function setTimeber(){
+        
+        var timber = document.querySelector(`#timber`).checked ? "1" : "2";
+        document.querySelector('input[name="timberr"]').value = timber;
+        document.querySelector('input[name="timber"]').value = timber;
+        //document.getElementById("#tm").value = timber;
+        //document.getElementById("#tm").setAttribute('value',timber);
+        console.log("e",timber);
+    }
+    $(document).ready(function(){
+
+    })
+</script>
