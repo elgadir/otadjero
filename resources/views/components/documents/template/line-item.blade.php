@@ -2,7 +2,7 @@
 <tr>
 
             <td class="item">
-            {{ $item->skuuu->sku ?? "N/A" }}
+           {{ $item->item->sku }}
             </td>
         
     @stack('name_td_start')
