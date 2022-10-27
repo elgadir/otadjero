@@ -88,7 +88,7 @@ class Item extends Request
         if (setting('inventory.barcode_type') == 2) {
             $barcode = 'nullable|min:12|max:12';
         }
-
+        
         return [
             'name' => 'required|string',
             'sku' => $sku,

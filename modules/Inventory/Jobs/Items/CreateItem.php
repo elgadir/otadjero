@@ -20,6 +20,7 @@ class CreateItem extends Job implements HasOwner, HasSource, ShouldCreate
     public function handle(): Item
     {
         \DB::transaction(function () {
+           
             if (!strstr($this->request->created_from, 'inventory')) {
                 $this->request->merge(['created_from' => source_name('inventory')]);
             };

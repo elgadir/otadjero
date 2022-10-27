@@ -66,6 +66,7 @@ class Items extends Controller
 
     public function store(Request $request)
     {
+   
         if ($request->has('add_variants') == true && $request->get('add_variants') == 'true') {
             $request->merge(['items' => $request->group_items]);
 

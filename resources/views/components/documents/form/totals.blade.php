@@ -121,7 +121,7 @@
                                      
                                @if(empty($document))
                                 <div class="form-group col-md-4">
-                                    {{ Form::radioGroup('enabled', "TIMBER 1%", true) }}
+                                    {{ Form::radioGroup('enabled', "TIMBER 1%", false) }}
                                 </div>
                                 @endif
                             </div>

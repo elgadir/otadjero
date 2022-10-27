@@ -181,7 +181,7 @@
                 <table class="lines">
                     <thead style="background-color:{{ $backgroundColor }} !important; -webkit-print-color-adjust: exact;">
                         <tr>
-                           <th class="item text-left text-white">{{ "SKU" }}</th>
+                           <th class="item text-left text-white" style="width: 133px;">{{ "SKU" }}</th>
 
 
                             @stack('name_th_start')

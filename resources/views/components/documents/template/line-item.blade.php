@@ -2,14 +2,14 @@
 <tr>
 
             <td class="item">
-           {{ $item->item->sku }}
+           {{ $item->item->inventory()->value('sku') ?? "N/A" }}
             </td>
         
     @stack('name_td_start')
         @if (!$hideItems || (!$hideName && !$hideDescription))
             <td class="item">
                  @if (!empty($item->description))
-                        <br><small>{!! \Illuminate\Support\Str::limit($item->description, 500) !!}</small>
+                        <br>{!! \Illuminate\Support\Str::limit($item->description, 500) !!}
                     @endif
                 <br>
 
