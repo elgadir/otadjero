@@ -19,6 +19,19 @@ Route::admin('inventory', function () {
     Route::get('items/{item}/export-history', 'Items@exportHistory')->name('items.export-history');
     Route::get('items/{item}/enable', 'Items@enable')->name('items.enable');
     Route::get('items/{item}/disable', 'Items@disable')->name('items.disable');
+    
+    Route::get('priceing-list', 'Items@priceList')->name('items.price.list');
+    Route::get('items/priceing-list/create', 'Items@priceCreate')->name('items.price.create');
+
+    Route::post('items/priceing-list/create', 'Items@priceCreate')->name('items.price.create');
+    //Route::post('items/priceing-list/add', 'Items@priceAdd')->name('items.price.add');   
+
+
+    Route::get('items/priceing-list/update/{id}', 'Items@priceUpdate')->name('items.price.update');
+    Route::post('items/priceing-list/update/{id}', 'Items@priceUpdate')->name('items.price.update');
+
+    Route::post('items/priceing/custom/update/{id}', 'Items@priceCustomUpdate')->name('items.price.custom.update');
+
     Route::resource('items', 'Items');
 
     //Item-groups

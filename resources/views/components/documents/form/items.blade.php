@@ -3,7 +3,7 @@
         @if (!$hideEditItemColumns)
             <x-edit-item-columns :type="$type" />
         @endif
-
+        
         <div class="table-responsive overflow-x-scroll overflow-y-hidden">
             <table class="table" id="items" style="table-layout: fixed">
                 <colgroup>

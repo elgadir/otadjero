@@ -60,6 +60,7 @@ abstract class Controller extends BaseController
     {
         $class_name = str_replace('Controllers', 'Responses', get_class($this));
 
+   
         if (class_exists($class_name)) {
             $response = new $class_name($view, $data);
         } else {

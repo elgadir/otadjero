@@ -1,5 +1,5 @@
 @stack($name . '_input_start')
-
+    
     <akaunting-money :col="'{{ $col }}'"
         @if (!empty($attributes['v-error']))
         :form-classes="[{'has-error': {{ $attributes['v-error'] }} }]"

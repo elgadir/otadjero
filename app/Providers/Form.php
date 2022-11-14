@@ -146,6 +146,10 @@ class Form extends Provider
         Facade::component('enabledGroup', 'partials.form.enabled_group', [
             'id', 'name', 'value'
         ]);
+
+        Facade::component('radioGroupTransType', 'partials.form.radio_group', [
+            'name', 'text', 'value' => null, 'enable' => trans('general.yes'), 'disable' => trans('general.no'), 'attributes' => [], 'col' => 'col-md-6',
+        ]);
     }
 
     /**

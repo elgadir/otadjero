@@ -44,6 +44,7 @@ class AddToAdminMenu
             if ($user->can('read-common-items')) {
                 $sub->route('inventory.items.index', trans_choice('general.items', 2), [], 10, $attr);
             }
+            $sub->route('inventory.items.price.list', "Pricing List", [], 10, $attr);
 
             if ($user->can('read-inventory-item-groups')) {
                 $sub->route('inventory.item-groups.index', trans_choice('inventory::general.item_groups', 2), [], 20, $attr);
