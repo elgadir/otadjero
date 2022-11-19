@@ -162,4 +162,9 @@ public function storeTransaction(Document $document, Request $request)
     return response()->json($response);
 }
 
+
+public function getPriceList(){
+   return \Modules\Inventory\Models\PriceType::paginate(10);
+}
+
 }

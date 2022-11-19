@@ -62,6 +62,8 @@ $api->version('v3', ['middleware' => ['api']], function($api) {
         $api->resource('transfers', 'Banking\Transfers', ['middleware' => ['date.format', 'money', 'dropzone']]);
         $api->post('documents/add/{document}/transactions', 'Common\Items@storeTransaction')->name("store.transactions");
 
+        $api->get('companies/{company}/get-price-list', 'Common\Items@getPriceList')->name("get.price.list");
+
         // Reports
         $api->resource('reports', 'Common\Reports');
 
