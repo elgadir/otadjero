@@ -27,7 +27,7 @@ class Item extends Model
      *
      * @var array
      */
-    protected $fillable = ['company_id', 'name', 'description', 'sale_price', 'purchase_price', 'category_id', 'enabled', 'created_from', 'created_by'];
+    protected $fillable = ['company_id', 'name', 'description', 'sale_price', 'purchase_price', 'category_id', 'enabled', 'created_from', 'created_by','designation','reference_number'];
 
     /**
      * The attributes that should be cast.
