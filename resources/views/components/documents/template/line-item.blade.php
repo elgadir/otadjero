@@ -13,7 +13,7 @@
                         <br>{!! \Illuminate\Support\Str::limit($item->description, 500) !!}
                     @endif
                 <br>
-                    {{ $item->item->designation ?? "N/A" }}
+                    <span class="pdf-details" style="font-size: 25px;font-weight: bold;">{{ $item->item->designation ?? "N/A" }}</span>
                 <br>
 
                     {{ $item->name }}
