@@ -23,6 +23,9 @@
 
                     {{ Form::multiSelectAddNewGroup('tax_ids', trans_choice('general.taxes', 1), 'percentage', $taxes, (setting('default.tax')) ? [setting('default.tax')] : null, ['path' => route('modals.taxes.create'), 'field' => ['key' => 'id', 'value' => 'title']], 'col-md-6 el-select-tags-pl-38') }}
 
+                    {{ Form::textGroup('designation', 'Designation', 'designation') }}
+                    {{ Form::textGroup('reference_number', 'Reference', 'reference_number') }}
+
                     {{ Form::textareaGroup('description', trans('general.description')) }}
 
                     {{ Form::textGroup('sale_price', trans('items.sales_price'), 'money-bill-wave', ['required' => 'required', 'show' => 'form.add_variants == false']) }}

@@ -23,6 +23,7 @@ class Items extends ApiController
     public function index()
     {
 
+        
         //$items = Item::with('category', 'taxes')->collect(); //paginate(100000)env('PAGINATION')
        
         $currentUserId = auth()->user()->id;

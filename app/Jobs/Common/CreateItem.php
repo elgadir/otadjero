@@ -14,7 +14,10 @@ class CreateItem extends Job implements HasOwner, HasSource, ShouldCreate
     public function handle(): Item
     {
         \DB::transaction(function () {
+
             $this->model = Item::create($this->request->all());
+
+            \DB::table("items")->where("id",$this->model->id)->update(["designation"=>$this->request->designation ,"reference_number"=>$this->request->reference_number]);
 
             // Upload picture
             if ($this->request->file('picture')) {

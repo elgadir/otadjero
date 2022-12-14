@@ -2,7 +2,8 @@
 <tr>
 
             <td class="item">
-           {{ $item->item->inventory()->value('sku') ?? "N/A" }}
+         
+           {{ $item->item->reference_number ?? "N/A" }}
             </td>
         
     @stack('name_td_start')
@@ -11,6 +12,8 @@
                  @if (!empty($item->description))
                         <br>{!! \Illuminate\Support\Str::limit($item->description, 500) !!}
                     @endif
+                <br>
+                    {{ $item->item->designation ?? "N/A" }}
                 <br>
 
                     {{ $item->name }}

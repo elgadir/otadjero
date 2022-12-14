@@ -209,6 +209,10 @@
                                                 @endif
                                             @endif
                                         @stack('timeline_get_paid_body_button_payment_end')
+                                        <a href="{{url()->current()}}/print" id="button-payment" class="btn btn-white btn-sm header-button-top">
+                                                        Delivery Note
+                                                    </a>
+
                                     </div>
                                 @stack('timeline_get_paid_body_end')
                             </div>
