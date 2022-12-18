@@ -65,7 +65,7 @@
                             </td>
                            
                             <td class="col-md-2 border-0">
-                                <a href="{{ route('inventory.items.price.update',['id'=>$list->id]) }}">Edit</a> 
+                                <a href="{{ route('inventory.items.appointment.edit',['id'=>$list->id]) }}">Edit</a> 
                             </td>
                         </tr>
                     @endforeach

@@ -453,7 +453,7 @@ class Items extends Controller
             $appointmentList = $appointmentList->where("name", 'like', "%".str_replace('"','',$search['search']).'%');
         }
         $appointmentList = $appointmentList->get();
-       
+
         //dd(\DB::getQueryLog());
         return $this->response('inventory::appointment.index', compact('appointmentList'));
     }
@@ -461,19 +461,30 @@ class Items extends Controller
     {
         $warehouses = \Modules\Inventory\Models\Warehouse::all();
         
-        $currencies = \App\Models\Setting\Currency::all();    
+        $currencies = \App\Models\Setting\Currency::all();
+
         return $this->response('inventory::items.appointment_add',compact('currencies','warehouses'));
 
     }
-     public function appointmentcreate()
+    public function appointmentEdit($id)
+    {   
+        $data = Appointment::find($id);
+        $warehouses = \Modules\Inventory\Models\Warehouse::all();
+        
+        $currencies = \App\Models\Setting\Currency::all();
+        
+        return $this->response('inventory::items.appointment_add',compact('currencies','warehouses','data'));
+
+    }
+     public function appointmentcreate($id=null)
     {
          $request = request()->input();
     
-           
+            
             $start_datetime = $request['start_date']." ".$request['start_time'];
             $end_datetime = $request['end_date']." ".$request['end_time'];
-            //$data = Appointment::firstOrNew(["id"=>11]);
-            $data = new Appointment();
+            $data = Appointment::firstOrNew(["id"=>$id]);
+            //$data = new Appointment();
             
             $data->name = $request['name'];
             $data->location = $request['location'];
