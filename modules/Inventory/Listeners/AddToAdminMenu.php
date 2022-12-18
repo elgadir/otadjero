@@ -77,6 +77,12 @@ class AddToAdminMenu
             'title' => trans('inventory::general.title'),
             'icon' => 'fa fa-cubes',
         ]);
+        $event->menu->add([
+            'url' => route('inventory.items.appointment.list'),
+            'title' => 'Appointments',
+            'icon' => 'fa fa-cubes',
+            'order' =>50,
+        ]);
 
         event(new AdminMenu($event->menu));
     }

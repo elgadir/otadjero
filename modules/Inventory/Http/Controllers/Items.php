@@ -25,6 +25,7 @@ use Modules\Inventory\Jobs\Items\DeleteItem as InventoryDeleteItem;
 use Modules\Inventory\Exports\Show\Items\Histories as ExportHistories;
 
 use Modules\Inventory\Models\PriceType;
+use Modules\Inventory\Models\Appointment;
 use Modules\Inventory\Models\CustomItemPrice;
 
 
@@ -70,6 +71,7 @@ class Items extends Controller
 
     public function store(Request $request)
     {
+        
    
         if ($request->has('add_variants') == true && $request->get('add_variants') == 'true') {
             $request->merge(['items' => $request->group_items]);
@@ -330,7 +332,7 @@ class Items extends Controller
         $search = request()->input();
         if(isset($search['search'])){
             $search = request()->input();
-            $price_list = $price_list->where("name", 'like', '%'.str_replace('"','',$search['search']).'%');
+            $price_list = $price_list->where("name", 'like', "%".str_replace('"','',$search['search']).'%');
         }
         $price_list = $price_list->get();
         //dd(\DB::getQueryLog());
@@ -355,6 +357,7 @@ class Items extends Controller
                $request['pricing_scheme'] = NULL;
                $request['discount'] = 0;
                $request['currency'] = "";
+               $request['price_discount'] = NULL;
             }else{
 
                 $request['markup'] = "";
@@ -380,6 +383,7 @@ class Items extends Controller
                $request['pricing_scheme'] = NULL;
                $request['discount'] = 0;
                $request['currency'] = "";
+               $request['price_discount'] = NULL;
             }else{
 
                 $request['markup'] = "";
@@ -394,7 +398,7 @@ class Items extends Controller
         $search = request()->input();
         if(isset($search['search'])){
             $search = request()->input();
-            $item_list = $item_list->where("name", 'like', '%'.str_replace('"','',$search['search']).'%');
+            $item_list = $item_list->where("name", 'like', "%".str_replace('"','',$search['search']).'%');
         }
         $item_list = $item_list->get();
        
@@ -408,29 +412,77 @@ class Items extends Controller
         $data = request()->input();
         $rowdata = json_decode($data['rowdata'],true);
         
+
       
         $data['custom_price'] = array_filter($data['custom_price']);
         if(!empty($data['custom_price'])){
             foreach($data['custom_price'] AS $k=>$v){
-                if($rowdata == 2){
+                $item = Item::find($k);
+                if($rowdata['price_type'] == 1){
+                    /*$price = 0;
+                    if($rowdata['markup'] == "markdown"){
+                        $price = ($item['purchase_price'] - (($item['purchase_price']*$v)/100));
+                    }else{
+                        $price = ($item['purchase_price'] + (($item['purchase_price']*$v)/100));
+                    }
+                    Item::where("id",$k)->update(["purchase_price"=>$price]);*/
+                }else{
+
+                }
+
+                if($rowdata['price_type'] == 2){
                     Item::where("id",$k)->update(["sale_price"=>$v]);
                 }else{
-                    $item = Item::find($k);
-                    $purchase_price = ($item['purchase_price'] - (($item['purchase_price']*$v)/100));
-                    Item::where("id",$k)->update(["purchase_price"=>$purchase_price]);
+                    //$item = Item::find($k);
+                    //$purchase_price = ($item['purchase_price'] - (($item['purchase_price']*$v)/100));
+                    //Item::where("id",$k)->update(["purchase_price"=>$purchase_price]);
                 }
                 
             }
         }
-        return redirect(route('inventory.items.price.list'))->with('success', 'Prices added ');
+        return redirect(route('inventory.items.price.list'))->with('success', ' added ');
 
     }
 
-    public function priceAdd(Request $request)
+    public function appointmentList()
     {
-        die("Eeeee");
-        dd($request->all());
-        die;
-        return response()->json([]);
+        $appointmentList = Appointment::orderBy('created_at','DESC');
+        $search = request()->input();
+        if(isset($search['search'])){
+            $search = request()->input();
+            $appointmentList = $appointmentList->where("name", 'like', "%".str_replace('"','',$search['search']).'%');
+        }
+        $appointmentList = $appointmentList->get();
+       
+        //dd(\DB::getQueryLog());
+        return $this->response('inventory::appointment.index', compact('appointmentList'));
+    }
+    public function appointmentAdd()
+    {
+        $warehouses = \Modules\Inventory\Models\Warehouse::all();
+        
+        $currencies = \App\Models\Setting\Currency::all();    
+        return $this->response('inventory::items.appointment_add',compact('currencies','warehouses'));
+
+    }
+     public function appointmentcreate()
+    {
+         $request = request()->input();
+    
+           
+            $start_datetime = $request['start_date']." ".$request['start_time'];
+            $end_datetime = $request['end_date']." ".$request['end_time'];
+            //$data = Appointment::firstOrNew(["id"=>11]);
+            $data = new Appointment();
+            
+            $data->name = $request['name'];
+            $data->location = $request['location'];
+            $data->description = $request['description'];
+            $data ->start_datetime = date('Y-m-d H:i:s', strtotime($start_datetime));
+            $data ->end_datetime = date('Y-m-d H:i:s', strtotime($end_datetime));
+            $data->save();
+
+            return redirect(route("inventory.items.appointment.list"))->with('success', 'Appointment added/updated ');;
+
     }
 }

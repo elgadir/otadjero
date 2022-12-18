@@ -32,7 +32,15 @@ Route::admin('inventory', function () {
 
     Route::post('items/priceing/custom/update/{id}', 'Items@priceCustomUpdate')->name('items.price.custom.update');
 
+
+    Route::get('appointment/list', 'Items@appointmentList')->name('items.appointment.list');
+    Route::get('appointment/add', 'Items@appointmentAdd')->name('items.appointment.add');
+    Route::post('appointment/create', 'Items@appointmentcreate')->name('items.appointment.create');
+
     Route::resource('items', 'Items');
+
+
+
 
     //Item-groups
     Route::get('item-groups/autocomplete', 'ItemGroups@autocomplete')->name('item-groups.autocomplete');
