@@ -49,7 +49,7 @@
                     @foreach($appointmentList as $list)
                         <tr class="row align-items-center border-top-1">
                             <td class="col-md-2 border-0">
-                                <a href="#">{{ $list->name }}</a>
+                                <a href="#">{{ $list->contacts->name }}</a>
                             </td>
                             <td class="col-md-2 ">
                                 <a href="#">{{ $list->start_datetime }}</a>

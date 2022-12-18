@@ -28,6 +28,8 @@ use Modules\Inventory\Models\PriceType;
 use Modules\Inventory\Models\Appointment;
 use Modules\Inventory\Models\CustomItemPrice;
 
+use App\Models\Common\Contact;
+
 
 class Items extends Controller
 {
@@ -463,7 +465,9 @@ class Items extends Controller
         
         $currencies = \App\Models\Setting\Currency::all();
 
-        return $this->response('inventory::items.appointment_add',compact('currencies','warehouses'));
+        $contact = Contact::all();
+
+        return $this->response('inventory::items.appointment_add',compact('currencies','warehouses','contact'));
 
     }
     public function appointmentEdit($id)
@@ -472,8 +476,8 @@ class Items extends Controller
         $warehouses = \Modules\Inventory\Models\Warehouse::all();
         
         $currencies = \App\Models\Setting\Currency::all();
-        
-        return $this->response('inventory::items.appointment_add',compact('currencies','warehouses','data'));
+         $contact = Contact::all();   
+        return $this->response('inventory::items.appointment_add',compact('currencies','warehouses','data','contact'));
 
     }
      public function appointmentcreate($id=null)

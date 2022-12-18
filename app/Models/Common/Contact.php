@@ -50,7 +50,8 @@ class Contact extends Model
         'enabled',
         'created_from',
         'created_by',
-        'date_of_birth'
+        'date_of_birth',
+        'price_type'
     ];
 
     /**
@@ -84,6 +85,11 @@ class Contact extends Model
     public function documents()
     {
         return $this->hasMany('App\Models\Document\Document');
+    }
+
+    public function getPriceDetail()
+    {
+        return $this->hasOne('Modules\Inventory\Models\PriceType','id','price_type');
     }
 
     public function bills()

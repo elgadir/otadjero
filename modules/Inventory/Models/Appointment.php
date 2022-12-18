@@ -21,4 +21,10 @@ class Appointment extends Model
         return $this->hasOne('Modules\Inventory\Models\Warehouse',"id","location");
     }
 
+    public function contacts()
+    {
+        return $this->hasOne('App\Models\Common\Contact',"id","name");
+    }
+
+
 }

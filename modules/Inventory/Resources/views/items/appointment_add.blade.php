@@ -14,19 +14,27 @@
                            <label for="name" class="form-control-label">Client Name</label> 
                            <div class="input-group input-group-merge ">
                               <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-id-card"></i></span></div>
-                              <input  placeholder="Enter Name" required="required" name="name" type="text" id="name" class="form-control" value="{{ isset($data->name) ? $data->name:'' }}">
+                            
+                              <select class="form-control" name="name">
+                                @forelse ($contact as $contact_list)
+                                <option value="{{$contact_list->id}}" {{ isset($data->name) && $data->name == $contact_list->id ? 'selected':'' }}> {{$contact_list->name}}</option>
+                                @empty
+                                    <option value="1" > No data found </option>
+                                @endforelse
+                              </select>
+
                            </div>
                            <!---->
                         </div>
                         <div class="form-group col-md-3">
                            <label for="enabled" class="form-control-label">Start Date</label> 
                             @php
-                               $start_datetime = isset($data->start_datetime) ? date('Y-m-d', strtotime($data->start_datetime)):'';
-                               $end_datetime = isset($data->end_datetime) ? date('Y-m-d', strtotime($data->end_datetime)):'';
+                               $start_datetime = isset($data->start_datetime) ? date('Y-m-d', strtotime($data->start_datetime)):date('Y-m-d');
+                               $end_datetime = isset($data->end_datetime) ? date('Y-m-d', strtotime($data->end_datetime)):date('Y-m-d');
 
 
-                               $start_time = isset($data->start_datetime) ? date('H:i', strtotime($data->start_datetime)):'';
-                               $end_time = isset($data->end_datetime) ? date('H:i', strtotime($data->end_datetime)):'';
+                               $start_time = isset($data->start_datetime) ? date('H:i', strtotime($data->start_datetime)):date('H:i');
+                               $end_time = isset($data->end_datetime) ? date('H:i', strtotime($data->end_datetime)):date('H:i', strtotime("+1 hours"));
                               
                               @endphp
                             <div class="form-check">
