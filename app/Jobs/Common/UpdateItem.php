@@ -12,7 +12,11 @@ class UpdateItem extends Job implements ShouldUpdate
     public function handle(): Item
     {
         \DB::transaction(function () {
-            $this->model->update($this->request->all());
+
+
+            $id = $this->model->update($this->request->all());
+           
+            \DB::table("items")->where("id",request()->route('item')['id'])->update(["designation"=>$this->request->designation ,"reference_number"=>$this->request->reference_number]);
 
             // Upload picture
             if ($this->request->file('picture')) {

@@ -18,11 +18,15 @@
 
             <div class="card-body">
                 <div class="row">
+                  
                     {{ Form::textGroup('name', trans('general.name'), 'tag') }}
 
                     {{ Form::selectRemoteAddNewGroup('category_id', trans_choice('general.categories', 1), 'folder', $categories, $item->category_id, ['path' => route('modals.categories.create') . '?type=item', 'remote_action' => route('categories.index'). '?search=type:item']) }}
 
                     {{ Form::multiSelectAddNewGroup('tax_ids', trans_choice('general.taxes', 1), 'percentage', $taxes, $item->tax_ids, ['path' => route('modals.taxes.create'), 'field' => ['key' => 'id', 'value' => 'title']], 'col-md-6 el-select-tags-pl-38') }}
+
+                     {{ Form::textGroup('designation', 'Designation', 'designation',[ 'required' => 'required'], $item->designation) }}
+                    {{ Form::textGroup('reference_number', 'Reference', 'reference_number',[ 'required' => 'required'], $item->reference_number) }}
 
                     {{ Form::textareaGroup('description', trans('general.description')) }}
 
