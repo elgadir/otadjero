@@ -158,8 +158,11 @@ class CreateDocumentItemsAndTotals extends Job implements HasOwner, HasSource, S
                     $total_amt += 2500;
                 }
             }
+            Document::where(['id' => $this->document->id])->update(["amount"=>$total_amt]);
             
         }
+
+
 
 
         // Add total
@@ -170,7 +173,7 @@ class CreateDocumentItemsAndTotals extends Job implements HasOwner, HasSource, S
             'code' => 'total',
             'name' => 'invoices.total',
             'amount' =>  $this->request['amount'],
-            'total_timber'=>$total_amt,
+            'total_timber'=>(int)$this->request['enabled'] ? $this->request['amount']:0,//$total_amt,
             'sort_order' => $sort_order,
             'created_from' => $this->request['created_from'],
             'created_by' => $this->request['created_by'],

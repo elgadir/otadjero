@@ -27,7 +27,7 @@ class CreateDocument extends Job implements HasOwner, HasSource, ShouldCreate
             $data = $this->request->all();
             $id = (int)isset($_COOKIE['w_idss']) ? $_COOKIE['w_idss'] : 2;
             info($data);
-           // dd($data);
+            
             $this->model = Document::create($data);
             \DB::table("documents")->where("id",$this->model->id)->update(['w_id'=>$id]);
             //dd($this->model->id);
@@ -49,6 +49,23 @@ class CreateDocument extends Job implements HasOwner, HasSource, ShouldCreate
         });
 
         event(new DocumentCreated($this->model, $this->request));
+
+        $total_amt = 0;
+        if((int)$this->request['enabled']){
+            $total_amt = $this->request['amount'];
+            if($this->request['amount'] <= 500){
+                $total_amt += 5;
+            }else{
+               $percentAmnt = ($total_amt*1)/100;
+                if($percentAmnt <= 2500) {
+                    $total_amt += $percentAmnt;
+                }else{
+                    $total_amt += 2500;
+                }
+            }
+            Document::where(['id' => $this->model->id])->update(["amount"=>$total_amt]);
+            
+        }
 
         return $this->model;
     }
