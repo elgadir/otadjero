@@ -9,17 +9,16 @@
     @stack('name_td_start')
         @if (!$hideItems || (!$hideName && !$hideDescription))
             <td class="item">
+
+                <span class="pdf-details" >{{ $item->item->designation ?? "N/A" }}</span>
+                <br>
+                <span  >{{ $item->name }}</span>
+                <br>
+                <span  >
                  @if (!empty($item->description))
                         <br>{!! \Illuminate\Support\Str::limit($item->description, 500) !!}
                     @endif
-                <br>
-                    <span class="pdf-details" style="font-size: 25px;font-weight: bold;">{{ $item->item->designation ?? "N/A" }}</span>
-                <br>
-
-                    {{ $item->name }}
-              
-
-               
+                </span>
                   
                 @stack('item_custom_fields')
                 @stack('item_custom_fields_' . $item->id)
