@@ -162,7 +162,8 @@
     <div class="col-100">
         <div class="pdf-title">
             <h3>
-                {{ $textDocumentTitle }}
+                <!-- {{ $textDocumentTitle }}-->
+                Delivery Note
             </h3>
 
             @if ($textDocumentSubheading)
@@ -261,7 +262,7 @@
     </div>
     <div class="col-42 float-right text-right">
         <div class="text company">
-           
+
             @foreach ($document->totals_sorted as $total)
                 @if ($total->code != 'total')
                     @stack($total->code . '_total_tr_start')
