@@ -13,7 +13,7 @@ return [
     'histories'                 => 'Historique|Historiques',
     'item_groups'               => 'Groupe|Groupes',
     'sku'                       => 'Référence',
-    'quantity'                  => 'Quantité',
+    'quantity'                  => 'QTE',
     'edit_warehouse'            => 'Modifier: type d\'entrepôt',
     'default'                   => 'Défaut',
     'stock'                     => 'Stock',

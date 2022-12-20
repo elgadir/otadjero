@@ -52,7 +52,7 @@ return [
         'price'             => 'Prix',
         'rate'              => 'Taux',
         'quantity_name'     => 'Nom de la quantité',
-        'quantity'          => 'Quantité',
+        'quantity'          => 'QTE',
         'payment_terms'     => 'Conditions de paiement',
         'title'             => 'Titre',
         'subheading'        => 'Sous-titre',

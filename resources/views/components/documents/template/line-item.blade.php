@@ -10,13 +10,13 @@
         @if (!$hideItems || (!$hideName && !$hideDescription))
             <td class="item">
 
-                <span class="pdf-details" >{{ $item->item->designation ?? "N/A" }}</span>
+                <span class="pdf-details" style="font-weight: bold;" >{{ $item->item->designation ?? "N/A" }}</span>
                 <br>
                 <span  >{{ $item->name }}</span>
                 <br>
                 <span  >
                  @if (!empty($item->description))
-                        <br>{!! \Illuminate\Support\Str::limit($item->description, 500) !!}
+                        <br><small>{!! \Illuminate\Support\Str::limit($item->description, 500) !!}</small>
                     @endif
                 </span>
                   
