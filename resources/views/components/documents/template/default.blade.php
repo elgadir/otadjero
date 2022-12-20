@@ -182,7 +182,7 @@
                 <table class="lines">
                     <thead style="background-color:{{ $backgroundColor }} !important; -webkit-print-color-adjust: exact;">
                         <tr>
-                           <th class="item text-left text-white" style="width: 133px;">{{ "Reference Number" }}</th>
+                           <th class="item text-left text-white" style="width: 133px;">{{ "Ref CNAS" }}</th>
 
 
                             @stack('name_th_start')

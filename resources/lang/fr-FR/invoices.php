@@ -9,7 +9,7 @@ return [
     'order_number'          => 'Numéro de commande',
     'bill_to'               => 'Client:',
 
-    'quantity'              => 'Quantité',
+    'quantity'              => 'QTE',
     'price'                 => 'Prix',
     'sub_total'             => 'Sous-total',
     'discount'              => 'Remise',

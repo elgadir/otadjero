@@ -15,7 +15,7 @@ return [
         'estimates' => 'Transformez une estimation (devis) approuvé(e) en une facture en un seul clic de bouton.',
     ],
 
-    'quantity'  => 'Quantité',
+    'quantity'  => 'QTE',
     'price'     => 'Prix',
     'sub_total' => 'Sous-total',
     'discount'  => 'Remise',

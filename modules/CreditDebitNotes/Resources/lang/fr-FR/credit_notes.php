@@ -11,7 +11,7 @@ return [
     'related_invoice_number'  => 'Numéro de facture',
     'bill_to'                 => 'Facturer à',
 
-    'quantity'                => 'Quantité',
+    'quantity'                => 'QTE',
     'price'                   => 'Prix',
     'sub_total'               => 'Sous-total',
     'discount'                => 'Remise',
