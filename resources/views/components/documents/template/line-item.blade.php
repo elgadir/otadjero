@@ -1,7 +1,7 @@
 
 <tr>
 
-            <td class="item">
+            <td class="quantity">
          
            {{ $item->item->reference_number ?? "N/A" }}
             </td>
