@@ -282,7 +282,7 @@
                     @endif
                     @stack('grand_total_tr_start')
                     <div class="border-top-1 py-1">
-                        <strong class="float-left" style="color:red">{{ "TIMBER" }}:</strong>
+                        <strong class="float-left" style="color:red">{{ "Total sans TIMBER" }}:</strong>
                         <span>@money($total->total_timber ?? 0, $document->currency_code, true)</span>
                     </div>
                     <div class="border-top-1 py-1">
