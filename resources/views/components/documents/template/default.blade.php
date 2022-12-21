@@ -162,8 +162,8 @@
     <div class="col-100">
         <div class="pdf-title">
             <h3>
-                <!-- {{ $textDocumentTitle }}-->
-                Delivery Note
+                 {{ $textDocumentTitle }}
+          
             </h3>
 
             @if ($textDocumentSubheading)
