@@ -29,7 +29,7 @@ class CreateDocument extends Job implements HasOwner, HasSource, ShouldCreate
             info($data);
             
             $this->model = Document::create($data);
-            \DB::table("documents")->where("id",$this->model->id)->update(['w_id'=>$id]);
+            \DB::table("documents")->where("id",$this->model->id)->update(['w_id'=>$id,'enabled'=>$data['enabled']]);
             //dd($this->model->id);
 
             // Upload attachment

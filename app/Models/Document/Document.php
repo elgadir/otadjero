@@ -60,7 +60,7 @@ class Document extends Model
         'parent_id',
         'created_from',
         'created_by',
-        
+        'enabled'
     ];
 
     /**

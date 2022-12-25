@@ -119,11 +119,11 @@
                                 </div>
                                     
                                      
-                               @if(empty($document))
+                                
                                 <div class="form-group col-md-4">
-                                    {{ Form::radioGroup('enabled', "TIMBER 1%", false) }}
+                                    {{ Form::radioGroup('enabled', "TIMBER 1%", optional($document)->enabled ? true:false) }}
                                 </div>
-                                @endif
+                                
                             </div>
                                 <input id="tm" type="hidden" name="timber">
                             </td>
