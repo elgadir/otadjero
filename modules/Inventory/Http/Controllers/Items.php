@@ -29,7 +29,7 @@ use Modules\Inventory\Models\Appointment;
 use Modules\Inventory\Models\CustomItemPrice;
 
 use App\Models\Common\Contact;
-
+use Carbon\Carbon;
 
 class Items extends Controller
 {
@@ -142,6 +142,7 @@ class Items extends Controller
 
     public function update(Item $item, Request $request)
     {
+        
         $response = $this->ajaxDispatch(new UpdateItem($item, $request));
 
         if ($response['success']) {
@@ -450,14 +451,30 @@ class Items extends Controller
     {
         $appointmentList = Appointment::orderBy('created_at','DESC');
         $search = request()->input();
+        
+        $date30DaysBack= Carbon::now()->subDays(30)->format('Y-m-d'); 
+        $date365DaysBack= Carbon::now()->subDays(365)->format('Y-m-d');
+        $today = Carbon::now()->format('Y-m-d'); 
+
+
         if(isset($search['search'])){
             $search = request()->input();
             $appointmentList = $appointmentList->where("name", 'like', "%".str_replace('"','',$search['search']).'%');
         }
-        $appointmentList = $appointmentList->get();
+        if(isset($search['id']) && $search['id'] == 1){
+            $appointmentList = $appointmentList->whereDate('start_datetime', '>', date("Y-m-d"));
+        }
+        if(isset($search['id']) && $search['id'] == 2){
+            $appointmentList = $appointmentList->whereBetween(\DB::raw('STR_TO_DATE(start_datetime,"%Y-%m-%d")'),[$date30DaysBack,$today]);
+        }
 
+        if(isset($search['id']) && $search['id'] == 3){
+            $appointmentList = $appointmentList->whereBetween(\DB::raw('STR_TO_DATE(start_datetime,"%Y-%m-%d")'),[$date365DaysBack,$today]);
+        }
+        $appointmentList = $appointmentList->get();
+        $warehouses = \Modules\Inventory\Models\Warehouse::all();
         //dd(\DB::getQueryLog());
-        return $this->response('inventory::appointment.index', compact('appointmentList'));
+        return $this->response('inventory::appointment.index', compact('appointmentList','warehouses'));
     }
     public function appointmentAdd()
     {
