@@ -20,6 +20,7 @@ class Item extends TransformerAbstract
      */
     public function transform(Model $model)
     {
+        
         return [
             'id' => $model->id,
             'company_id' => $model->company_id,
@@ -39,6 +40,7 @@ class Item extends TransformerAbstract
             'updated_at' => $model->updated_at ? $model->updated_at->toIso8601String() : '',
            // 'warehouses'=>$this->getWareHouses($model->id),
             //'warehouse_id'=>$model->id,
+            "track_inventory"=>(boolean)count($model->inventory_items) ,
             'sku'=>$model->sku,
             'picturess' => $this->getPicture($model->id),
             'item_data'=> $model->inventoryHistories,

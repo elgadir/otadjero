@@ -162,7 +162,8 @@
     <div class="col-100">
         <div class="pdf-title">
             <h3>
-                 {{ $textDocumentTitle }}
+                
+                 {{  request()->id == 1? "Delivery Note" : $textDocumentTitle }}
           
             </h3>
 
