@@ -297,7 +297,14 @@
         </div>
     </div>
 </div>
+<div class="col-58 ">
 
+<div class="text company">
+<strong class="float-left"></strong>
+    <span class="pdf-details">Le @date($document->due_at)</span></div>
+    <div class="text company"> 
+<strong class="float-left"></strong>
+    <span class="pdf-details">à {{ $warehouseDetails->name ?? 'N/A' }}</span></div></div>
 @if (!$hideFooter)
     @if ($document->footer)
         <div class="row mt-4">
