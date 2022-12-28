@@ -5,7 +5,7 @@ namespace App\Jobs\Common;
 use App\Abstracts\Job;
 use App\Interfaces\Job\ShouldUpdate;
 use App\Jobs\Common\CreateItemTaxes;
-use App\Models\Item;
+use App\Models\Common\Item;
 
 class UpdateItem extends Job implements ShouldUpdate
 {
