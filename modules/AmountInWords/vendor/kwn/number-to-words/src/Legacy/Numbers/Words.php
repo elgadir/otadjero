@@ -47,7 +47,7 @@ class Words
         $localeClassName = $this->resolveLocaleClassName($locale);
         $transformer = new $localeClassName($this->options);
 
-        $decimalPart = (int) ($amount);
+        $decimalPart = (int) ($amount );
         $fractionalPart = abs($amount % 100);
 
         if (0 === $fractionalPart) {
