@@ -99,6 +99,7 @@ $items[$key]->total_stock = $value->inventory()->whereIn('warehouse_id',$warehou
      */
     public function update(Item $item, Request $request)
     {
+        
         $item = $this->dispatch(new UpdateItem($item, $request));
 
         return $this->item($item->fresh(), new Transformer());
