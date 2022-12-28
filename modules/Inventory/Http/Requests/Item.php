@@ -92,8 +92,8 @@ class Item extends Request
         return [
             'name' => 'required|string',
             'sku' => $sku,
-            'designation' =>'string',
-            'reference_number' => 'string',
+            'designation' =>'nullable',
+            'reference_number' => 'nullable',
             'sale_price' => $price,
             //'purchase_price' => $price,
             'unit' => $unit,
