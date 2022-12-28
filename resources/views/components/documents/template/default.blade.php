@@ -163,7 +163,7 @@
         <div class="pdf-title">
             <h3>
                 
-                 {{  request()->id == 1? "Delivery Note" : $textDocumentTitle }}
+                 {{  request()->id == 1? "Bon de livraison" : $textDocumentTitle }}
           
             </h3>
 
