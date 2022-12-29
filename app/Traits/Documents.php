@@ -11,6 +11,7 @@ trait Documents
 {
     public function getNextDocumentNumber(string $type): string
     {
+        /////
         if ($alias = config('type.' . $type . '.alias')) {
             $type = $alias . '.' . str_replace('-', '_', $type);
         }

@@ -17,6 +17,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
+                    
                     {{ Form::textGroup('name', trans('general.name'), 'id-card') }}
 
                     {{ Form::textGroup('email', trans('general.email'), 'envelope', []) }}
@@ -34,6 +35,14 @@
                     {{ Form::selectGroup('country', trans_choice('general.countries', 1), 'globe-americas', trans('countries'), $warehouse->country, ['model' => 'form.country']) }}
 
                     {{ Form::textareaGroup('description', trans('general.description')) }}
+
+                    {{ Form::textGroup('number_prefix', trans('inventory::settings.number.prefix'), 'font', ['required' => 'required'], $warehouse->number_prefix, 'col-md-6') }}
+
+                    {{ Form::textGroup('number_digit', trans('inventory::settings.number.digit'), 'text-width', ['required' => 'required'], $warehouse->number_digit, 'col-md-6') }}
+
+                    {{ Form::textGroup('number_next', trans('inventory::settings.number.next'), 'chevron-right', ['required' => 'required'], $warehouse->number_next, 'col-md-6') }}
+
+
 
                     {{ Form::radioGroup('default_warehouse', trans('inventory::general.default_warehouse'), $warehouse->default_warehouse) }}
 

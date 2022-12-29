@@ -58,6 +58,7 @@ class Warehouses extends Controller
      */
     public function store(Request $request)
     {
+        
         $response = $this->ajaxDispatch(new CreateWarehouse($request));
 
         if ($response['success']) {

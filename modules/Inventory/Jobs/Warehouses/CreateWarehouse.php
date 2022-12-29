@@ -14,7 +14,10 @@ class CreateWarehouse extends Job implements HasOwner, HasSource, ShouldCreate
     {
         \DB::transaction(function () {
             $this->model = Warehouse::create($this->request->all());
-
+            $this->model->number_prefix = $this->request->number_prefix;
+            $this->model->number_digit = $this->request->number_digit;
+            $this->model->number_next = $this->request->number_next;
+            $this->model->save();
             // Set default warehouse
             if ($this->request['default_warehouse']) {
                 setting()->set('inventory.default_warehouse', $this->model->id);

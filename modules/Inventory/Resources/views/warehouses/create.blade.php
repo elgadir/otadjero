@@ -34,6 +34,13 @@
 
                     {{ Form::textareaGroup('description', trans('general.description')) }}
 
+                    {{ Form::textGroup('number_prefix', trans('inventory::settings.number.prefix'), 'font', ['required' => 'required'], '', 'col-md-6') }}
+
+                    {{ Form::textGroup('number_digit', trans('inventory::settings.number.digit'), 'text-width', ['required' => 'required'], '', 'col-md-6') }}
+
+                    {{ Form::textGroup('number_next', trans('inventory::settings.number.next'), 'chevron-right', ['required' => 'required'], '', 'col-md-6') }}
+
+
                     {{ Form::radioGroup('default_warehouse', trans('inventory::general.default_warehouse'), false) }}
 
                     {{ Form::radioGroup('enabled', trans('general.enabled'), true) }}

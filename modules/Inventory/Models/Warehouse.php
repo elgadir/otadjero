@@ -20,7 +20,7 @@ class Warehouse extends Model
      *
      * @var array
      */
-    protected $fillable = ['company_id', 'address', 'country', 'city', 'zip_code', 'state', 'description', 'email', 'enabled', 'name', 'phone', 'created_from', 'created_by'];
+    protected $fillable = ['company_id', 'address', 'country', 'city', 'zip_code', 'state', 'description', 'email', 'enabled', 'name', 'phone', 'created_from', 'created_by','number_prefix','number_digit','number_next'];
 
     /**
      * Sortable columns.
