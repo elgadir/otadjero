@@ -25,6 +25,12 @@ class UpdateDocument extends Job implements ShouldUpdate
         event(new DocumentUpdating($this->model, $this->request));
 
         \DB::transaction(function () {
+            $data = $this->request->all();
+            $id = $data['warehouse_id']; //(int)isset($_COOKIE['w_idss']) ? $_COOKIE['w_idss'] : 2;
+            
+            \DB::table("documents")->where("id",$this->model->id)->update(['w_id'=>$id]);
+           
+
             // Upload attachment
             if ($this->request->file('attachment')) {
                 $this->deleteMediaModel($this->model, 'attachment', $this->request);

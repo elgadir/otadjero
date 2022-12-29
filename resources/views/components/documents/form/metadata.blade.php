@@ -45,7 +45,7 @@
             @endif
 
             <?php 
-
+          
             $id = '';
             $roleid = \DB::table('user_roles')->where("user_id",auth()->id())->first();
             $data = '';            
@@ -58,11 +58,11 @@
 
             ?>
 
-             <div class=" col-md-12">
+             <!-- <div class=" col-md-6">
                <label for="order_number" class="form-control-label">Warehouses List</label> 
                <div class="input-group input-group-merge ">
                   <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-warehouse"></i></span></div>
-                  <select  name="w_id" id="w_id"  onchange="addID()" >
+                  <select  name="w_id" id="w_id" class="form-control"  onchange="addID()" >
                     @forelse ($data as $warehouses)
                         @php
                         if($loop->first)
@@ -75,17 +75,12 @@
                   </select>
 
                </div>
-               <!---->
-            </div>
-           
-            <script type="text/javascript">
-                document.cookie='w_idss='+@php echo $id @endphp;
+              
+            </div> -->
+            {{ Form::selectGroup('warehouse_id', "Warehouses List", 'fa fa-warehouse', $data, optional($document)->w_id) }}
+            
 
-                function addID(){
-                    document.cookie='w_idss='+document.getElementById("w_id").value;
-                    console.log("document.cookie",document.cookie); 
-                }
-            </script>
+           
 
 
         </div>

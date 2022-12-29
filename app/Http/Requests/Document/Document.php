@@ -18,7 +18,7 @@ class Document extends FormRequest
      */
     public function rules()
     {
-      
+       
         $company_logo = 'nullable';
         $attachment = 'nullable';
 
@@ -65,6 +65,7 @@ class Document extends FormRequest
             'recurring_count' => 'gte:0',
             'recurring_interval' => 'exclude_unless:recurring_frequency,custom|gt:0',
             'w_id'=>"nullable",
+            'warehouse_id'=>"required",
             //'timber'=>'string',
             'enabled'=>'string'
             //'status.*.timber'=>'string',
