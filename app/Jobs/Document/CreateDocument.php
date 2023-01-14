@@ -25,12 +25,17 @@ class CreateDocument extends Job implements HasOwner, HasSource, ShouldCreate
 
         \DB::transaction(function () {
             $data = $this->request->all();
-            $id = $data['warehouse_id']; //(int)isset($_COOKIE['w_idss']) ? $_COOKIE['w_idss'] : 2;
+           
+            $id = $data['warehouse_id']; //request()->input("war_id"); // $data['warehouse_id']; //(int)isset($_COOKIE['w_idss']) ? $_COOKIE['w_idss'] : 2;
             info($data);
             
             $this->model = Document::create($data);
             \DB::table("documents")->where("id",$this->model->id)->update(['w_id'=>$id,'enabled'=>$data['enabled']]);
+            
+            $nextNumber = \DB::table("inventory_warehouses")->where("id",$id)->first();
            
+
+            \DB::table("inventory_warehouses")->where("id",$id)->update(['number_next'=>(int)$nextNumber->number_next+1]);
 
             // Upload attachment
             if ($this->request->file('attachment')) {

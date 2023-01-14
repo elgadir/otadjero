@@ -18,7 +18,7 @@ class Document extends FormRequest
      */
     public function rules()
     {
-       
+        
         $company_logo = 'nullable';
         $attachment = 'nullable';
 

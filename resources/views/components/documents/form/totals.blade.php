@@ -197,7 +197,5 @@
         //document.getElementById("#tm").setAttribute('value',timber);
         console.log("e",timber);
     }
-    $(document).ready(function(){
-
-    })
+    
 </script>
