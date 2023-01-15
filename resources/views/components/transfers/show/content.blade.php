@@ -61,7 +61,7 @@
         text-detail-reference="{{ $textDetailReference }}"
         text-detail-description="{{ $textDetailDescription }}"
         text-detail-amount="{{ $textDetailAmount }}"
-    />
+    />Applications
 @stack('transfer_end')
 
 @stack('attachment_start')
