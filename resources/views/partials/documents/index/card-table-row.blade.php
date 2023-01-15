@@ -87,6 +87,7 @@
     @endif
     @stack('status_td_end')
 
+
     @if (!$hideActions)
         <td class="{{ $classActions }}">
             <div class="dropdown">
@@ -106,10 +107,10 @@
                         @can($permissionUpdate)
                         @if ($checkButtonReconciled)
                             @if (!$item->reconciled)
-                                <a class="dropdown-item" href="{{ route($routeButtonEdit, $item->id) }}">{{ trans('general.edit') }}</a>
+                                <a class="dropdown-item" href="{{ route($routeButtonEdit, $item->id) }}?war_id=<?php echo $item->w_id; ?>">{{ trans('general.edit') }}</a>
                             @endif
                         @else
-                            <a class="dropdown-item" href="{{ route($routeButtonEdit, $item->id) }}">{{ trans('general.edit') }}</a>
+                            <a class="dropdown-item" href="{{ route($routeButtonEdit, $item->id) }}?war_id=<?php echo $item->w_id; ?>">{{ trans('general.edit') }}</a>
                         @endif
                         @endcan
                     @endif
