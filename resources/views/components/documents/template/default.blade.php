@@ -47,7 +47,7 @@
 
 
 
-                    
+
                     
                 </p>
             @endif
@@ -86,6 +86,14 @@
                             {!! $document->contact_location !!}
                     @endif
                 @stack('address_input_end')
+
+
+
+                @stack('name_input_start')
+                  @if (!$hideContactName)
+                    (Age- {{ \Carbon\Carbon::parse($document->contact->date_of_birth)->age }})
+                  @endif
+                @stack('name_input_end')
 
                 @stack('tax_number_input_start')
                     @if (!$hideContactTaxNumber)
