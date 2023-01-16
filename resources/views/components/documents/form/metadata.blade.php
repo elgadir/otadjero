@@ -20,15 +20,17 @@
     </div>
 
     <?php
+        $current = explode("/",url()->current());
+       
         $docNumber = $documentNumber;
         $ab = optional($document)->w_id;
-        if(request()->input("war_id")){
+        if(request()->input("war_id") && in_array("invoices",$current)){
             $doc = \DB::table("inventory_warehouses")->where("id",request()->input("war_id"))->first();
             $ab = request()->input("war_id");
             
 
             $prefix = $doc->number_prefix;
-            $next = $doc->number_next+1;
+            $next = $doc->number_next+1;  //($document == false ) ? $docNumber :
             $digit = $doc->number_digit;
     
             $a =  $prefix . str_pad($next, $digit, '0', STR_PAD_LEFT);
