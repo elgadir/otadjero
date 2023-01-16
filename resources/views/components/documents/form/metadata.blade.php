@@ -32,12 +32,13 @@
           
 
           ?>
+         
     <?php
         $current = explode("/",url()->current());
        
         $docNumber = $documentNumber;
         //$ab = optional($document)->w_id ? optional($document)->w_id : request()->input("war_id");
-
+        
         if(optional($document)->w_id){
             $selectedWarehouse = optional($document)->w_id;
         }
@@ -47,10 +48,17 @@
             $selectedWarehouse  = optional($data[0])->id ?? 1;
 
         }
-
-        if(request()->input("war_id") && in_array("invoices",$current)){
-            $doc = \DB::table("inventory_warehouses")->where("id",request()->input("war_id"))->first();
-            $ab = request()->input("war_id");
+        
+        if((request()->input("war_id") || request()->input("document_id")) && in_array("invoices",$current)){
+            $war_id = request()->input("war_id");
+            if(request()->input("document_id")){
+                $getDocument = \DB::table("documents")->where("id",request()->input("document_id"))->first();
+               
+                $war_id = $getDocument->w_id;
+            }
+           
+            $doc = \DB::table("inventory_warehouses")->where("id",$war_id)->first();
+            $ab = $war_id;
             
 
             $prefix = $doc->number_prefix;
@@ -58,8 +66,11 @@
             $digit = $doc->number_digit;
     
             $a =  $prefix . str_pad($next, $digit, '0', STR_PAD_LEFT);
-            $docNumber = $a;   
+            $docNumber = $a;  
+            
         }
+      
+
         
     ?>
     
