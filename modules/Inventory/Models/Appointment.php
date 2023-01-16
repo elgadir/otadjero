@@ -3,9 +3,12 @@
 namespace Modules\Inventory\Models;
 
 use App\Abstracts\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Appointment extends Model
 {
+    use SoftDeletes;
     protected $table = 'inventory_appointment';
 
     /**

@@ -84,7 +84,8 @@
                             </td>
                            
                             <td class="col-md-2 border-0">
-                                <a href="{{ route('inventory.items.appointment.edit',['id'=>$list->id]) }}">Edit</a> 
+                                <a href="{{ route('inventory.items.appointment.edit',['id'=>$list->id]) }}" class="btn btn-info">Edit</a>&nbsp;
+                                <a href="{{ route('inventory.items.appointment.delete',['id'=>$list->id]) }}" class="btn btn-danger">Delete</a>  
                             </td>
                         </tr>
                         @empty

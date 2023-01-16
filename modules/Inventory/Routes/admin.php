@@ -36,6 +36,7 @@ Route::admin('inventory', function () {
     Route::get('appointment/list', 'Items@appointmentList')->name('items.appointment.list');
     Route::get('appointment/add', 'Items@appointmentAdd')->name('items.appointment.add');
     Route::get('appointment/edit/{id}', 'Items@appointmentEdit')->name('items.appointment.edit');
+    Route::get('appointment/delete/{id}', 'Items@appointmentDelete')->name('items.appointment.delete');
     Route::post('appointment/create/{id?}', 'Items@appointmentcreate')->name('items.appointment.create');
 
     Route::resource('items', 'Items');

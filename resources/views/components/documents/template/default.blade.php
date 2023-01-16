@@ -67,10 +67,11 @@
             @if (!$hideContactInfo)
                 <strong>{{ trans($textContactInfo) }}</strong><br>
             @endif
-
+            
+           
             @stack('name_input_start')
                 @if (!$hideContactName)
-                    <strong>{{ $document->contact_name }}</strong><br>
+                    <strong>{{ $document->contact_name }}(Age- {{ \Carbon\Carbon::parse($document->contact->date_of_birth)->age }})</strong><br>
                 @endif
             @stack('name_input_end')
 

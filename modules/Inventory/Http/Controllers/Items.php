@@ -517,4 +517,13 @@ class Items extends Controller
             return redirect(route("inventory.items.appointment.list"))->with('success', 'Appointment added/updated ');;
 
     }
+
+    public function appointmentDelete($id)
+    {   
+        
+        $data = Appointment::find($id);
+        $data->delete();
+        
+        return redirect(route("inventory.items.appointment.list"))->with('success', 'Appointment Delete successfully');;
+    }
 }
