@@ -25,7 +25,7 @@
                 @if (!$hideCompanyName)
                     <strong>{{ setting('company.name') }}</strong><br>
                 @endif
-                <span class="pdf-details">{{ $warehouseDetails->name ?? 'N/A' }}</span>
+            
                 <p>
                     @if (!$hideCompanyAddress)
                         
@@ -34,7 +34,7 @@
                             {!! $document->company->location !!}
                         
                     @endif
-
+ 
                     
 
                     @if (!$hideCompanyPhone)
@@ -45,9 +45,10 @@
                         
                     @endif
 
-                    @if (!$hideCompanyEmail)
-                        {{ setting('company.email') }}
-                    @endif
+
+
+                    
+                    
                 </p>
             @endif
             @stack('company_details_end')
