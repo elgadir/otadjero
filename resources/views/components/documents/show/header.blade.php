@@ -12,10 +12,18 @@
                     </span>
                 </span>
             </strong>
+          
             <br><br>
         </div>
+        
         @endif
     @stack('header_status_end')
+    <div class="col-md-2">
+            <a href="{{url()->current()}}/print?id=1"  class="btn btn-white btn-sm header-button-top">
+             Bon de livraison 
+            </a>
+            <br><br>
+    </div>
 
     @stack('header_contact_start')
         @if (!$hideHeaderContact)
