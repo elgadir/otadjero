@@ -14,7 +14,7 @@ return [
     'get_api_key'           => '<a href=":url" target="_blank">Cliquez ici</a> pour obtenir votre clé API.
 ',
     'no_apps'               => 'Il n’y a pas encore d\'application dans cette catégorie.',
-    'become_developer'      => 'Vous êtes développeur? <a href=":url" target="_blank"> Ici </a>, vous pouvez apprendre à créer une application et à commencer à vendre dès aujourd\'hui!',
+   
     'recommended_apps'      => 'Applications recommandées',
 
     'about'                 => 'A propos',
