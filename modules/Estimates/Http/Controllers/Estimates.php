@@ -373,12 +373,24 @@ class Estimates extends Controller
      */
     public function convertToInvoice(Document $estimate)
     {
+       
         // Redirect to invoice create page with input
         $data = $estimate->toArray();
 
         unset($data['amount']);
+        $docNumber = $this->getNextDocumentNumber(Document::INVOICE_TYPE);
+        if(isset($estimate->w_id)){
+            $doc = \DB::table("inventory_warehouses")->where("id",$estimate->w_id)->first();
+            $prefix = $doc->number_prefix;
+            $next = $doc->number_next+1;  //($document == false ) ? $docNumber :
+            $digit = $doc->number_digit;
+            $docNumber =  $prefix . str_pad($next, $digit, '0', STR_PAD_LEFT);
+            
+        }
 
-        $data['document_number'] = $this->getNextDocumentNumber(Document::INVOICE_TYPE);
+        
+
+        $data['document_number'] = $docNumber;//$this->getNextDocumentNumber(Document::INVOICE_TYPE);
         $data['status']          = 'draft';
         $data['issued_at']       = Date::now()->format('Y-m-d');
         $data['due_at']          = Date::now()->format('Y-m-d');
@@ -392,7 +404,7 @@ class Estimates extends Controller
             $i++;
         }
 
-        return redirect()->route('invoices.create', ['document_id' => $estimate->id])->withInput($data);
+        return redirect()->route('invoices.create', ['document_id' => $estimate->id,"war_id"=>2])->withInput($data);
     }
 
     /**

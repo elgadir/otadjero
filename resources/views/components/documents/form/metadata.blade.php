@@ -49,13 +49,14 @@
 
         }
         
-        if((request()->input("war_id") || request()->input("document_id")) && in_array("invoices",$current)){
+        if(request()->input("war_id")  && in_array("invoices",$current)){
             $war_id = request()->input("war_id");
-            if(request()->input("document_id")){
-                $getDocument = \DB::table("documents")->where("id",request()->input("document_id"))->first();
+            // if(request()->input("document_id")){
+            //     $getDocument = \DB::table("documents")->where("id",request()->input("document_id"))->first();
                
-                $war_id = $getDocument->w_id;
-            }
+            //     $war_id = $getDocument->w_id;
+                
+            // }
            
             $doc = \DB::table("inventory_warehouses")->where("id",$war_id)->first();
             $ab = $war_id;
@@ -131,6 +132,7 @@
             
 
              <script type="text/javascript">
+                
                 document.cookie='w_idss='+@php echo $id @endphp;
                 function addID(){
                     var current ="{{ url()->current() }}"                   
