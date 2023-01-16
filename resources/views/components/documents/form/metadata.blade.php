@@ -18,12 +18,36 @@
         </div>
         @endif
     </div>
+    <?php 
+          
+          $id = '';
+          $roleid = \DB::table('user_roles')->where("user_id",auth()->id())->first();
+          $data = '';            
+          if($roleid->role_id != 1){
+              $data = \DB::table("inventory_warehouses")->whereIn('id',\DB::table("inventory_user_warehouses")->where("user_id",auth()->id())->pluck("warehouse_id")->toArray())->whereNull('deleted_at')->get();
+          }else{
+              $data = \DB::table("inventory_warehouses")->whereNull('deleted_at')->get();
+          }
+           
+          
 
+          ?>
     <?php
         $current = explode("/",url()->current());
        
         $docNumber = $documentNumber;
-        $ab = optional($document)->w_id;
+        //$ab = optional($document)->w_id ? optional($document)->w_id : request()->input("war_id");
+
+        if(optional($document)->w_id){
+            $selectedWarehouse = optional($document)->w_id;
+        }
+        if(request()->input("war_id")){
+            $selectedWarehouse = request()->input("war_id");
+        }else{
+            $selectedWarehouse  = optional($data[0])->id ?? 1;
+
+        }
+
         if(request()->input("war_id") && in_array("invoices",$current)){
             $doc = \DB::table("inventory_warehouses")->where("id",request()->input("war_id"))->first();
             $ab = request()->input("war_id");
@@ -66,23 +90,10 @@
             {{ Form::textGroup('order_number', trans($textOrderNumber), 'shopping-cart', [], $orderNumber) }}
             @endif
 
-            <?php 
-          
-            $id = '';
-            $roleid = \DB::table('user_roles')->where("user_id",auth()->id())->first();
-            $data = '';            
-            if($roleid->role_id != 1){
-                $data = \DB::table("inventory_warehouses")->whereIn('id',\DB::table("inventory_user_warehouses")->where("user_id",auth()->id())->pluck("warehouse_id")->toArray())->whereNull('deleted_at')->get();
-            }else{
-                $data = \DB::table("inventory_warehouses")->whereNull('deleted_at')->get();
-            }
-             
-
-
-            ?>
+           
 
                      
-            <div style="display:none">{{ Form::selectGroup('warehouse_id', "Warehouses List", 'fa fa-warehouse', $data, $ab) }}
+            <div style="display:none">{{ Form::selectGroup('warehouse_id', "Warehouses List", 'fa fa-warehouse', $data, $selectedWarehouse) }}
                 </div> 
  
 
@@ -91,13 +102,13 @@
                <div class="input-group input-group-merge ">
                   <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-warehouse"></i></span></div>
                   <select  name="w_id" id="w_id"  onchange="addID()" class="form-control" >
-                  <option value=""  >Please Select warehouse</option>
+                  
                     @forelse ($data as $warehouses)
                         @php
                         if($loop->first)
                             $id = $warehouses->id
                         @endphp                      
-                     <option value="{{ $warehouses->id }}" {{ request()->input("war_id") ==$warehouses->id ?"selected":""  }} >{{ $warehouses->name }}</option>
+                     <option value="{{ $warehouses->id }}" {{ $selectedWarehouse == $warehouses->id ?"selected":""  }} >{{ $warehouses->name }}</option>
                       @empty
                             <option>No warehouses found</option>
                       @endforelse
