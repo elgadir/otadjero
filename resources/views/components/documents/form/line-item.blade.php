@@ -153,7 +153,7 @@
                         @stack('delete_td_end')
                     </tr>
                     <tr>
-                        <td class="border-top-0" colspan="3">
+                        <td class="border-top-0" colspan="4">
                             @stack('item_custom_fields')
                         </td>
                         <td class="border-top-0 p-0" colspan="4">
