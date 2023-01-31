@@ -1,5 +1,7 @@
+
 <tr v-for="(row, index) in items"
     :index="index">
+    
     @stack('name_td_start')
         <td class="border-right-0 border-bottom-0 p-0"
             :class="[{'has-error': form.errors.has('items.' + index + '.name') }]"
@@ -7,6 +9,7 @@
             <table class="w-100">
                 <colgroup>
                     <col class="document-item-40-px">
+                    <col class="document-item-15">
                     <col class="document-item-25">
                     <col class="document-item-30 description">
                     <col class="document-item-10">
@@ -52,6 +55,22 @@
                                         @endif
                                     </td>
                                 @stack('name_td_end')
+                                <td class="pb-3 align-middle border-bottom-0 designation ">
+                                        @if (!$hideDescription)
+                                            <textarea
+                                                class="form-control"
+                                                :ref="'items-' + index + '-designation'"
+                                                placeholder="Enter Designation"
+                                                style="height: 46px; overflow: hidden;"
+                                                :name="'items.' + index + '.designation'"
+                                                v-model="row.designation"
+                                                data-item="designation"
+                                                resize="none"
+                                                @input="onBindingItemField(index, 'designation')"
+                                            ></textarea>
+                                        @endif
+                                    </td>
+                               
 
                                 @stack('description_td_start')
                                     <td class="pb-3 border-bottom-0 description">
@@ -70,6 +89,7 @@
                                         @endif
                                     </td>
                                 @stack('description_td_end')
+
                             @endif
                         @stack('items_td_end')
 
