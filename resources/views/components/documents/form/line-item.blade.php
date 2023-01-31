@@ -56,7 +56,7 @@
                                     </td>
                                 @stack('name_td_end')
                                 <td class="pb-3 align-middle border-bottom-0 designation ">
-                                        @if (!$hideDescription)
+                                        
                                             <textarea
                                                 class="form-control"
                                                 :ref="'items-' + index + '-designation'"
@@ -68,7 +68,7 @@
                                                 resize="none"
                                                 @input="onBindingItemField(index, 'designation')"
                                             ></textarea>
-                                        @endif
+                                       
                                     </td>
                                
 
