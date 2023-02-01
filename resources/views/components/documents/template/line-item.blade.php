@@ -8,9 +8,10 @@
         
     @stack('name_td_start')
         @if (!$hideItems || (!$hideName && !$hideDescription))
+       
             <td class="item">
 
-                <span class="pdf-details" style="font-weight: bold;" >{{ $item->item->designation ?? "N/A" }}</span>
+                <span class="pdf-details" style="font-weight: bold;" >{{ $item->designation ?? "N/A" }}</span>
                 <br>
                 <span  >{{ $item->name }}</span>
                 <br>
