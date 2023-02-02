@@ -25,6 +25,7 @@ class DocumentItem extends Model
         'name',
         'description',
         'designation',
+        'reference_number',
         'quantity',
         'price',
         'total',

@@ -11884,6 +11884,7 @@
 								name: t.name,
 								description: t.description,
                                 designation: t.designation,
+								reference_number: t.reference_number,
 								quantity: 1,
 								price: t.price,
 								tax_ids: t.tax_ids,
@@ -11894,6 +11895,7 @@
 								name: t.name,
 								description: t.description,
                                 designation: t.designation,
+								reference_number: t.reference_number,
 								quantity: 1,
 								price: t.price,
 								add_tax: null == document.getElementById("invoice-item-discount-rows"),
@@ -12060,12 +12062,13 @@
 					},
 					created: function() {
 						this.form.items = [], "undefined" != typeof document_items && document_items && (this.edit.status = !0, this.edit.currency = 1, document_items.forEach((function(e) {
-                            
+							console.log("eeeee",e);
                             this.form.items.push({
 								item_id: e.item_id,
 								name: e.name,
 								description: null === e.description ? "" : e.description,
                                 designation: e.designation,
+								reference_number: e.reference_number,
 								quantity: e.quantity,
 								price: e.price.toFixed(2),
 								tax_ids: e.tax_ids,
@@ -12087,6 +12090,7 @@
 								name: e.name,
 								description: null === e.description ? "" : e.description,
                                 designation:e.designation,
+								reference_number:e.reference_number,
 								quantity: e.quantity,
 								price: e.price.toFixed(2),
 								add_tax: !(!t.length && null != document.getElementById("invoice-item-discount-rows")),
@@ -73990,6 +73994,7 @@
 										name: e.title ? e.title : e.display_name ? e.display_name : e.name,
 										description: e.description ? e.description : "",
                                         designation: e.designation ? e.designation : "",
+										reference_number: e.reference_number ? e.reference_number : "",
 										price: e.price ? e.price : "purchase_price" == this.price ? e.purchase_price : e.sale_price,
 										tax_ids: e.tax_ids ? e.tax_ids : []
 									})

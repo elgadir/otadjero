@@ -28,7 +28,7 @@ class CreateDocumentItem extends Job implements HasOwner, HasSource, ShouldCreat
 
     public function handle(): DocumentItem
     {
-        
+       
         $item_id = !empty($this->request['item_id']) ? $this->request['item_id'] : 0;
         $precision = config('money.' . $this->document->currency_code . '.precision');
 
@@ -167,7 +167,8 @@ class CreateDocumentItem extends Job implements HasOwner, HasSource, ShouldCreat
         info($this->request);
         $document_item = DocumentItem::create($this->request);
         DocumentItem::where(['item_id'=>$item_id,'document_id'=>$this->document->id])
-                    ->update(['designation'=>(!empty($this->request['designation']) ? $this->request['designation'] : '')]);
+                    ->update(['designation'=>(!empty($this->request['designation']) ? $this->request['designation'] : ''),
+                    'reference_number'=>(!empty($this->request['reference_number']) ? $this->request['reference_number'] : '')]);
        
 
 

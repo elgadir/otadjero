@@ -10,8 +10,9 @@
                 <colgroup>
                     <col class="document-item-40-px">
                     <col class="document-item-15">
-                    <col class="document-item-25">
-                    <col class="document-item-30 description">
+                    <col class="document-item-18">
+                    <col class="document-item-18">
+                    <col class="document-item-18 description">
                     <col class="document-item-10">
                     <col class="document-item-10">
                     <col class="document-item-20">
@@ -55,6 +56,21 @@
                                         @endif
                                     </td>
                                 @stack('name_td_end')
+                                <td class="pb-3 align-middle border-bottom-0 reference_number ">
+                                        
+                                        <textarea
+                                            class="form-control"
+                                            :ref="'items-' + index + '-reference_number'"
+                                            placeholder="Enter Reference"
+                                            style="height: 46px; overflow: hidden;"
+                                            :name="'items.' + index + '.reference_number'"
+                                            v-model="row.reference_number"
+                                            data-item="reference_number"
+                                            resize="none"
+                                            @input="onBindingItemField(index, 'reference_number')"
+                                        ></textarea>
+                                   
+                                </td>
                                 <td class="pb-3 align-middle border-bottom-0 designation ">
                                         
                                             <textarea
@@ -153,7 +169,7 @@
                         @stack('delete_td_end')
                     </tr>
                     <tr>
-                        <td class="border-top-0" colspan="4">
+                        <td class="border-top-0" colspan="6">
                             @stack('item_custom_fields')
                         </td>
                         <td class="border-top-0 p-0" colspan="4">

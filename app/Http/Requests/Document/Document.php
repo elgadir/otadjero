@@ -56,6 +56,7 @@ class Document extends FormRequest
             'items.*.name' => 'required|string',
             'items.*.price' => 'required|amount',
             'items.*.designation' => 'string',
+            'items.*.reference_number' => 'string',
             'currency_code' => 'required|string|currency',
             'currency_rate' => 'required|gt:0',
             'contact_id' => 'required|integer',
