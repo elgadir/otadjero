@@ -26,12 +26,12 @@
                                             {{ trans($textTimelineCreateMessage, ['date' => Date::parse($document->created_at)->format($date_format)]) }}
                                         </small>
                                     @stack('timeline_create_body_message_end')
-
+                                    
                                     <div class="mt-3">
                                         @stack('timeline_create_body_button_edit_start')
                                             @if (!$hideButtonEdit)
                                                 @can($permissionUpdate)
-                                                    <a href="{{ route($routeButtonEdit, $document->id) }}" class="btn btn-primary btn-sm btn-alone header-button-top">
+                                                    <a href="{{ route($routeButtonEdit, $document->id) }}?war_id={{ $document->w_id }}" class="btn btn-primary btn-sm btn-alone header-button-top">
                                                         {{ trans('general.edit') }}
                                                     </a>
                                                 @endcan

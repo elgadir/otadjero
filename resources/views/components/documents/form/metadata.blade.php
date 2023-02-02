@@ -49,7 +49,8 @@
 
         }
         
-        if(request()->input("war_id")  && in_array("invoices",$current)){
+        
+        if(request()->input("war_id")  && in_array("invoices",$current) && in_array("create",$current)){
             $war_id = request()->input("war_id");
             // if(request()->input("document_id")){
             //     $getDocument = \DB::table("documents")->where("id",request()->input("document_id"))->first();
@@ -59,6 +60,7 @@
             // }
            
             $doc = \DB::table("inventory_warehouses")->where("id",$war_id)->first();
+            
             $ab = $war_id;
             
 
@@ -70,6 +72,10 @@
             $docNumber = $a;  
             
         }
+        if(request()->input("war_id")  && in_array("edit",$current) && in_array("invoices",$current)){
+            $docNumber = $documentNumber;
+        }
+
       
 
         
