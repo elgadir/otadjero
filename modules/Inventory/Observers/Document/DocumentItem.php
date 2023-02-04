@@ -18,6 +18,8 @@ class DocumentItem extends Observer
 {
     use Modules, Jobs;
 
+    public $preventsLazyLoading = true;
+
      /**
      * Listen to the created event.
      *
@@ -57,9 +59,11 @@ class DocumentItem extends Observer
 
         $segments = $request->segments();
 
+        /*dd($segments);
+
         if (isset($segments[3]) && !isset($segments[4])) {
             return;
-        }
+        }*/
 
         if ($clone) {
             $request = Document::find($segments[3]);

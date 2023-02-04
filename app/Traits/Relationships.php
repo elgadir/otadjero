@@ -40,6 +40,7 @@ trait Relationships
      */
     public function deleteRelationships($model, $relationships, $permanently = false): void
     {
+        error_reporting(0);
         $record = new \stdClass();
         $record->model = $model;
         $record->relationships = $relationships;
@@ -63,6 +64,8 @@ trait Relationships
             $function = $permanently ? 'forceDelete' : 'delete';
 
             foreach ((array) $items as $item) {
+                info("kasif");
+                info($item);
                 $item->$function();
             }
         }
