@@ -38,10 +38,30 @@
                                 @stack('navbar_create_invoice')
 
                                 @can('create-sales-invoices')
-                                    <a href="{{ route('invoices.create') }}" id="quick-add_inv" class="col-4 shortcut-item">
+                                <?php 
+          
+                                        $id = '';
+                                        $roleid = \DB::table('user_roles')->where("user_id",auth()->id())->first();
+                                        $data = '';            
+                                        if($roleid->role_id != 1){
+                                            $data = \DB::table("inventory_warehouses")->whereIn('id',\DB::table("inventory_user_warehouses")->where("user_id",auth()->id())->pluck("warehouse_id")->toArray())->whereNull('deleted_at')->get();
+                                        }else{
+                                            $data = \DB::table("inventory_warehouses")->whereNull('deleted_at')->get();
+                                        }
+                                        $current = explode("/",url()->current());
+                                        $routeId = "";
+                                        if(in_array("invoices",$current)){
+                                            $routeId = optional($data[0])->id;
+                                            
+                                        } 
+                                        
+
+                                        ?>
+                                    <a href="{{ route('invoices.create') }}?war_id=<?php echo  $routeId; ?>" id="quick-add_inv" class="col-4 shortcut-item">
                                         <span class="shortcut-media avatar rounded-circle bg-gradient-info">
                                         <i class="fa fa-money-bill"></i>
                                         </span>
+                                        
                                         <small class="text-info">{{ trans_choice('general.invoices', 1) }}</small>
                                     </a>
                                 @endcan
