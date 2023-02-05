@@ -3,7 +3,7 @@
 
             <td class="quantity">
          
-           {{ $item->item->reference_number ?? "N/A" }}
+           {{ $item->reference_number ?? "N/A" }}
             </td>
         
     @stack('name_td_start')
