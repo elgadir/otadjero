@@ -45,7 +45,7 @@
         if(request()->input("war_id")){
             $selectedWarehouse = request()->input("war_id");
         }else{
-            $selectedWarehouse  = optional($data[0])->id ?? 1;
+            $selectedWarehouse  = isset($data[0]) ? optional($data[0])->id ?? 1 : 1;
 
         }
         
