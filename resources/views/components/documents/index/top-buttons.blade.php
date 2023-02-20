@@ -12,7 +12,7 @@
           }
           $current = explode("/",url()->current());
           $routeId = "";
-          if(in_array("invoices",$current)){
+          if(in_array("invoices",$current)  &&  isset($data[0])){
             $routeId = optional($data[0])->id;
             
           } 
