@@ -5,7 +5,7 @@ namespace App\Transformers\Common;
 use App\Models\Item as Model;
 use App\Transformers\Setting\Category;
 use League\Fractal\TransformerAbstract;
-use Modules\Inventory\Models\PriceType;
+
 
 class Item extends TransformerAbstract
 {
@@ -44,7 +44,7 @@ class Item extends TransformerAbstract
             'sku'=>$model->sku,
             'picturess' => $this->getPicture($model->id),
             'item_data'=> $model->inventoryHistories,
-            "priceList"=>PriceType::all()
+           
         ];
     }
 

@@ -38,8 +38,7 @@ class Contact extends TransformerAbstract
             'state' => $model->state,
             'country' => $model->country,
             'reference' => $model->reference,
-            'price_type_id'=>$model->price_type,
-            'price_type'=>$model->getPriceDetail
+           
 
         ];
     }
