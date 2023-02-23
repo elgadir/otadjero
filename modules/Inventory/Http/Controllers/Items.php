@@ -24,9 +24,9 @@ use Modules\Inventory\Jobs\ItemGroups\CreateItemGroup;
 use Modules\Inventory\Jobs\Items\DeleteItem as InventoryDeleteItem;
 use Modules\Inventory\Exports\Show\Items\Histories as ExportHistories;
 
-use Modules\Inventory\Models\PriceType;
+
 use Modules\Inventory\Models\Appointment;
-use Modules\Inventory\Models\CustomItemPrice;
+
 
 use App\Models\Common\Contact;
 use Carbon\Carbon;
@@ -321,132 +321,7 @@ class Items extends Controller
 
         return mb_convert_encoding($view, 'HTML-ENTITIES', 'UTF-8');
     }
-    /**
-    * Price list
-    *
-    * @param  Item $item
-    *
-    * @return Response
-    */
-    public function priceList()
-    {
-        //\DB::enableQueryLog();
-        $price_list = PriceType::orderBy('created_at','DESC');
-        $search = request()->input();
-        if(isset($search['search'])){
-            $search = request()->input();
-            $price_list = $price_list->where("name", 'like', "%".str_replace('"','',$search['search']).'%');
-        }
-        $price_list = $price_list->get();
-        //dd(\DB::getQueryLog());
-        return $this->response('inventory::pricelist.index', compact('price_list'));
-    }
-
-    /**
-    * Price Add
-    *
-    * @param  Item $item
-    *
-    * @return Response
-    */
-    public function priceCreate()
-    {
-        if(request()->method() == "POST"){
-            $request = request()->input();
-            unset($request['_token']);
-            $request['discount'] = isset($request['discount']) ? 1 : 0;
-
-            if($request['price_type'] == "1"){
-               $request['pricing_scheme'] = NULL;
-               $request['discount'] = 0;
-               $request['currency'] = "";
-               $request['price_discount'] = NULL;
-            }else{
-
-                $request['markup'] = "";
-            }
-            PriceType::create($request);
-            return redirect(route("inventory.items.price.list"))->with('success', 'Price type added ');;
-        }
-        $currencies = \App\Models\Setting\Currency::all();    
-        return $this->response('inventory::items.create_price',compact('currencies'));
-
-    }
-
-    public function priceUpdate($id)
-    {
-
-        if(request()->method() == "POST"){
-
-            $request = request()->input();
-            unset($request['_token']);
-            $request['discount'] = isset($request['discount']) ? 1 : 0;
-            
-            if($request['price_type'] == "1"){
-               $request['pricing_scheme'] = NULL;
-               $request['discount'] = 0;
-               $request['currency'] = "";
-               $request['price_discount'] = NULL;
-            }else{
-
-                $request['markup'] = "";
-            }
-                
-            PriceType::where('id',$id)->update($request);
-            return redirect(route('inventory.items.price.list'))->with('success', 'Price type updated ');
-            
-        }
-        $data = PriceType::findOrFail($id);
-        $item_list = Item::orderBy('created_at','DESC');
-        $search = request()->input();
-        if(isset($search['search'])){
-            $search = request()->input();
-            $item_list = $item_list->where("name", 'like', "%".str_replace('"','',$search['search']).'%');
-        }
-        $item_list = $item_list->get();
-       
-        $currencies = \App\Models\Setting\Currency::all();
-        return $this->response('inventory::items.update_price_list',compact('data','currencies','item_list'));
-
-    }
-
-    public function priceCustomUpdate($id)
-    {
-        $data = request()->input();
-        $rowdata = json_decode($data['rowdata'],true);
-        
-
-      
-        $data['custom_price'] = array_filter($data['custom_price']);
-        if(!empty($data['custom_price'])){
-            foreach($data['custom_price'] AS $k=>$v){
-                $item = Item::find($k);
-                if($rowdata['price_type'] == 1){
-                    /*$price = 0;
-                    if($rowdata['markup'] == "markdown"){
-                        $price = ($item['purchase_price'] - (($item['purchase_price']*$v)/100));
-                    }else{
-                        $price = ($item['purchase_price'] + (($item['purchase_price']*$v)/100));
-                    }
-                    Item::where("id",$k)->update(["purchase_price"=>$price]);*/
-                }else{
-
-                }
-
-                if($rowdata['price_type'] == 2){
-                    Item::where("id",$k)->update(["sale_price"=>$v]);
-                }else{
-                    //$item = Item::find($k);
-                    //$purchase_price = ($item['purchase_price'] - (($item['purchase_price']*$v)/100));
-                    //Item::where("id",$k)->update(["purchase_price"=>$purchase_price]);
-                }
-                
-            }
-        }
-        return redirect(route('inventory.items.price.list'))->with('success', ' added ');
-
-    }
-
+   
     public function appointmentList()
     {
         $appointmentList = Appointment::orderBy('created_at','DESC');

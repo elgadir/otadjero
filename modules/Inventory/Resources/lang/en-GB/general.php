@@ -40,10 +40,7 @@ return [
     'record'                    => 'Record',
     'required_fields'           => 'The :attribute field are required.',
 
-    // Price list
-    'nameAndDesc'=>"NAME AND DESCRIPTION",
-
-
+    
 
     'menu' => [
         'inventory'             => 'Inventory',
