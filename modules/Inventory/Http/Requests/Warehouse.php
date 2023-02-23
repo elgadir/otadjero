@@ -43,9 +43,9 @@ class Warehouse extends Request
             'name' => 'required|string',
             'email' => $email,
             'enabled' => 'integer|boolean',
-            'number_prefix'=>"required",
-            'number_digit'=>"required",
-            'number_next'=>"required",
+            //'number_prefix'=>"required",
+            //'number_digit'=>"required",
+            //'number_next'=>"required",
         ];
     }
 }
