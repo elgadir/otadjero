@@ -65,10 +65,11 @@
                 </thead>
 
                 <tbody>
+                    
                     @forelse($appointmentList as $list)
                         <tr class="row align-items-center border-top-1">
                             <td class="col-md-2 border-0">
-                                <a href="#">{{ $list->contacts->name }}</a>
+                                <a href="#">{{ optional($list->contacts)->name ?? "N/A"  }}</a>
                             </td>
                             <td class="col-md-2 ">
                                 <a href="#">{{ $list->start_datetime }}</a>
