@@ -346,7 +346,8 @@ class Items extends Controller
         if(isset($search['id']) && $search['id'] == 3){
             $appointmentList = $appointmentList->whereBetween(\DB::raw('STR_TO_DATE(start_datetime,"%Y-%m-%d")'),[$date365DaysBack,$today]);
         }
-        $appointmentList = $appointmentList->get();
+        
+        $appointmentList = $appointmentList->whereIn("location",\Auth::user()->warehouses->pluck("id"))->get();
         $warehouses = \Modules\Inventory\Models\Warehouse::all();
         //dd(\DB::getQueryLog());
         return $this->response('inventory::appointment.index', compact('appointmentList','warehouses'));

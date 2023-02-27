@@ -78,7 +78,7 @@
                                 <a href="#">{{ $list->end_datetime }}</a>
                             </td>
                             <td class="col-md-2">
-                                <a href="#">{{ $list->warehouse->name }}</a>
+                                <a href="#">{{ optional($list->warehouse)->name }}</a>
                             </td>
                             <td class="col-md-2">
                                 <a href="#">{{ $list->description }}</a>
