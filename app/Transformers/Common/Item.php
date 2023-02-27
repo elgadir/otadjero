@@ -2,7 +2,7 @@
 
 namespace App\Transformers\Common;
 
-use App\Models\Item as Model;
+use App\Models\common\Item as Model;
 use App\Transformers\Setting\Category;
 use League\Fractal\TransformerAbstract;
 
