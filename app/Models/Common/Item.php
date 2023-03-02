@@ -70,10 +70,16 @@ class Item extends Model
     {
         return $this->hasMany('App\Models\Common\InventoryItem');
     }
+    
+    public function inventoryHistories()
+    {
+        return $this->hasMany('App\Models\Common\InventoryHistorie');
+        //->select(['id','warehouse_id','quantity','item_id']);
+    }
 
     public function documentItems()
     {
-        return $this->hasMany('App\Models\Common\DocumentItem');
+        return $this->hasMany('App\Models\Common\DocumentItem','id','item_id');
     }
 	
 	public function getUpperAttribute()

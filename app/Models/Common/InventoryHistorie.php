@@ -7,8 +7,9 @@ use App\Traits\Sources;
 use App\Traits\Tenants;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Plank\Mediable\Media as BaseMedia;
+use App\Abstracts\Model;
 
-class InventoryHistorie extends BaseMedia
+class InventoryHistorie extends Model
 {
    // use Owners, SoftDeletes, Sources, Tenants;
 	use SoftDeletes;

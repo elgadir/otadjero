@@ -2,7 +2,7 @@
 
 namespace App\Transformers\Common;
 
-use App\Models\common\Item as Model;
+use App\Models\Item as Model;
 use App\Transformers\Setting\Category;
 use League\Fractal\TransformerAbstract;
 
@@ -20,7 +20,6 @@ class Item extends TransformerAbstract
      */
     public function transform(Model $model)
     {
-        
         return [
             'id' => $model->id,
             'company_id' => $model->company_id,
