@@ -253,19 +253,19 @@ class Document extends Model
      * @return string
      */
     public function getDiscountAttribute()
-    {
-        $percent = 0;
+{
+    $percent = 0;
 
-        $discount = $this->totals->where('code', 'discount')->makeHidden('title')->pluck('amount')->first();
+    $discount = $this->totals->where('code', 'discount')->makeHidden('title')->pluck('amount')->first();
+    $sub_total = $this->totals->where('code', 'sub_total')->makeHidden('title')->pluck('amount')->first();
 
-        if ($discount) {
-            $sub_total = $this->totals->where('code', 'sub_total')->makeHidden('title')->pluck('amount')->first();
-
-            $percent = number_format((($discount * 100) / $sub_total), 0);
-        }
-
-        return $percent;
+    if ($discount && $sub_total != 0) {
+        $percent = number_format((($discount * 100) / $sub_total), 0);
     }
+
+    return $percent;
+}
+
 
     /**
      * Get the paid amount.
