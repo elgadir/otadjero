@@ -2,7 +2,7 @@
 
 namespace App\Transformers\Common;
 
-use App\Models\Item as Model;
+use App\Models\Common\Item as Model;
 use App\Transformers\Setting\Category;
 use League\Fractal\TransformerAbstract;
 use Modules\Inventory\Models\PriceType;
@@ -38,8 +38,8 @@ class Item extends TransformerAbstract
             'created_by' => $model->created_by,
             'created_at' => $model->created_at ? $model->created_at->toIso8601String() : '',
             'updated_at' => $model->updated_at ? $model->updated_at->toIso8601String() : '',
-           // 'warehouses'=>$this->getWareHouses($model->id),
-            //'warehouse_id'=>$model->id,
+            'warehouses'=>$this->getWareHouses($model->id),
+            'warehouse_id'=>$model->id,
             "track_inventory"=>$model->inventory_items ? (boolean)count($model->inventory_items) : false ,
             'sku'=>$model->sku,
             'picturess' => $this->getPicture($model->id),
