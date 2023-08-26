@@ -2,8 +2,9 @@
 
 namespace App\Transformers\Common;
 
-use App\Models\Common\Item as Model;
-use App\Transformers\Setting\Category;
+use App\Models\Item as ItemModel;
+use App\Models\Common\Item as CommonItemModel;
+use App\Transformers\Setting\Category; 
 use League\Fractal\TransformerAbstract;
 use Modules\Inventory\Models\PriceType;
 
@@ -15,15 +16,20 @@ class Item extends TransformerAbstract
     protected $defaultIncludes = ['taxes', 'category'];
 
     /**
-     * @param  Model $model
+     * @param  ItemModel | CommonItemModel $model
      * @return array
      */
-    public function transform(Model $model)
+    public function transform($model)
     {
+        if ($model instanceof ItemModel) {
+            $item = $model;
+        } elseif ($model instanceof CommonItemModel) {
+            $item = $model;
+        }
         
         return [
-            'id' => $model->id,
-            'company_id' => $model->company_id,
+            'id' => $item->id,
+            'company_id' => $item->company_id,
             'name' => $model->name,
             'description' => $model->description,
             'sale_price' => $model->sale_price,
@@ -52,7 +58,7 @@ class Item extends TransformerAbstract
      * @param  Model $model
      * @return mixed
      */
-    public function includeTaxes(Model $model)
+    public function includeTaxes($model)
     {
         if (!$model->taxes) {
             return $this->null();
@@ -65,7 +71,7 @@ class Item extends TransformerAbstract
      * @param  Model $model
      * @return mixed
      */
-    public function includeCategory(Model $model)
+    public function includeCategory($model)
     {
         if (!$model->category) {
             return $this->null();
