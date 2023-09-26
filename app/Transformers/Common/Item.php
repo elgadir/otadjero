@@ -82,7 +82,6 @@ class Item extends TransformerAbstract
     public function getWareHouses($id)
     {
         $data = \DB::table("inventory_items")->where("item_id",$id)->first();  
-        
         if(isset($data->warehouse_id) && !empty($data->warehouse_id)){
                 return \DB::table("inventory_warehouses")->where("id",$data->warehouse_id)->get();
         }
