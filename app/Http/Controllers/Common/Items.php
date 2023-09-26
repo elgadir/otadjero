@@ -28,6 +28,7 @@ class Items extends Controller
      */
     public function index()
     {
+        
         $items = Item::with('category', 'media')->collect();
 
         return $this->response('common.items.index', compact('items'));

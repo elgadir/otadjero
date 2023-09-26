@@ -40,9 +40,9 @@ class Items extends ApiController
                 $query = $query->whereIn("inventory_histories.warehouse_id",$warehouseId);
             }
             $query->whereNull('inventory_histories.deleted_at'); })
-        ->orWhereDoesntHave('inventory_items')
+        //->orWhereDoesntHave('inventory_items')
         ->collect();
-        //dd(\DB::getQueryLog());
+       // dd(\DB::getQueryLog());
 
        foreach ($items as $key => $value) {
 	
