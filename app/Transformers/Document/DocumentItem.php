@@ -13,6 +13,7 @@ class DocumentItem extends TransformerAbstract
      */
     public function transform(Model $model)
     {
+        
         return [
             'id' => $model->id,
             'company_id' => $model->company_id,
@@ -26,6 +27,7 @@ class DocumentItem extends TransformerAbstract
             'total_formatted' => money($model->total, setting('default.currency'), true)->format(),
             'tax' => $model->tax,
             'tax_id' => $model->tax_id,
+            'baarcode'=>isset($model->baarcode) ? $model->baarcode:null,
             'created_at' => $model->created_at ? $model->created_at->toIso8601String() : '',
             'updated_at' => $model->updated_at ? $model->updated_at->toIso8601String() : '',
         ];

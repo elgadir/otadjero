@@ -21,6 +21,7 @@ class Document extends TransformerAbstract
      */
     public function transform(Model $model)
     {
+
         return [
             'id' => $model->id,
             'company_id' => $model->company_id,
@@ -82,6 +83,11 @@ class Document extends TransformerAbstract
      */
     public function includeItems(Model $model)
     {
+        foreach($model->items as $item){
+           
+            $barcode  = \DB::table('inventory_items')->select(["barcode"])->where("item_id",$item->item_id)->orderBy('item_id','desc')->first()->barcode;
+            $item->baarcode = $barcode;
+        }
         return $this->collection($model->items, new DocumentItem());
     }
 
