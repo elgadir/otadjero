@@ -36,6 +36,7 @@ class Document extends Model
         'warehouse_id',
         'w_id',
         'document_number',
+        'barcode_number',
         'Invoice_type',
         'order_number',
         'status',
@@ -61,6 +62,7 @@ class Document extends Model
         'created_from',
         'created_by',
         'enabled'
+       
     ];
 
     /**
@@ -110,6 +112,7 @@ class Document extends Model
 
     public function items()
     {
+
         return $this->hasMany('App\Models\Document\DocumentItem', 'document_id');
     }
 

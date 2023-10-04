@@ -27,6 +27,7 @@ class Document extends TransformerAbstract
             'company_id' => $model->company_id,
             'type' => $model->type,
             'document_number' => $model->document_number,
+            'barcode_number'=>$model->barcode_number,
             'order_number' => $model->order_number,
             'status' => $model->status,
             'issued_at' => $model->issued_at ? $model->issued_at->toIso8601String() : '',
@@ -83,11 +84,7 @@ class Document extends TransformerAbstract
      */
     public function includeItems(Model $model)
     {
-        foreach($model->items as $item){
-           
-            $barcode  = \DB::table('inventory_items')->select(["barcode"])->where("item_id",$item->item_id)->orderBy('item_id','desc')->first()->barcode;
-            $item->baarcode = $barcode;
-        }
+       
         return $this->collection($model->items, new DocumentItem());
     }
 

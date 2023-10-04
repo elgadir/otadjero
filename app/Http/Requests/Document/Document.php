@@ -66,7 +66,8 @@ class Document extends FormRequest
             'recurring_interval' => 'exclude_unless:recurring_frequency,custom|gt:0',
             'w_id'=>"nullable",
             //'timber'=>'string',
-            'enabled'=>'string'
+            'enabled'=>'string',
+            'barcode_number'=>"string"
             //'status.*.timber'=>'string',
         ];
 

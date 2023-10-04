@@ -16,7 +16,7 @@ class CreateDocument extends Job implements HasOwner, HasSource, ShouldCreate
 {
     public function handle(): Document
     {
-        
+       
         if (empty($this->request['amount'])) {
             $this->request['amount'] = 0;
         }
@@ -25,6 +25,8 @@ class CreateDocument extends Job implements HasOwner, HasSource, ShouldCreate
 
         \DB::transaction(function () {
             $this->model = Document::create($this->request->all());
+            $this->model->barcode_number = $this->request->barcode_number;
+            $this->model->save();
             //dd($this->model->id);
 
             // Upload attachment

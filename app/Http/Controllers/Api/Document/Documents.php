@@ -27,7 +27,7 @@ class Documents extends ApiController
     public function index()
     {
 
-        $documents = Document::with('contact', 'histories', 'items', 'transactions')->collect(['issued_at'=> 'desc']);
+        $documents = Document::with('contact', 'histories', 'items','transactions')->collect(['issued_at'=> 'desc']);
 
         return $this->response->paginator($documents, new Transformer());
     }
