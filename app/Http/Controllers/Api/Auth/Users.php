@@ -19,7 +19,7 @@ class Users extends ApiController
      */
     public function index()
     {
-        $users = User::with('companies', 'permissions', 'roles','warehouses')->collect();
+        $users = User::with('companies', 'permissions', 'roles','warehouses')->where('created_by',\Auth()->id())->collect();
       
         return $this->response->paginator($users, new Transformer());
     }
