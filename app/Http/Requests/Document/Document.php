@@ -54,7 +54,7 @@ class Document extends FormRequest
             'due_at' => 'required|date_format:Y-m-d H:i:s|after_or_equal:issued_at',
             'amount' => 'required',
             'items.*.name' => 'required|string',
-            'items.*.price' => 'required|amount',
+            //'items.*.price' => 'required|amount',
             'currency_code' => 'required|string|currency',
             'currency_rate' => 'required|gt:0',
             'contact_id' => 'required|integer',
@@ -106,7 +106,7 @@ class Document extends FormRequest
         $messages = [
             'items.*.name.required' => trans('validation.required', ['attribute' => Str::lower(trans('general.name'))]),
             'items.*.quantity.required' => trans('validation.required', ['attribute' => Str::lower(trans('invoices.quantity'))]),
-            'items.*.price.required' => trans('validation.required', ['attribute' => Str::lower(trans('invoices.price'))]),
+            //'items.*.price.required' => trans('validation.required', ['attribute' => Str::lower(trans('invoices.price'))]),
             'items.*.currency.required' => trans('validation.custom.invalid_currency'),
             'items.*.currency.string' => trans('validation.custom.invalid_currency'),
         ];
