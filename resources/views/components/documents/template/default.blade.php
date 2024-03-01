@@ -12,11 +12,11 @@
             @endif
             @stack('company_logo_end')
     </div>
-     @php
-                $user_id = \DB::table("inventory_user_warehouses")->where("user_id",$document->created_by)->first();
-            
-                $warehouseDetails = \DB::table("inventory_warehouses")->where("id",$user_id->warehouse_id)->first();
-            @endphp
+    @php
+    $user_id = \DB::table("inventory_user_warehouses")->where("user_id", $document->created_by)->first();
+    $warehouseDetails = $user_id ? \DB::table("inventory_warehouses")->where("id", $user_id->warehouse_id)->first() : null;
+@endphp
+
             
     <div class="col-42">
         <div class="text company">
