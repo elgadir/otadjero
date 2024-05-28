@@ -35,30 +35,30 @@ class Transaction implements Scope
             return;
         }
 
-        $items = DB::table('items')->pluck('id')->toArray();
+        // $items = DB::table('items')->pluck('id')->toArray();
 
-        $document_ids = DB::table('document_items')->whereIn('item_id', $items)->pluck('document_id')->toArray();
+        // $document_ids = DB::table('document_items')->whereIn('item_id', $items)->pluck('document_id')->toArray();
 
-        foreach ($document_ids as $key => $document_id) {
-            $document_item_ids = DB::table('document_items')->where('document_id', $document_id)->pluck('item_id')->toArray();
+        // foreach ($document_ids as $key => $document_id) {
+        //     $document_item_ids = DB::table('document_items')->where('document_id', $document_id)->pluck('item_id')->toArray();
 
-            foreach ($document_item_ids as $document_item_id) {
-                $warehouse_ids = UserWarehouse::withTrashed()->where('user_id', user_id())->pluck('warehouse_id')->toArray();
+        //     foreach ($document_item_ids as $document_item_id) {
+        //         $warehouse_ids = UserWarehouse::withTrashed()->where('user_id', user_id())->pluck('warehouse_id')->toArray();
 
-                $id = DB::table('document_items')->where('document_id', $document_id)->where('item_id', $document_item_id)->value('id');
+        //         $id = DB::table('document_items')->where('document_id', $document_id)->where('item_id', $document_item_id)->value('id');
 
-                $inventory_document_item_warehouse_id = InventoryDocumentItem::where('document_item_id', $id)->value('warehouse_id');
+        //         $inventory_document_item_warehouse_id = InventoryDocumentItem::where('document_item_id', $id)->value('warehouse_id');
 
-                if (! in_array($inventory_document_item_warehouse_id,  $warehouse_ids)) {
-                    unset($document_ids[$key]);
-                }
+        //         if (! in_array($inventory_document_item_warehouse_id,  $warehouse_ids)) {
+        //             unset($document_ids[$key]);
+        //         }
 
-                if (! in_array($document_item_id,  $items)) {
-                    unset($document_ids[$key]);
-                }
-            }
-        }
+        //         if (! in_array($document_item_id,  $items)) {
+        //             unset($document_ids[$key]);
+        //         }
+        //     }
+        // }
 
-        return $builder->whereIn('document_id',  $document_ids); 
+        // return $builder->whereIn('document_id',  $document_ids); 
     }
 }
